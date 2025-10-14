@@ -4,20 +4,16 @@ import Link from "next/link"
 export default function AcceptableUsePolicy() {
   return (
     <div className="min-h-screen bg-[#000]">
-      <header className="border-b border-border bg-[#000]/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-foreground" />
-              <span className="text-lg font-bold text-foreground">VaultScope</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* header removed: global Header is provided in the root layout */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
-        <h1 className="text-4xl font-bold text-foreground mb-4">Acceptable Use Policy</h1>
-        <p className="text-muted-foreground mb-8">Last updated: January 2025</p>
+        <header className="mb-8 flex items-center gap-4">
+          <Shield className="h-8 w-8 text-foreground" />
+          <div>
+            <h1 className="text-4xl font-bold text-foreground">Acceptable Use Policy</h1>
+            <p className="text-muted-foreground">Last updated: January 2025</p>
+          </div>
+        </header>
 
         <div className="space-y-8 text-foreground">
           <section>
@@ -27,37 +23,27 @@ export default function AcceptableUsePolicy() {
                 This Acceptable Use Policy (AUP) outlines prohibited uses of VaultScope's hosting services. Violation of
                 this policy may result in immediate suspension or termination of your account without refund.
               </p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold mb-4">2. Prohibited Content</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>You may not host, store, distribute, or link to:</p>
-              <ul className="list-disc pl-6 space-y-2">
+              <p className="mt-2 text-muted-foreground">Prohibited content includes, but is not limited to:</p>
+              <ul className="list-disc pl-6 mt-4 space-y-2 text-muted-foreground">
                 <li>
-                  <strong className="text-foreground">Illegal Content:</strong> Any content that violates local, state,
-                  national, or international law
+                  <strong className="text-foreground">Adult Content:</strong> Pornography, sexually explicit material, or
+                  adult services
                 </li>
                 <li>
-                  <strong className="text-foreground">Adult Content:</strong> Pornography, sexually explicit material,
-                  or adult services
-                </li>
-                <li>
-                  <strong className="text-foreground">Hate Speech:</strong> Content promoting violence, discrimination,
-                  or hatred based on race, religion, gender, sexual orientation, or other protected characteristics
+                  <strong className="text-foreground">Hate Speech:</strong> Content promoting violence, discrimination, or
+                  hatred based on race, religion, gender, sexual orientation, or other protected characteristics
                 </li>
                 <li>
                   <strong className="text-foreground">Pirated Content:</strong> Copyrighted material without
                   authorization, warez, cracks, or illegal file sharing
                 </li>
                 <li>
-                  <strong className="text-foreground">Malicious Content:</strong> Malware, viruses, trojans, ransomware,
-                  or any harmful code
+                  <strong className="text-foreground">Malicious Content:</strong> Malware, viruses, trojans, ransomware, or
+                  any harmful code
                 </li>
                 <li>
-                  <strong className="text-foreground">Phishing:</strong> Fraudulent websites or content designed to
-                  steal credentials or personal information
+                  <strong className="text-foreground">Phishing:</strong> Fraudulent websites or content designed to steal
+                  credentials or personal information
                 </li>
                 <li>
                   <strong className="text-foreground">Child Exploitation:</strong> Any content involving minors in

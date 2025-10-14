@@ -47,7 +47,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/panel" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a
+                  href="https://panel.vaultscope.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
                   Control Panel
                 </a>
               </li>
@@ -67,18 +72,9 @@ export function Footer() {
                   Pricing
                 </a>
               </li>
+              {/* Status and Uptime links intentionally removed from footer */}
               <li>
-                <a href="/status" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Status
-                </a>
-              </li>
-              <li>
-                <a href="/uptime" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Uptime
-                </a>
-              </li>
-              <li>
-                <a href="/docs/security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Security
                 </a>
               </li>
@@ -103,25 +99,17 @@ export function Footer() {
                   Acceptable Use
                 </a>
               </li>
-              <li>
-                <a href="/docs/compliance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Compliance
-                </a>
-              </li>
+              {/* Compliance page not available — removed to avoid broken link */}
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              © 2025 VaultScope. All rights reserved. Free hosting powered by enterprise infrastructure.
-            </p>
-            <div className="flex items-center gap-2">
-              <Gauge className="h-4 w-4 text-muted-foreground" />
-              <a href="/status" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-                System Status
-              </a>
+          <div className="pt-8 border-t border-border">
+            <div className="flex items-center justify-center">
+              <p className="text-sm text-muted-foreground">
+                © 2025 VaultScope. All rights reserved. Free hosting powered by enterprise infrastructure.
+              </p>
             </div>
           </div>
         </div>

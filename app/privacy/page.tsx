@@ -1,19 +1,9 @@
-import { Shield } from "lucide-react"
 import Link from "next/link"
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-[#000]">
-      <header className="border-b border-border bg-[#000]/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-foreground" />
-              <span className="text-lg font-bold text-foreground">VaultScope</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* header removed: global Header is provided in the root layout */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-foreground mb-4">Privacy Policy</h1>
@@ -90,18 +80,18 @@ export default function PrivacyPolicy() {
               <p>We do not sell your personal information. We may share data with:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  <strong className="text-foreground">Payment Processors:</strong> We use Stripe, PayPal, Revolut Pay, 
+                  <strong className="text-foreground">Payment Processors:</strong> We use Stripe, PayPal, Revolut Pay,
                   Bank Transfer, Razorpay, and Cryptomus to process payments securely. Each processor has its own privacy policy
                   and handles your payment information according to industry standards.
                 </li>
                 <li>
-                  <strong className="text-foreground">Infrastructure Providers:</strong> We partner with Hetzner Cloud 
-                  and Linode as infrastructure providers. Your service usage data may be processed on their platforms 
+                  <strong className="text-foreground">Infrastructure Providers:</strong> We partner with Hetzner Cloud
+                  and Linode as infrastructure providers. Your service usage data may be processed on their platforms
                   according to their respective privacy policies.
                 </li>
                 <li>
-                  <strong className="text-foreground">Analytics:</strong> We use Google Analytics to understand service 
-                  usage patterns and improve our offerings. This involves collecting anonymous usage data in accordance 
+                  <strong className="text-foreground">Analytics:</strong> We use Google Analytics to understand service
+                  usage patterns and improve our offerings. This involves collecting anonymous usage data in accordance
                   with Google's privacy policy.
                 </li>
                 <li>
@@ -255,7 +245,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">8. Children's Privacy</h2>
+            <h2 className="text-2xl font-semibold mb-4">11. Children's Privacy</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Our services are not intended for users under 13 years of age. We do not knowingly collect information
@@ -265,7 +255,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">9. Changes to This Policy</h2>
+            <h2 className="text-2xl font-semibold mb-4">12. Changes to This Policy</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 We may update this Privacy Policy periodically. Changes will be posted on this page with an updated
@@ -275,12 +265,12 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">10. Contact Us</h2>
+            <h2 className="text-2xl font-semibold mb-4">13. Contact Us</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>For privacy-related questions or concerns, contact us through:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  Discord:{" "}
+                  Discord: {" "}
                   <a
                     href="https://discord.gg/sRj3uPPpme"
                     className="text-foreground hover:underline"
@@ -291,15 +281,8 @@ export default function PrivacyPolicy() {
                   </a>
                 </li>
                 <li>
-                  Control Panel:{" "}
-                  <a
-                    href="https://panel.vaultscope.dev"
-                    className="text-foreground hover:underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    panel.vaultscope.dev
-                  </a>
+                  Control Panel: {" "}
+                  <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Control Panel</a>
                 </li>
               </ul>
             </div>

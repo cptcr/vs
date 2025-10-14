@@ -57,10 +57,10 @@ export function Header() {
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Features
             </a>
-            <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </a>
             <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -73,7 +73,7 @@ export function Header() {
 
           <div className="flex items-center gap-4">
             <Button variant="ghost" className="hidden md:inline-flex text-foreground" asChild>
-              <a href="/panel">
+              <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer">
                 Sign In
               </a>
             </Button>
@@ -120,10 +120,10 @@ export function Header() {
               className="absolute left-0 right-0 top-16 bg-background/95 border-t border-border p-4 shadow-lg"
             >
               <div className="flex flex-col gap-4">
-                <a ref={firstLinkRef} href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                <a ref={firstLinkRef} href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Features
                 </a>
-                <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Pricing
                 </a>
                 <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
@@ -132,7 +132,7 @@ export function Header() {
                 <a href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Documentation
                 </a>
-                <a href="/panel" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Sign In
                 </a>
               </div>
