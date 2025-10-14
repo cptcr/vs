@@ -1,17 +1,16 @@
-import { Header } from "@/components/header"
+// ...existing code...
 import { Hero } from "@/components/hero"
-import { Footer } from "@/components/footer"
-import { WaveBackground } from "@/components/wave-background"
 import { Solutions } from "@/components/solutions"
+import { WaveWrapper } from "@/components/wave-wrapper"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
-      <WaveBackground />
-      <Header />
-      <Hero />
-      <Solutions />
-      <Footer />
+    <main className="min-h-screen bg-black relative overflow-hidden">
+      <WaveWrapper />
+      <div className="relative z-10">
+        <Hero />
+        <Solutions />
+      </div>
     </main>
   )
 }

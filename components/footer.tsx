@@ -37,7 +37,7 @@ export function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Resources</h4>
             <ul className="space-y-3">
               <li>
-                <a href="https://docs.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Documentation
                 </a>
               </li>
@@ -47,7 +47,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/panel" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Control Panel
                 </a>
               </li>
@@ -68,17 +68,17 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/status" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Status
                 </a>
               </li>
               <li>
-                <a href="https://uptime.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/uptime" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Uptime
                 </a>
               </li>
               <li>
-                <a href="https://docs.vaultscope.dev/security" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/docs/security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Security
                 </a>
               </li>
@@ -104,7 +104,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://docs.vaultscope.dev/compliance" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/docs/compliance" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Compliance
                 </a>
               </li>
@@ -119,7 +119,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-2">
               <Gauge className="h-4 w-4 text-muted-foreground" />
-              <a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/status" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
                 System Status
               </a>
             </div>

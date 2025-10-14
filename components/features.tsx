@@ -36,7 +36,7 @@ export function Features() {
   ]
 
   return (
-    <section id="features" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-[#000]">
+    <section id="features" className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#000]">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance tracking-tighter">
@@ -55,10 +55,10 @@ export function Features() {
               key={index}
               className="bg-black/50 backdrop-blur-sm border-white/10 hover:border-white/20 transition-all duration-500 hover:shadow-2xl hover:shadow-white/5 group"
             >
-              <CardContent className="p-8">
-                <div className="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
-                  <feature.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
-                </div>
+                <CardContent className="p-6 sm:p-8">
+                  <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white/80" strokeWidth={1.5} />
+                  </div>
                 <h3 className="text-xl font-semibold text-white mb-3 tracking-tight">{feature.title}</h3>
                 <p className="text-white/60 leading-relaxed font-light">{feature.description}</p>
               </CardContent>

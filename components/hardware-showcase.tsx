@@ -42,7 +42,7 @@ export function HardwareShowcase() {
   ]
 
   return (
-    <section ref={containerRef} className="min-h-screen relative py-32 overflow-hidden">
+    <section ref={containerRef} className="relative py-20 sm:py-32 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           style={{ scale, opacity, y }}
@@ -69,7 +69,7 @@ export function HardwareShowcase() {
               className={`relative group`}
             >
               <div className={`absolute inset-0 rounded-2xl ${spec.class} blur-xl transition-all duration-500 group-hover:blur-2xl`} />
-              <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 h-full transition-all duration-500 hover:border-white/20">
+              <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 sm:p-6 h-full transition-all duration-500 hover:border-white/20">
                 <div className="space-y-4">
                   <div className="text-sm text-white/60 uppercase tracking-wider font-medium">
                     {spec.category}

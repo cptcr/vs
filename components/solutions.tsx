@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button'
 
 export function Solutions() {
   return (
-    <section className="relative py-32 px-4 overflow-hidden">
+    <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Node Specifications */}
-      <div className="container mx-auto mb-32">
+  <div className="container mx-auto mb-20 sm:mb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export function Solutions() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl" />
-              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-4 sm:p-6">
                 <spec.icon className="h-8 w-8 mb-4 text-white/80" strokeWidth={1.5} />
                 <div className="space-y-2">
                   <h3 className="text-sm text-white/60 font-medium">{spec.name}</h3>
@@ -74,7 +74,7 @@ export function Solutions() {
       </div>
 
       {/* Free Plan */}
-      <div className="container mx-auto mb-32">
+  <div className="container mx-auto mb-20 sm:mb-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ export function Solutions() {
           className="relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-3xl" />
-          <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-8 lg:p-12">
+          <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 lg:p-12">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4 tracking-tighter">Free Hosting Plan</h2>
@@ -108,7 +108,7 @@ export function Solutions() {
               <div className="lg:text-right">
                 <div className="inline-block text-center lg:text-right">
                   <div className="mb-4">
-                    <span className="text-5xl font-bold">$0</span>
+                    <span className="text-4xl sm:text-5xl font-bold">$0</span>
                     <span className="text-white/60 ml-2">Forever</span>
                   </div>
                   <Button
@@ -186,7 +186,7 @@ export function Solutions() {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl" />
-              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8">
                 <solution.icon className="h-10 w-10 mb-6 text-white/80" strokeWidth={1.5} />
                 <h3 className="text-2xl font-semibold mb-4">{solution.title}</h3>
                 <p className="text-white/60 mb-6">{solution.description}</p>

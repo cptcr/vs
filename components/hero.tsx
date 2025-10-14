@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+  <section className="relative pt-20 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/50 backdrop-blur-sm text-secondary-foreground text-sm mb-8 border border-border/50">

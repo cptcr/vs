@@ -4,16 +4,7 @@ import Link from "next/link"
 export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-[#000]">
-      <header className="border-b border-border bg-[#000]/95 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center gap-2">
-              <Shield className="h-6 w-6 text-foreground" />
-              <span className="text-lg font-bold text-foreground">VaultScope</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      {/* header removed: global Header is provided in the root layout */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">
         <h1 className="text-4xl font-bold text-foreground mb-4">Terms of Service</h1>
@@ -49,6 +40,8 @@ export default function TermsOfService() {
                 Services are provided "as-is" and we reserve the right to modify, suspend, or discontinue any aspect of
                 the service at any time.
               </p>
+            </div>
+          </section>
             </div>
           </section>
 

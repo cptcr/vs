@@ -1,21 +1,19 @@
-export const metadata = {
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
   metadataBase: new URL('https://vaultscope.com'),
-  title: {
-    default: 'VaultScope - Enterprise Infrastructure Solutions',
-    template: '%s | VaultScope'
-  },
-  description: 'Enterprise-grade VPS and Dedicated Server solutions with customizable hardware configurations. High-performance infrastructure backed by Intel Xeon processors and enterprise networking.',
+  title: "VaultScope - Custom Infrastructure Solutions",
+  description: "Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.",
+  generator: "Next.js",
   keywords: [
-    'VPS hosting',
-    'dedicated servers',
-    'enterprise hosting',
-    'custom server configuration',
-    'high performance hosting',
-    'scalable infrastructure',
-    'container hosting',
-    'enterprise infrastructure',
-    'managed hosting',
-    'cloud hosting'
+    "custom VPS",
+    "dedicated servers",
+    "enterprise hosting",
+    "scalable infrastructure",
+    "custom server configuration",
+    "high performance hosting",
+    "enterprise infrastructure",
+    "managed hosting"
   ],
   authors: [{ name: 'VaultScope' }],
   creator: 'VaultScope',
@@ -38,6 +36,7 @@ export const metadata = {
     title: 'VaultScope - Enterprise Infrastructure Solutions',
     description: 'Enterprise-grade VPS and Dedicated Server solutions with customizable hardware configurations.',
   },
+  viewport: 'width=device-width, initial-scale=1',
   robots: {
     index: true,
     follow: true,

@@ -33,7 +33,7 @@ export function Services() {
   ]
 
   return (
-    <section id="services" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-[#000]">
+    <section id="services" className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#000]">
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-24">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-balance tracking-tighter">
@@ -51,11 +51,11 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-8 hover:border-white/20 transition-all duration-500 group"
+              className="bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8 hover:border-white/20 transition-all duration-500 group"
             >
               <div className="flex items-start gap-6">
-                <div className="h-14 w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
-                  <service.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
+                <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-500">
+                  <service.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white/80" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-2 tracking-tight">

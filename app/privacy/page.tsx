@@ -38,11 +38,11 @@ export default function PrivacyPolicy() {
                 </li>
                 <li>
                   <strong className="text-foreground">Billing Information:</strong> Payment details processed securely
-                  through Paymenter (we do not store full payment card details)
+                  through our payment processors (we do not store full payment details)
                 </li>
                 <li>
                   <strong className="text-foreground">Technical Data:</strong> IP addresses, browser type, device
-                  information, and access logs
+                  information, access logs, and analytics data collected through Google Analytics
                 </li>
                 <li>
                   <strong className="text-foreground">Communications:</strong> Support tickets, Discord messages, and
@@ -90,8 +90,22 @@ export default function PrivacyPolicy() {
               <p>We do not sell your personal information. We may share data with:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li>
-                  <strong className="text-foreground">Service Providers:</strong> Pterodactyl (panel management) and
-                  Paymenter (billing) to operate our services
+                  <strong className="text-foreground">Payment Processors:</strong> We use Stripe, PayPal, Revolut Pay, 
+                  Bank Transfer, Razorpay, and Cryptomus to process payments securely. Each processor has its own privacy policy
+                  and handles your payment information according to industry standards.
+                </li>
+                <li>
+                  <strong className="text-foreground">Infrastructure Providers:</strong> We partner with Hetzner Cloud 
+                  and Linode as infrastructure providers. Your service usage data may be processed on their platforms 
+                  according to their respective privacy policies.
+                </li>
+                <li>
+                  <strong className="text-foreground">Analytics:</strong> We use Google Analytics to understand service 
+                  usage patterns and improve our offerings. This involves collecting anonymous usage data in accordance 
+                  with Google's privacy policy.
+                </li>
+                <li>
+                  <strong className="text-foreground">Service Management:</strong> Pterodactyl for panel management
                 </li>
                 <li>
                   <strong className="text-foreground">Legal Requirements:</strong> When required by law, court order, or
@@ -117,7 +131,24 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">6. Your Rights</h2>
+            <h2 className="text-2xl font-semibold mb-4">6. GDPR Rights and Information (Art. 13/14 DSGVO)</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>Under the General Data Protection Regulation (GDPR), if you are an EU resident, you have the following rights:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Right to information (Art. 15 GDPR)</li>
+                <li>Right to rectification (Art. 16 GDPR)</li>
+                <li>Right to erasure (Art. 17 GDPR)</li>
+                <li>Right to restriction of processing (Art. 18 GDPR)</li>
+                <li>Right to data portability (Art. 20 GDPR)</li>
+                <li>Right to object (Art. 21 GDPR)</li>
+                <li>Right to withdraw consent (Art. 7(3) GDPR)</li>
+              </ul>
+              <p>To exercise these rights, contact our Data Protection Officer at support@vaultscope.dev</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">7. Eligibility and Account Responsibilities</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>You have the right to:</p>
               <ul className="list-disc pl-6 space-y-2">
@@ -132,12 +163,93 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">7. Cookies and Tracking</h2>
+            <h2 className="text-2xl font-semibold mb-4">8. Service Scope and Limitations</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-semibold mb-2">Eligibility</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Users must be at least 13 years old</li>
+                <li>Services must be used for legal purposes only</li>
+                <li>Users are responsible for maintaining account security</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2 mt-4">Account Responsibilities</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Keep login credentials secure</li>
+                <li>Maintain accurate account information</li>
+                <li>Report unauthorized access immediately</li>
+                <li>Comply with all applicable laws and our terms</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2 mt-4">Acceptable Use Policy</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>No illegal content or activities</li>
+                <li>No unauthorized access attempts</li>
+                <li>No service abuse or resource misuse</li>
+                <li>No distribution of malware or harmful content</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2 mt-4">Data & Backups</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Users are responsible for their own data backups</li>
+                <li>We do not guarantee data recovery</li>
+                <li>Regular backups are recommended</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2 mt-4">Liability Limitation</h3>
+              <p>Our service is provided "as is" without warranties. We are not liable for:</p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Data loss or corruption</li>
+                <li>Service interruptions</li>
+                <li>Indirect or consequential damages</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold mb-2 mt-4">Termination</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>We reserve the right to terminate accounts without notice or reason</li>
+                <li>Servers and accounts can be deleted at any time without prior information</li>
+                <li>No refunds for terminated accounts</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">9. Right of Withdrawal and Refunds</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-semibold mb-2">Widerrufsbelehrung (Right of Withdrawal)</h3>
+              <p>Under EU consumer law, you have the right to withdraw from contracts within 14 days without giving reasons. However, this right expires immediately for digital services that have begun with your express consent.</p>
+              
+              <h3 className="text-xl font-semibold mb-2 mt-4">Refund Policy</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Generally, we do not offer refunds</li>
+                <li>Exceptions may be considered on a case-by-case basis</li>
+                <li>Contact support for refund requests</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold mb-4">10. Cookies and Tracking</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-semibold mb-2">Cookie Consent</h3>
+              <p>
+                We require explicit consent before setting non-essential cookies. Our cookie banner provides:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Clear accept and reject options</li>
+                <li>Detailed information about cookie purposes</li>
+                <li>Cookie settings management</li>
+              </ul>
+              
+              <h3 className="text-xl font-semibold mb-2 mt-4">Cookie Usage</h3>
               <p>
                 We use cookies and similar technologies to maintain sessions, remember preferences, and analyze service
-                usage. You can control cookies through your browser settings, though some features may not function
-                properly without them.
+                usage. This includes Google Analytics for understanding how users interact with our services. You can 
+                control cookies through your browser settings, and may opt-out of Google Analytics tracking using 
+                Google's opt-out browser add-on.
+              </p>
+              <p>
+                Our payment processors (Stripe, PayPal, Revolut Pay, Bank Transfer, Razorpay, and Cryptomus) may also 
+                use cookies and tracking technologies for fraud prevention and security purposes.
               </p>
             </div>
           </section>
