@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Databases — VaultScope Docs",
+  description: "How to create and manage databases for your servers on VaultScope.",
+  path: "/docs/databases",
+})
+
 export default function DatabasesPage() {
   return (
     <div className="max-w-3xl">

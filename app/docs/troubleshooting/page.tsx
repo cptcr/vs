@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Troubleshooting — VaultScope Docs",
+  description: "Troubleshooting steps, console logs and common errors for VaultScope servers.",
+  path: "/docs/troubleshooting",
+})
+
 export default function TroubleshootingPage() {
   return (
     <div className="max-w-3xl">

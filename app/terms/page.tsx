@@ -1,5 +1,12 @@
 import { Shield } from "lucide-react"
 import Link from "next/link"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Terms of Service — VaultScope",
+  description: "Terms and conditions for using VaultScope services.",
+  path: "/terms",
+})
 
 export default function TermsOfService() {
   return (

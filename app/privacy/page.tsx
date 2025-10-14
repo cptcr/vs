@@ -1,4 +1,11 @@
 import Link from "next/link"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Privacy Policy — VaultScope",
+  description: "How VaultScope collects, stores and protects user data.",
+  path: "/privacy",
+})
 
 export default function PrivacyPolicy() {
   return (

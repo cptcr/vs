@@ -1,4 +1,11 @@
 import Link from 'next/link'
+import { buildMetadata } from '@/lib/seo'
+
+export const metadata = buildMetadata({
+  title: 'Getting Started — VaultScope Docs',
+  description: 'Quick start guide including control panel overview, console, files and basic troubleshooting.',
+  path: '/docs/getting-started',
+})
 
 export default function GettingStartedPage() {
   return (

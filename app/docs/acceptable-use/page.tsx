@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Docs: Acceptable Use — VaultScope",
+  description: "Detailed acceptable use documentation including fair-use, prohibited content and abuse reporting.",
+  path: "/docs/acceptable-use",
+})
+
 export default function AcceptableUsePage() {
   return (
     <div className="max-w-3xl">

@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Billing & Plans — VaultScope Docs",
+  description: "Information on pricing, billing cycles, free tier and plan changes.",
+  path: "/docs/billing",
+})
+
 export default function BillingPage() {
   return (
     <div className="max-w-3xl">

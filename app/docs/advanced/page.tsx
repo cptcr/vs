@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Advanced Guides — VaultScope Docs",
+  description: "Advanced guides for server management, SFTP, custom ports, databases and performance tuning.",
+  path: "/docs/advanced",
+})
+
 export default function AdvancedPage() {
   return (
     <div className="max-w-3xl">

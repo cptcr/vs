@@ -1,5 +1,12 @@
 import { Shield } from "lucide-react"
 import Link from "next/link"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Security — VaultScope",
+  description: "Overview of VaultScope's security posture, practices and recommendations.",
+  path: "/security",
+})
 
 export default function SecurityPage() {
   return (

@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Control Panel — VaultScope Docs",
+  description: "How to manage servers, ports, SFTP and other control panel features.",
+  path: "/docs/control-panel",
+})
+
 export default function ControlPanelPage() {
   return (
     <div className="max-w-3xl">

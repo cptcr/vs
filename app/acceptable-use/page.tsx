@@ -1,6 +1,14 @@
 import { Shield } from "lucide-react"
 import Link from "next/link"
 
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Acceptable Use — VaultScope",
+  description: "Policies describing acceptable and prohibited use of VaultScope services.",
+  path: "/acceptable-use",
+})
+
 export default function AcceptableUsePolicy() {
   return (
     <div className="min-h-screen bg-[#000]">

@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Optimization — VaultScope Docs",
+  description: "Performance tuning, caching and optimization best practices for VaultScope servers.",
+  path: "/docs/optimization",
+})
+
 export default function OptimizationPage() {
   return (
     <div className="max-w-3xl">

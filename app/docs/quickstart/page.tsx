@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Quickstart — VaultScope Docs",
+  description: "Quickstart walkthroughs to get your server up and running with VaultScope.",
+  path: "/docs/quickstart",
+})
+
 export default function QuickStartPage() {
   return (
     <div className="max-w-3xl">
@@ -19,6 +27,7 @@ export default function QuickStartPage() {
                 <li>Network bandwidth</li>
               </ul>
             </div>
+            
 
             <div className="border border-border rounded-lg p-4">
               <h3 className="text-lg font-medium mb-2">2. Server Deployment</h3>

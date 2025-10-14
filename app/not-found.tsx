@@ -2,6 +2,13 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "404 — Page Not Found",
+  description: "The requested page could not be found on VaultScope.",
+  path: "/404",
+})
 
 export const funny404Texts: string[] = [
   "Oops! Looks like this page took a day off.",

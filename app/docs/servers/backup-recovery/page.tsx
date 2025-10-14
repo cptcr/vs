@@ -1,3 +1,11 @@
+import { buildMetadata } from "@/lib/seo"
+
+export const metadata = buildMetadata({
+  title: "Backup & Recovery — VaultScope Docs",
+  description: "Backup schedules, retention and disaster recovery guidance for VaultScope servers.",
+  path: "/docs/servers/backup-recovery",
+})
+
 export default function BackupRecoveryPage() {
   return (
     <div className="max-w-3xl">

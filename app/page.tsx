@@ -1,7 +1,15 @@
 // ...existing code...
+import { buildMetadata } from "@/lib/seo"
 import { Hero } from "@/components/hero"
 import { Solutions } from "@/components/solutions"
 import { WaveWrapper } from "@/components/wave-wrapper"
+
+export const metadata = buildMetadata({
+  title: "VaultScope — Custom Infrastructure Solutions",
+  description:
+    "Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.",
+  path: "/",
+})
 
 export default function Home() {
   return (

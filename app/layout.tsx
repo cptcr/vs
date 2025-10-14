@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { CookieConsent } from "@/components/cookie-consent"
 import "./globals.css"
-import { metadata } from "./layout-meta"
+export { metadata } from "./layout-meta"
 
 export default function RootLayout({
   children,
