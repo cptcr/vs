@@ -1,5 +1,4 @@
-"use client"
-
+// layout is a server component; keep client-only UI inside client components
 import type React from "react"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
