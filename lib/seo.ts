@@ -93,7 +93,6 @@ export function buildMetadata({
       description: pageDescription,
       images: [imageUrl],
     },
-    viewport: "width=device-width, initial-scale=1",
     robots: {
       index: true,
       follow: true,
