@@ -206,6 +206,14 @@ export default function TermsOfService() {
                   Control Panel
                 </a>
               </li>
+              <li>
+                Payment Panel / Register:{" "}
+                <a href="https://pay.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">pay.vaultscope.dev</a>
+              </li>
+              <li>
+                Status:{" "}
+                <a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">status.vaultscope.dev</a>
+              </li>
             </ul>
           </section>
         </div>

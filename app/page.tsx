@@ -1,6 +1,7 @@
 // ...existing code...
 import { buildMetadata } from "@/lib/seo"
 import { Hero } from "@/components/hero"
+import { Features } from "@/components/features"
 import { Solutions } from "@/components/solutions"
 import { WaveWrapper } from "@/components/wave-wrapper"
 
@@ -17,6 +18,7 @@ export default function Home() {
       <WaveWrapper />
       <div className="relative z-10">
         <Hero />
+        <Features />
         <Solutions />
       </div>
     </main>

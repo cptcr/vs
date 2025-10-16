@@ -69,6 +69,9 @@ export function Header() {
             <Link href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Documentation
             </Link>
+            <a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Status
+            </a>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -78,7 +81,7 @@ export function Header() {
               </a>
             </Button>
             <Button className="bg-foreground text-background hover:bg-foreground/90" asChild>
-              <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer">
+              <a href="https://pay.vaultscope.dev" target="_blank" rel="noopener noreferrer">
                 Get Started
               </a>
             </Button>

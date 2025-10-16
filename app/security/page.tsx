@@ -142,6 +142,8 @@ export default function SecurityPage() {
               <li><Link href="/acceptable-use" className="text-foreground hover:underline">Acceptable Use Policy</Link></li>
               <li><Link href="/terms" className="text-foreground hover:underline">Terms of Service</Link></li>
               <li><a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Control Panel</a></li>
+              <li><a href="https://pay.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Payment Panel / Register</a></li>
+              <li><a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline">Status</a></li>
             </ul>
           </section>
         </div>
