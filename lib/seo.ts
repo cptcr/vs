@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import seoImage from "@/app/assets/seo-image.jpg";
+import { siteConfig } from "@/config/site";
 
-const SITE_URL = new URL("https://vaultscope.com");
+const SITE_URL = new URL(siteConfig.url);
 
-const DEFAULT_TITLE = "VaultScope - Custom Infrastructure Solutions";
-const DEFAULT_DESCRIPTION =
-  "Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.";
+const DEFAULT_TITLE = `${siteConfig.name} - Custom Infrastructure Solutions`;
+const DEFAULT_DESCRIPTION = siteConfig.description;
 
 function resolveImageUrl(): string {
   try {
@@ -23,8 +23,8 @@ function resolveImageUrl(): string {
     // fallthrough to default
   }
 
-  // Fallback to a predictable path if import resolution doesn't provide a usable URL
-  return new URL("/assets/seo-image.jpg", SITE_URL).toString();
+  // fallback to site config image path
+  return new URL(siteConfig.ogImage || "/assets/seo-image.jpg", SITE_URL).toString();
 }
 
 export function buildMetadata({
@@ -46,7 +46,7 @@ export function buildMetadata({
   const canonical = new URL(path ?? '/', SITE_URL).toString();
 
   return {
-    metadataBase: SITE_URL,
+  metadataBase: SITE_URL,
     title: pageTitle,
     description: pageDescription,
     keywords:
