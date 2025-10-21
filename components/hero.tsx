@@ -1,13 +1,13 @@
-import { ArrowRight, Server, Shield, Gauge } from "lucide-react"
+import { ArrowRight, BookOpen, Server, Shield, Gauge } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-  <section className="relative pt-20 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+  <section id="top" className="relative pt-20 sm:pt-32 pb-24 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-secondary/50 backdrop-blur-sm text-secondary-foreground text-sm mb-8 border border-border/50">
-            <Shield className="h-4 w-4" />
+            <Shield className="h-4 w-4" aria-hidden="true" />
             <span className="font-medium">Free Enterprise-Grade Infrastructure</span>
           </div>
 
@@ -24,15 +24,15 @@ export function Hero() {
 
           <div className="flex items-center justify-center gap-8 mb-12 flex-wrap">
             <div className="flex items-center gap-2 text-white/80">
-              <Server className="h-5 w-5" strokeWidth={1.5} />
+              <Server className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               <span className="font-medium">Free Tier Available</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
-              <Gauge className="h-5 w-5" strokeWidth={1.5} />
+              <Gauge className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               <span className="font-medium">1 Gbps Network</span>
             </div>
             <div className="flex items-center gap-2 text-white/80">
-              <Shield className="h-5 w-5" strokeWidth={1.5} />
+              <Shield className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
               <span className="font-medium">Cloudflare DDoS</span>
             </div>
           </div>
@@ -45,22 +45,33 @@ export function Hero() {
             >
               <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer">
                 Configure Your Server
-                <ArrowRight className="ml-2 h-5 w-5" strokeWidth={2.5} />
+                <ArrowRight className="ml-2 h-5 w-5" strokeWidth={2.5} aria-hidden="true" />
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white/40 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white w-full sm:w-auto text-base h-12 px-8 font-medium tracking-wide"
+              asChild
+            >
+              <a href="/docs">
+                Browse Documentation
+                <BookOpen className="ml-2 h-5 w-5" strokeWidth={2} aria-hidden="true" />
               </a>
             </Button>
           </div>
 
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Server className="h-4 w-4" />
+              <Server className="h-4 w-4" aria-hidden="true" />
               <span>Enterprise Hardware</span>
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4" />
+              <Shield className="h-4 w-4" aria-hidden="true" />
               <span>DDoS Protected</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="h-2 w-2 rounded-full bg-green-500" />
+              <div className="h-2 w-2 rounded-full bg-white" aria-hidden="true" />
               <span>99.9% Uptime</span>
             </div>
           </div>

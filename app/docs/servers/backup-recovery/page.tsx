@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({

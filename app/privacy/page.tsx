@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
@@ -9,7 +10,7 @@ export const metadata = buildMetadata({
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#000]">
+    <div className="min-h-screen bg-black">
       {/* header removed: global Header is provided in the root layout */}
 
       <main className="container max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8">

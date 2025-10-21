@@ -172,7 +172,7 @@ export default function DocsSidebar({ items }: { items: SidebarItem[] }) {
         <AnimatePresence>
           {mobileOpen && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-50">
-              <div className="absolute inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
               <motion.aside
                 id="mobile-docs-drawer"
                 initial={{ x: -300 }}

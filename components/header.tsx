@@ -52,22 +52,28 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-foreground" />
+            <Shield className="h-8 w-8 text-foreground" aria-hidden="true" />
             <span className="text-xl font-bold text-foreground">VaultScope</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-8">
-            <a href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Features
-            </a>
-            <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link href="/#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Testimonials
+            </Link>
+            <Link href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Pricing
-            </a>
+            </Link>
             <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Community
             </a>
             <Link href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Documentation
+            </Link>
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              About
             </Link>
             <a href="https://status.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Status
@@ -111,7 +117,7 @@ export function Header() {
             className="fixed inset-0 z-40 md:hidden"
             aria-hidden={!mobileMenuOpen}
           >
-            <div className="absolute inset-0 bg-black/30" onClick={() => setMobileMenuOpen(false)} />
+            <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
 
             <motion.nav
               id="mobile-navigation"
@@ -123,18 +129,24 @@ export function Header() {
               className="absolute left-0 right-0 top-16 bg-background/95 border-t border-border p-4 shadow-lg"
             >
               <div className="flex flex-col gap-4">
-                <a ref={firstLinkRef} href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                <Link ref={firstLinkRef} href="/#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Features
-                </a>
-                <a href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                </Link>
+                <Link href="/#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                  Testimonials
+                </Link>
+                <Link href="/#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Pricing
-                </a>
+                </Link>
                 <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Community
                 </a>
-                <a href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                <Link href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Documentation
-                </a>
+                </Link>
+                <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
+                  About
+                </Link>
                 <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2">
                   Sign In
                 </a>

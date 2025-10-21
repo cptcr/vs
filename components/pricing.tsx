@@ -11,17 +11,17 @@ export function Pricing() {
   }
 
   return (
-    <section id="pricing" className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[#000000]">
+    <section id="pricing" className="relative py-16 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="container mx-auto relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-14 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-sm text-secondary-foreground text-sm mb-6 border border-border/50">
-            <Sparkles className="h-4 w-4" />
+            <Sparkles className="h-4 w-4" aria-hidden="true" />
             <span className="font-medium">No Credit Card Required</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 text-balance tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance tracking-tight">
             Premium hosting, completely free
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
             Get started with our free tier. All the resources you need with enterprise-grade features included.
           </p>
         </div>
@@ -46,10 +46,10 @@ export function Pricing() {
                 </a>
               </Button>
               <div className="space-y-4">
-                <p className="text-sm font-semibold text-foreground mb-3">What's included:</p>
+                <p className="text-sm font-semibold text-foreground mb-3">What&apos;s included:</p>
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" />
+                    <Check className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="text-muted-foreground leading-relaxed">{feature}</span>
                   </li>
                 ))}

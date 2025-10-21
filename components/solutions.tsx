@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 export function Solutions() {
   return (
-    <section className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="solutions" className="relative overflow-hidden py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-transparent">
       {/* Node Specifications */}
   <div className="container mx-auto mb-20 sm:mb-32">
         <motion.div
@@ -25,7 +25,7 @@ export function Solutions() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4 sm:gap-6">
           {[
             {
               icon: Cpu,
@@ -59,9 +59,9 @@ export function Solutions() {
               transition={{ delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl" />
-              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-4 sm:p-6">
-                <spec.icon className="h-8 w-8 mb-4 text-white/80" strokeWidth={1.5} />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
+              <div className="relative rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-6 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.07]">
+                <spec.icon className="h-8 w-8 mb-4 text-white/80" strokeWidth={1.5} aria-hidden="true" />
                 <div className="space-y-2">
                   <h3 className="text-sm text-white/60 font-medium">{spec.name}</h3>
                   <p className="text-xl font-semibold text-white">{spec.spec}</p>
@@ -81,15 +81,15 @@ export function Solutions() {
           transition={{ duration: 0.5 }}
           className="relative overflow-hidden"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-3xl" />
-          <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 lg:p-12">
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/15 via-transparent to-transparent blur-3xl" />
+          <div className="relative rounded-2xl border border-white/10 bg-white/[0.05] p-6 lg:p-12 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.08]">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-4 tracking-tighter">Free Hosting Plan</h2>
                 <p className="text-lg text-white/60 mb-8">
                   Start with our free tier, powered by enterprise infrastructure and protected by Cloudflare
                 </p>
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                   {[
                     { icon: Cpu, label: "40% CPU Share" },
                     { icon: Memory, label: "512MB RAM" },
@@ -99,7 +99,7 @@ export function Solutions() {
                     { icon: Gauge, label: "Unmetered Traffic" }
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
-                      <feature.icon className="h-5 w-5 text-white/60" strokeWidth={1.5} />
+                      <feature.icon className="h-5 w-5 text-white/60" strokeWidth={1.5} aria-hidden="true" />
                       <span className="text-white/80">{feature.label}</span>
                     </div>
                   ))}
@@ -149,7 +149,7 @@ export function Solutions() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid gap-5 md:grid-cols-2 md:gap-6">
           {[
             {
               icon: Server,
@@ -185,9 +185,9 @@ export function Solutions() {
               transition={{ delay: index * 0.1 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 rounded-2xl blur-xl transition-all duration-500 group-hover:blur-2xl" />
-              <div className="relative bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl p-6 sm:p-8">
-                <solution.icon className="h-10 w-10 mb-6 text-white/80" strokeWidth={1.5} />
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/12 via-transparent to-transparent opacity-0 blur-xl transition-all duration-500 group-hover:opacity-100" />
+              <div className="relative rounded-2xl border border-white/10 bg-white/[0.05] p-6 sm:p-8 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.08]">
+                <solution.icon className="h-10 w-10 mb-6 text-white/80" strokeWidth={1.5} aria-hidden="true" />
                 <h3 className="text-2xl font-semibold mb-4">{solution.title}</h3>
                 <p className="text-white/60 mb-6">{solution.description}</p>
                 <ul className="space-y-3 mb-8">

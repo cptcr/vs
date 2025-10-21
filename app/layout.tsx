@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer'
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { CookieConsent } from "@/components/cookie-consent"
+import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data"
 import "./globals.css"
 export { metadata } from "./layout-meta"
 
@@ -15,9 +16,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationSchema = getOrganizationSchema()
+  const websiteSchema = getWebsiteSchema()
+
   return (
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="font-sans antialiased">
+      <head>
+        <script
+          key="organization-schema"
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          key="website-schema"
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+      </head>
+      <body className="min-h-screen bg-black font-sans antialiased text-foreground">
         <Suspense fallback={<div>Loading...</div>}>
           <a
             href="#content"

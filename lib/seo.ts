@@ -1,30 +1,18 @@
 import type { Metadata } from "next";
-import seoImage from "@/app/assets/seo-image.jpg";
 import { siteConfig } from "@/config/site";
 
 const SITE_URL = new URL(siteConfig.url);
 
 const DEFAULT_TITLE = `${siteConfig.name} - Custom Infrastructure Solutions`;
 const DEFAULT_DESCRIPTION = siteConfig.description;
+const DEFAULT_OG_IMAGE_PATH = siteConfig.ogImage || "/assets/seo-image.jpg";
 
-function resolveImageUrl(): string {
-  try {
-    // seoImage can be a string or an object with a `src` prop depending on Next's loader
-    const img: unknown = seoImage as unknown;
-    if (typeof img === "string") {
-      return new URL(img, SITE_URL).toString();
-    }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const anyImg = img as any;
-    if (anyImg && anyImg.src) {
-      return new URL(anyImg.src, SITE_URL).toString();
-    }
-  } catch (e) {
-    // fallthrough to default
-  }
+function buildAbsoluteUrl(path = "/"): string {
+  return new URL(path, SITE_URL).toString();
+}
 
-  // fallback to site config image path
-  return new URL(siteConfig.ogImage || "/assets/seo-image.jpg", SITE_URL).toString();
+function resolveImageUrl(image?: string): string {
+  return buildAbsoluteUrl(image ?? DEFAULT_OG_IMAGE_PATH);
 }
 
 export function buildMetadata({
@@ -33,20 +21,23 @@ export function buildMetadata({
   path,
   keywords,
   alt,
+  image,
 }: {
   title?: string;
   description?: string;
   path?: string;
   keywords?: string[];
   alt?: string;
+  image?: string;
 } = {}): Metadata {
-  const imageUrl = resolveImageUrl();
-  const pageTitle = title ? `${title} | VaultScope` : DEFAULT_TITLE;
+  const pageTitle = title ? `${title} | ${siteConfig.name}` : DEFAULT_TITLE;
   const pageDescription = description ?? DEFAULT_DESCRIPTION;
-  const canonical = new URL(path ?? '/', SITE_URL).toString();
+  const canonical = buildAbsoluteUrl(path ?? "/");
+  const imageUrl = resolveImageUrl(image);
+  const imageAlt = alt ?? `${siteConfig.name} preview image`;
 
   return {
-  metadataBase: SITE_URL,
+    metadataBase: SITE_URL,
     title: pageTitle,
     description: pageDescription,
     keywords:
@@ -60,9 +51,9 @@ export function buildMetadata({
         "enterprise infrastructure",
         "managed hosting",
       ],
-    authors: [{ name: "VaultScope" }],
-    creator: "VaultScope",
-    publisher: "VaultScope",
+    authors: [{ name: siteConfig.name }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
     formatDetection: {
       email: false,
       address: false,
@@ -77,13 +68,13 @@ export function buildMetadata({
       url: canonical,
       title: pageTitle,
       description: pageDescription,
-      siteName: "VaultScope",
+      siteName: siteConfig.name,
       images: [
         {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: alt ?? "VaultScope preview image",
+          alt: imageAlt,
         },
       ],
     },

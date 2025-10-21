@@ -65,7 +65,7 @@ export default function NotFoundClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#000] flex items-center justify-center py-24">
+    <div className="min-h-screen bg-black flex items-center justify-center py-24">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <div className="rounded-2xl border border-border bg-card p-8 shadow-sm">
           <div className="flex flex-col md:flex-row items-center gap-8">

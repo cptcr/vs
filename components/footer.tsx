@@ -1,13 +1,14 @@
-import { Shield, Server, Cpu, HardDrive, MemoryStick, Network, Gauge } from "lucide-react"
+import { Shield, Cpu, MemoryStick, HardDrive, Network } from "lucide-react"
+import { StatusBadge } from "@/components/status-badge"
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border bg-[#000]">
+    <footer className="relative border-t border-border bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Shield className="h-6 w-6 text-foreground" />
+              <Shield className="h-6 w-6 text-foreground" aria-hidden="true" />
               <span className="text-lg font-bold text-foreground">VaultScope</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -15,21 +16,32 @@ export function Footer() {
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center gap-2">
-                <Cpu className="h-4 w-4 text-muted-foreground" />
+                <Cpu className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground">40% CPU</span>
               </div>
               <div className="flex items-center gap-2">
-                <MemoryStick className="h-4 w-4 text-muted-foreground" />
+                <MemoryStick className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground">512MB RAM</span>
               </div>
               <div className="flex items-center gap-2">
-                <HardDrive className="h-4 w-4 text-muted-foreground" />
+                <HardDrive className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground">5120MB ROM</span>
               </div>
               <div className="flex items-center gap-2">
-                <Network className="h-4 w-4 text-muted-foreground" />
+                <Network className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground">1Gbps Network</span>
               </div>
+            </div>
+            <div className="mt-6 space-y-2">
+              <StatusBadge />
+              <a
+                href="https://status.vaultscope.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <span>View detailed status</span>
+              </a>
             </div>
           </div>
 

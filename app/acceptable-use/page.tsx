@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Shield } from "lucide-react"
 import Link from "next/link"
 
@@ -11,7 +12,7 @@ export const metadata = buildMetadata({
 
 export default function AcceptableUsePolicy() {
   return (
-    <div className="min-h-screen bg-[#000]">
+    <div className="min-h-screen bg-black">
       {/* header removed: global Header is provided in the root layout */}
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-4xl">

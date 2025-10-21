@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 export function HardwareShowcase() {
@@ -19,25 +19,25 @@ export function HardwareShowcase() {
       category: "Processor",
       name: "Intel Xeon W-2295",
       details: "18 Cores / 36 Threads",
-      class: "bg-gradient-to-br from-blue-500/20 to-blue-600/20"
+      class: "bg-gradient-to-br from-white/20 to-transparent"
     },
     {
       category: "Memory",
       name: "32GB DDR4 ECC",
       details: "Registered ECC Memory",
-      class: "bg-gradient-to-br from-purple-500/20 to-purple-600/20"
+      class: "bg-gradient-to-br from-white/20 to-transparent"
     },
     {
       category: "Storage",
       name: "2TB Enterprise",
       details: "SATA Enterprise HDD",
-      class: "bg-gradient-to-br from-green-500/20 to-green-600/20"
+      class: "bg-gradient-to-br from-white/20 to-transparent"
     },
     {
       category: "Network",
       name: "1 Gbps",
       details: "Unmetered Bandwidth",
-      class: "bg-gradient-to-br from-orange-500/20 to-orange-600/20"
+      class: "bg-gradient-to-br from-white/20 to-transparent"
     }
   ]
 
@@ -68,8 +68,8 @@ export function HardwareShowcase() {
               viewport={{ once: true }}
               className={`relative group`}
             >
-              <div className={`absolute inset-0 rounded-2xl ${spec.class} blur-xl transition-all duration-500 group-hover:blur-2xl`} />
-              <div className="relative bg-black/50 backdrop-blur-sm border border-white/10 rounded-xl p-4 sm:p-6 h-full transition-all duration-500 hover:border-white/20">
+              <div className={`pointer-events-none absolute inset-0 rounded-2xl ${spec.class} opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100`} />
+              <div className="relative h-full rounded-2xl border border-white/10 bg-white/[0.04] p-4 sm:p-6 backdrop-blur-xl transition-all duration-500 hover:border-white/20 hover:bg-white/[0.08]">
                 <div className="space-y-4">
                   <div className="text-sm text-white/60 uppercase tracking-wider font-medium">
                     {spec.category}
@@ -101,9 +101,9 @@ export function HardwareShowcase() {
       </div>
 
       {/* 3D Server Effect */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-60" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-40" />
       </div>
     </section>
   )

@@ -4,31 +4,31 @@
 @tailwind utilities;
 
 :root {
-  /* Professional dark theme with true black */
+  /* Glassmorphism palette constrained to black, white, and grayscale */
   --background: #000000;
-  --foreground: #ffffff;
-  --card: #0c0c0c;
-  --card-foreground: #ffffff;
-  --popover: #0c0c0c;
-  --popover-foreground: #ffffff;
+  --foreground: #f5f5f5;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #e5e5e5;
+  --popover: rgba(255, 255, 255, 0.06);
+  --popover-foreground: #f5f5f5;
   --primary: #ffffff;
-  --primary-foreground: #000000;
-  --secondary: #1c1c1c;
-  --secondary-foreground: #ffffff;
-  --muted: #1c1c1c;
-  --muted-foreground: #999999;
-  --accent: #2a2a2a;
-  --accent-foreground: #ffffff;
-  --destructive: #2a2a2a;
-  --destructive-foreground: #ffffff;
-  --border: #333333;
-  --input: #1c1c1c;
-  --ring: #404040;
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --primary-foreground: #050505;
+  --secondary: rgba(255, 255, 255, 0.12);
+  --secondary-foreground: #e5e5e5;
+  --muted: rgba(255, 255, 255, 0.12);
+  --muted-foreground: #bfbfbf;
+  --accent: rgba(255, 255, 255, 0.16);
+  --accent-foreground: #f5f5f5;
+  --destructive: rgba(255, 255, 255, 0.16);
+  --destructive-foreground: #f5f5f5;
+  --border: rgba(255, 255, 255, 0.18);
+  --input: rgba(255, 255, 255, 0.2);
+  --ring: #ffffff;
+  --chart-1: #f5f5f5;
+  --chart-2: #d9d9d9;
+  --chart-3: #bfbfbf;
+  --chart-4: #a6a6a6;
+  --chart-5: #8c8c8c;
   --radius: 0.5rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -41,30 +41,30 @@
 }
 
 .dark {
-  --background: #000;
-  --foreground: #ffffff;
-  --card: #0a0a0a;
-  --card-foreground: #ffffff;
-  --popover: #0a0a0a;
-  --popover-foreground: #ffffff;
+  --background: #000000;
+  --foreground: #e5e5e5;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-foreground: #e5e5e5;
+  --popover: rgba(255, 255, 255, 0.06);
+  --popover-foreground: #f5f5f5;
   --primary: #ffffff;
-  --primary-foreground: #000;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #a3a3a3;
-  --accent: #1a1a1a;
-  --accent-foreground: #ffffff;
-  --destructive: #404040;
-  --destructive-foreground: #ffffff;
-  --border: #262626;
-  --input: #262626;
-  --ring: #525252;
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --primary-foreground: #050505;
+  --secondary: rgba(255, 255, 255, 0.14);
+  --secondary-foreground: #e5e5e5;
+  --muted: rgba(255, 255, 255, 0.14);
+  --muted-foreground: #cccccc;
+  --accent: rgba(255, 255, 255, 0.18);
+  --accent-foreground: #f5f5f5;
+  --destructive: rgba(255, 255, 255, 0.18);
+  --destructive-foreground: #f5f5f5;
+  --border: rgba(255, 255, 255, 0.22);
+  --input: rgba(255, 255, 255, 0.24);
+  --ring: #ffffff;
+  --chart-1: #f5f5f5;
+  --chart-2: #d9d9d9;
+  --chart-3: #bfbfbf;
+  --chart-4: #a6a6a6;
+  --chart-5: #8c8c8c;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -118,7 +118,7 @@
 /* Base styles */
 * {
   border-color: var(--border);
-  outline-color: rgba(var(--ring), 0.5);
+  outline-color: rgba(255, 255, 255, 0.5);
 }
 
 body {

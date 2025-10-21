@@ -1,178 +1,248 @@
-import { useRef, useMemo, useEffect, useState } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { EffectComposer, Bloom } from '@react-three/postprocessing'
-import { AdaptiveDpr, AdaptiveEvents, useDetectGPU } from '@react-three/drei'
-import * as THREE from 'three'
+"use client";
 
-// Performance configuration based on device capabilities
-const getDeviceConfig = (gpu: any, isMobile: boolean) => {
-  // Base configuration
-  const config = {
-    particleRows: 100,
-    particleCols: 100,
-    particleSize: 0.12,
-    updateRate: 1, // Normal speed
-  }
+import { useEffect, useRef } from "react";
 
-  // Adjust for mobile
-  if (isMobile) {
-    config.particleRows = 50
-    config.particleCols = 50
-    config.particleSize = 0.15 // Slightly larger particles to compensate for fewer of them
-  }
+type Particle = {
+  x: number;
+  y: number;
+  radius: number;
+  baseX: number;
+  drift: number;
+  speed: number;
+  alpha: number;
+};
 
-  // Further adjust based on GPU tier
-  if (gpu.tier === 3) {
-    // High-end GPUs (like RX 9070XT)
-    config.particleRows = isMobile ? 75 : 150
-    config.particleCols = isMobile ? 75 : 150
-  } else if (gpu.tier === 2) {
-    // Mid-range GPUs
-    config.particleRows = isMobile ? 60 : 100
-    config.particleCols = isMobile ? 60 : 100
-  } else {
-    // Low-end GPUs
-    config.particleRows = isMobile ? 40 : 75
-    config.particleCols = isMobile ? 40 : 75
-    config.updateRate = 0.75 // Slower updates
-  }
+type Wave = {
+  amplitude: number;
+  frequency: number;
+  speed: number;
+  offset: number;
+  color: string;
+  thickness: number;
+};
 
-  return config
+const WAVE_CONFIG: Wave[] = [
+  { amplitude: 42, frequency: 0.004, speed: 0.9, offset: 0, color: "rgba(255,255,255,0.12)", thickness: 1.6 },
+  { amplitude: 58, frequency: 0.003, speed: 0.6, offset: 120, color: "rgba(200,200,200,0.1)", thickness: 1.4 },
+  { amplitude: 32, frequency: 0.005, speed: 1.1, offset: -160, color: "rgba(160,160,160,0.12)", thickness: 1.2 },
+];
+
+const DESKTOP_PARTICLE_COUNT = 140;
+const MOBILE_PARTICLE_COUNT = 60;
+
+function createParticles(width: number, height: number, count: number): Particle[] {
+  return Array.from({ length: count }, () => {
+    const radius = Math.random() * 1.8 + 0.6;
+    return {
+      x: Math.random() * width,
+      y: Math.random() * height,
+      radius,
+      baseX: Math.random() * width,
+      drift: Math.random() * Math.PI * 2,
+      speed: 0.4 + Math.random() * 0.8,
+      alpha: 0.25 + Math.random() * 0.35,
+    };
+  });
 }
 
-function Wave() {
-  const points = useRef<THREE.Points>(null)
-  const gpuTier = useDetectGPU()
-  const [config] = useState(() => 
-    getDeviceConfig(gpuTier, /iPhone|iPad|Android/i.test(navigator.userAgent))
-  )
+export function BackgroundWave() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const animationRef = useRef<number>();
+  const particlesRef = useRef<Particle[]>([]);
+  const timeRef = useRef(0);
 
-  // Create a grid of particles
-  const { positions, indices } = useMemo(() => {
-    const { particleRows: rows, particleCols: cols } = config
-    const positions = new Float32Array(rows * cols * 3)
-    const indices = new Float32Array(rows * cols)
-    
-    const rowSize = 40  // Total width
-    const colSize = 40  // Total height
-    
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < cols; j++) {
-        const index = i * cols + j
-        
-        // Create a grid with slight random offset
-        positions[index * 3] = (j / cols - 0.5) * rowSize + (Math.random() - 0.5) * 0.5
-        positions[index * 3 + 1] = (i / rows - 0.5) * colSize + (Math.random() - 0.5) * 0.5
-        positions[index * 3 + 2] = 0
-        
-        indices[index] = index
-      }
-    }
-    
-    return { positions, indices }
-  }, [])
-
-  // FPS and visibility management
-  const lastUpdate = useRef(0)
-  const visibleRef = useRef(true)
-  
   useEffect(() => {
-    const handleVisibility = () => {
-      visibleRef.current = !document.hidden
-    }
-    document.addEventListener('visibilitychange', handleVisibility)
-    return () => document.removeEventListener('visibilitychange', handleVisibility)
-  }, [])
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  // Animation with performance optimizations
-  useFrame(({ clock }) => {
-    if (!points.current || !visibleRef.current) return
+    const context = canvas.getContext("2d");
+    if (!context) return;
 
-    const currentTime = clock.getElapsedTime()
-    const deltaTime = currentTime - lastUpdate.current
-    
-    // Limit updates based on visibility and device capability
-    if (deltaTime < (1 / 60) / config.updateRate) return
-    
-    const time = currentTime
-    const positionAttribute = points.current.geometry.attributes.position
-    const array = positionAttribute.array as Float32Array
+    const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let prefersReducedMotion = motionQuery.matches;
+    let activeWaveConfig: Wave[] = [...WAVE_CONFIG];
 
-    for (let i = 0; i < array.length; i += 3) {
-      const x = array[i]
-      const y = array[i + 1]
-      
-      // Complex wave pattern
-      array[i + 2] = 
-        Math.sin(x * 0.5 + time * 0.7) * 2 +
-        Math.sin(y * 0.5 + time * 0.8) * 2 +
-        Math.sin((x + y) * 0.3 + time) * 1.5 +
-        Math.sin(Math.sqrt(x * x + y * y) * 0.2 + time) * 1
-    }
+    const getParticleCount = () => {
+      if (prefersReducedMotion) {
+        return Math.round(DESKTOP_PARTICLE_COUNT * 0.25);
+      }
 
-    lastUpdate.current = currentTime
+      const isMobile = window.innerWidth < 768;
+      return isMobile ? MOBILE_PARTICLE_COUNT : DESKTOP_PARTICLE_COUNT;
+    };
 
-    positionAttribute.needsUpdate = true
-  })
+    const updateWaveConfig = () => {
+      const isMobile = window.innerWidth < 768;
+      const amplitudeScale = prefersReducedMotion ? 0.35 : isMobile ? 0.75 : 1;
+      const thicknessScale = prefersReducedMotion ? 0.7 : 1;
+
+      activeWaveConfig = WAVE_CONFIG.map((wave) => ({
+        ...wave,
+        amplitude: wave.amplitude * amplitudeScale,
+        thickness: wave.thickness * thicknessScale,
+      }));
+    };
+
+    const drawStaticBackdrop = () => {
+      const width = canvas.width / dpr;
+      const height = canvas.height / dpr;
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = "rgba(0,0,0,0.9)";
+      context.fillRect(0, 0, width, height);
+
+      const baseGradient = context.createLinearGradient(0, 0, width, height);
+      baseGradient.addColorStop(0, "rgba(255,255,255,0.06)");
+      baseGradient.addColorStop(1, "rgba(50,50,50,0.08)");
+      context.fillStyle = baseGradient;
+      context.fillRect(0, 0, width, height);
+    };
+
+    const resize = () => {
+      const { innerWidth, innerHeight } = window;
+      canvas.width = innerWidth * dpr;
+      canvas.height = innerHeight * dpr;
+      canvas.style.width = `${innerWidth}px`;
+      canvas.style.height = `${innerHeight}px`;
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      context.scale(dpr, dpr);
+      updateWaveConfig();
+      particlesRef.current = createParticles(innerWidth, innerHeight, getParticleCount());
+      if (prefersReducedMotion) {
+        drawStaticBackdrop();
+      }
+    };
+
+    const render = () => {
+      if (prefersReducedMotion) {
+        animationRef.current = undefined;
+        return;
+      }
+
+      const width = canvas.width / dpr;
+      const height = canvas.height / dpr;
+
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = "rgba(0,0,0,0.9)";
+      context.fillRect(0, 0, width, height);
+
+      // subtle base tint
+      const baseGradient = context.createLinearGradient(0, 0, width, height);
+      baseGradient.addColorStop(0, "rgba(255,255,255,0.08)");
+      baseGradient.addColorStop(1, "rgba(50,50,50,0.08)");
+      context.fillStyle = baseGradient;
+      context.fillRect(0, 0, width, height);
+
+      timeRef.current += prefersReducedMotion ? 0.004 : 0.008;
+      const time = timeRef.current;
+
+      // draw flowing waves
+      activeWaveConfig.forEach((wave) => {
+        context.beginPath();
+        context.lineWidth = wave.thickness;
+
+        const gradient = context.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop(0, "rgba(255,255,255,0.0)");
+        gradient.addColorStop(0.4, wave.color);
+        gradient.addColorStop(0.6, wave.color);
+        gradient.addColorStop(1, "rgba(255,255,255,0.0)");
+        context.strokeStyle = gradient;
+
+        for (let x = 0; x <= width; x += 12) {
+          const y =
+            height / 2 +
+            Math.sin(x * wave.frequency + time * wave.speed) * wave.amplitude +
+            wave.offset;
+          const noise = Math.sin((x + wave.offset) * 0.015 + time * 1.2) * 6;
+          context.lineTo(x, y + noise);
+        }
+        context.stroke();
+      });
+
+      // update and render particles
+      const particles = particlesRef.current;
+      particles.forEach((particle) => {
+        particle.y -= particle.speed;
+        particle.x = particle.baseX + Math.sin(time * 1.2 + particle.drift) * 32;
+
+        if (particle.y < -10) {
+          particle.y = height + 10;
+          particle.baseX = Math.random() * width;
+        }
+
+        const radial = context.createRadialGradient(
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.radius * 8
+        );
+        radial.addColorStop(0, `rgba(255,255,255,${particle.alpha})`);
+        radial.addColorStop(0.35, `rgba(230,230,230,${particle.alpha * 0.6})`);
+        radial.addColorStop(1, "rgba(0,0,0,0)");
+
+        context.fillStyle = radial;
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.radius * 8, 0, Math.PI * 2);
+        context.fill();
+      });
+
+      // overlay grid for glass effect
+      context.save();
+      context.globalAlpha = 0.18;
+      context.fillStyle = "rgba(200,200,200,0.08)";
+      for (let gridX = -width; gridX < width * 2; gridX += 120) {
+        context.fillRect(gridX + ((time * 40) % 120), 0, 1, height);
+      }
+      context.restore();
+
+      animationRef.current = requestAnimationFrame(render);
+    };
+
+    const start = () => {
+      resize();
+      if (prefersReducedMotion) {
+        drawStaticBackdrop();
+      } else {
+        if (animationRef.current) {
+          cancelAnimationFrame(animationRef.current);
+        }
+        animationRef.current = requestAnimationFrame(render);
+      }
+    };
+
+    const handleMotionChange = (event: MediaQueryListEvent) => {
+      prefersReducedMotion = event.matches;
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = undefined;
+      }
+      timeRef.current = 0;
+      start();
+    };
+
+    motionQuery.addEventListener("change", handleMotionChange);
+    window.addEventListener("resize", resize);
+
+    start();
+
+    return () => {
+      motionQuery.removeEventListener("change", handleMotionChange);
+      window.removeEventListener("resize", resize);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <points ref={points}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.12}
-        color="#ffffff"
-        sizeAttenuation={true}
-        transparent
-        opacity={0.4}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </points>
-  )
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 h-full w-full select-none"
+      style={{ pointerEvents: "none" }}
+    />
+  );
 }
 
-export default function BackgroundWave() {
-  return (
-    <div style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      width: '100%',
-      height: '100%',
-      backgroundColor: '#000000',
-      pointerEvents: 'none',
-    }}>
-      <Canvas
-        camera={{
-          position: [0, -15, 25],
-          fov: 75,
-          near: 0.1,
-          far: 1000,
-          rotation: [0.3, 0, 0]
-        }}
-        dpr={[1, 1.5]}
-        performance={{ min: 0.5 }}
-      >
-        <AdaptiveDpr pixelated />
-        <AdaptiveEvents />
-        <color attach="background" args={[0x000000]} />
-        <Wave />
-        <EffectComposer>
-          <Bloom
-            intensity={0.8}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.9}
-            radius={0.5}
-          />
-        </EffectComposer>
-      </Canvas>
-    </div>
-  )
-}
+export default BackgroundWave;

@@ -32,17 +32,24 @@ const HOSTS: Array<{ label: string; host: string }> = [
   { label: 'Server Area', host: 'https://panel.vaultscope.dev' },
 ]
 
-async function checkHost(host: string): Promise<{ ok: boolean; status?: number; error?: string; latencyMs?: number }>
-{
+type HostCheck = {
+  ok: boolean
+  status?: number
+  error?: string
+  latencyMs?: number
+}
+
+async function checkHost(host: string): Promise<HostCheck> {
   const start = Date.now()
   try {
     const res = await fetchWithTimeout(host, { method: 'GET', cache: 'no-store' }, 6000)
     const latencyMs = Date.now() - start
     return { ok: res.ok, status: res.status, latencyMs }
-  } catch (e: any) {
+  } catch (error: unknown) {
     const latencyMs = Date.now() - start
     // Normalize AbortError message when fetch times out
-    const msg = e?.name === 'AbortError' ? 'timeout' : e?.message ?? String(e)
+    const err = error as { name?: string; message?: string }
+    const msg = err?.name === 'AbortError' ? 'timeout' : err?.message ?? String(error)
     return { ok: false, error: msg, latencyMs }
   }
 }
