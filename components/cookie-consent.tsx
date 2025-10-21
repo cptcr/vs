@@ -1,26 +1,44 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import { Button } from './ui/button'
+import { useState, useEffect } from "react"
+import { Button } from "./ui/button"
+import { useI18n } from "@/components/language-provider"
+
+type CookieCopy = {
+  body: {
+    intro: string
+    readMore: {
+      beforeLink: string
+      afterLink: string
+    }
+    linkText: string
+  }
+  actions: {
+    reject: string
+    accept: string
+  }
+}
 
 export function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false)
+  const { getValue } = useI18n()
+  const copy = getValue<CookieCopy>("cookieConsent")
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent')
+    const consent = localStorage.getItem("cookie-consent")
     if (!consent) {
       setShowConsent(true)
     }
   }, [])
 
   const handleAccept = () => {
-    localStorage.setItem('cookie-consent', 'accepted')
+    localStorage.setItem("cookie-consent", "accepted")
     setShowConsent(false)
     // Here you would initialize analytics and other cookie-dependent services
   }
 
   const handleReject = () => {
-    localStorage.setItem('cookie-consent', 'rejected')
+    localStorage.setItem("cookie-consent", "rejected")
     setShowConsent(false)
   }
 
@@ -32,27 +50,22 @@ export function CookieConsent() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="text-sm text-muted-foreground">
             <p>
-              We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic.
-              Please read our{' '}
-              <a href="/privacy" className="text-foreground hover:underline">
-                Privacy Policy
-              </a>{' '}
-              for more information.
+              {copy.body.intro}{" "}
+              <span>
+                {copy.body.readMore.beforeLink}{" "}
+                <a href="/privacy" className="text-foreground hover:underline">
+                  {copy.body.linkText}
+                </a>{" "}
+                {copy.body.readMore.afterLink}
+              </span>
             </p>
           </div>
           <div className="flex gap-4">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleReject}
-            >
-              Reject All
+            <Button variant="outline" size="sm" onClick={handleReject}>
+              {copy.actions.reject}
             </Button>
-            <Button
-              size="sm"
-              onClick={handleAccept}
-            >
-              Accept All
+            <Button size="sm" onClick={handleAccept}>
+              {copy.actions.accept}
             </Button>
           </div>
         </div>

@@ -2,12 +2,15 @@
 import type React from "react"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { CookieConsent } from "@/components/cookie-consent"
+import { Providers } from "@/components/providers"
+import { SkipLink } from "@/components/skip-link"
 import { getOrganizationSchema, getWebsiteSchema } from "@/lib/structured-data"
+import { DEFAULT_LANGUAGE, resolveTranslation } from "@/lib/i18n"
 import "./globals.css"
 export { metadata } from "./layout-meta"
 
@@ -18,9 +21,10 @@ export default function RootLayout({
 }>) {
   const organizationSchema = getOrganizationSchema()
   const websiteSchema = getWebsiteSchema()
+  const fallbackLoading = resolveTranslation(DEFAULT_LANGUAGE, "common.loading")
 
   return (
-    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang={DEFAULT_LANGUAGE} className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
         <script
           key="organization-schema"
@@ -36,24 +40,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-black font-sans antialiased text-foreground">
-        <Suspense fallback={<div>Loading...</div>}>
-          <a
-            href="#content"
-            className="absolute -top-20 left-4 z-50 rounded bg-foreground text-background px-3 py-2 text-sm focus:top-20 focus:outline-none focus:ring-2 focus:ring-foreground/60"
-          >
-            Skip to content
-          </a>
+        <Suspense fallback={<div>{typeof fallbackLoading === "string" ? fallbackLoading : "Loading..."}</div>}>
+          <Providers language={DEFAULT_LANGUAGE}>
+            <SkipLink />
+            <Header />
 
-          <Header />
+            <div id="content" className="min-h-screen pt-16">
+              {children}
+            </div>
 
-          <div id="content" className="min-h-screen pt-16">
-            {children}
-          </div>
+            <Footer />
 
-          <Footer />
-
-          <Analytics />
-          <CookieConsent />
+            <Analytics />
+            <CookieConsent />
+          </Providers>
         </Suspense>
       </body>
     </html>

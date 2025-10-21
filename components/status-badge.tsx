@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import { AlertTriangle, CheckCircle2, Loader2 } from "lucide-react"
+import { useI18n } from "@/components/language-provider"
 
 type StatusResponse = {
   checks: Array<{
@@ -22,6 +23,7 @@ const REFRESH_INTERVAL = 60_000
 export function StatusBadge() {
   const [status, setStatus] = useState<StatusState>({ state: "loading" })
   const idleCallbackRef = useRef<number | null>(null)
+  const { t } = useI18n()
 
   useEffect(() => {
     let cancelled = false
@@ -92,7 +94,7 @@ export function StatusBadge() {
         className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white/70"
       >
         <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />
-        Checking system status…
+        {t("status.loading")}
       </span>
     )
   }
@@ -105,7 +107,7 @@ export function StatusBadge() {
         className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 text-xs text-amber-200"
       >
         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
-        Status offline
+        {t("status.error")}
       </span>
     )
   }
@@ -119,14 +121,19 @@ export function StatusBadge() {
       role="status"
       aria-live="polite"
       className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 text-xs text-emerald-200"
-      title={`Updated ${new Date(status.generatedAt).toLocaleTimeString()} · Median latency ${summary.medianLatency.toFixed(0)}ms`}
+      title={t("status.tooltip", {
+        values: {
+          time: new Date(status.generatedAt).toLocaleTimeString(),
+          latency: summary.medianLatency.toFixed(0),
+        },
+      })}
     >
       {summary.allHealthy ? (
         <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
       ) : (
         <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
       )}
-      {summary.allHealthy ? "Systems operational" : "Degraded performance"}
+      {summary.allHealthy ? t("status.healthy") : t("status.degraded")}
     </span>
   )
 }
