@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { AlertTriangle, CheckCircle2, Loader2 } from "lucide-react"
 
 type StatusResponse = {
