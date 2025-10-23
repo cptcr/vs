@@ -71,7 +71,7 @@ export function buildMetadata({
       siteName: siteConfig.name,
       images: [
         {
-          url: imageUrl,
+          url: "https://vaultscope.dev/assets/seo-image.jpg",
           width: 1200,
           height: 630,
           alt: imageAlt,
@@ -82,7 +82,7 @@ export function buildMetadata({
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: [imageUrl],
+      images: ["https://vaultscope.dev/assets/seo-image.jpg"],
     },
     robots: {
       index: true,
