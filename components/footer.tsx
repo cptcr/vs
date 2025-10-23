@@ -1,14 +1,12 @@
 "use client"
 
 import { Shield, Cpu, MemoryStick, HardDrive, Network } from "lucide-react"
-import { StatusBadge } from "@/components/status-badge"
 import { useI18n } from "@/components/language-provider"
 
 export function Footer() {
   const { getValue, t } = useI18n()
   const copy = getValue<{
     description: string
-    statusLink: string
     stats: { cpu: string; ram: string; storage: string; network: string }
     sections: {
       resources: {
@@ -69,17 +67,7 @@ export function Footer() {
                 <span className="text-xs text-muted-foreground">{copy.stats.network}</span>
               </div>
             </div>
-            <div className="mt-6 space-y-2">
-              <StatusBadge />
-              <a
-                href="https://status.vaultscope.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span>{copy.statusLink}</span>
-              </a>
-            </div>
+            <div className="mt-6 h-px w-full bg-border/60" />
           </div>
 
           <div>

@@ -1,90 +1,32 @@
-import DocsSidebar from '@/components/docs-sidebar'
+"use client"
 
-const sidebarItems = [
-  {
-    title: "Getting Started",
-    href: "/docs/getting-started",
-    items: [
-      { title: "Introduction", href: "/docs/getting-started#introduction" },
-      { title: "Control Panel Overview", href: "/docs/getting-started#control-panel" },
-      { title: "Console & Files", href: "/docs/getting-started#console-files" },
-      { title: "Basic Troubleshooting", href: "/docs/getting-started#troubleshooting" },
-    ],
-  },
-  {
-    title: "Control Panel",
-    href: "/docs/control-panel",
-    items: [
-      { title: "Managing Servers", href: "/docs/control-panel#managing-servers" },
-      { title: "Ports & Networking", href: "/docs/control-panel#ports" },
-      { title: "SFTP Access", href: "/docs/control-panel#sftp" },
-      { title: "Resource Usage", href: "/docs/control-panel#resources" },
-      { title: "Server Backups", href: "/docs/control-panel#backups" },
-    ],
-  },
-  {
-    title: "Billing & Plans",
-    href: "/docs/billing",
-    items: [
-      { title: "Paymenter Guide", href: "/docs/billing#paymenter" },
-      { title: "Free Tier", href: "/docs/billing#free-tier" },
-      { title: "Plan Changes", href: "/docs/billing#plan-changes" },
-    ],
-  },
-  {
-    title: "Acceptable Use",
-    href: "/docs/acceptable-use",
-    items: [
-      { title: "Fair-Use Policy", href: "/docs/acceptable-use#fair-use" },
-      { title: "Prohibited Content", href: "/docs/acceptable-use#prohibited" },
-      { title: "Inactivity Policy", href: "/docs/acceptable-use#inactivity" },
-      { title: "Abuse Reporting", href: "/docs/acceptable-use#abuse" },
-    ],
-  },
-  {
-    title: "Troubleshooting",
-    href: "/docs/troubleshooting",
-    items: [
-      { title: "Common Errors", href: "/docs/troubleshooting#common-errors" },
-      { title: "Console Logs", href: "/docs/troubleshooting#console-logs" },
-      { title: "Panel Issues", href: "/docs/troubleshooting#panel-issues" },
-      { title: "Server Issues", href: "/docs/troubleshooting#server-issues" },
-      { title: "Getting Support", href: "/docs/troubleshooting#support" },
-    ],
-  },
-  {
-    title: "Advanced Guides",
-    href: "/docs/advanced",
-    items: [
-      { title: "SFTP Guide", href: "/docs/advanced#sftp" },
-      { title: "Custom Ports", href: "/docs/advanced#ports" },
-      { title: "Databases", href: "/docs/advanced#databases" },
-      { title: "Performance", href: "/docs/advanced#performance" },
-    ],
-  },
-  {
-    title: "Security",
-    href: "/docs/security",
-    items: [
-      { title: "Account Security", href: "/docs/security#account" },
-      { title: "Passwords", href: "/docs/security#passwords" },
-      { title: "DDoS Protection", href: "/docs/security#ddos" },
-      { title: "Safe File Upload", href: "/docs/security#file-upload" },
-    ],
-  },
-]
+import { useState, type ReactNode } from "react"
+import { cn } from "@/lib/utils"
+import DocsSidebar from "@/components/docs-sidebar"
+import DocsTableOfContents from "@/components/docs-table-of-contents"
 
-export default function DocsLayout({ children }: { children: React.ReactNode }) {
+export default function DocsLayout({ children }: { children: ReactNode }) {
+  const [searchOpen, setSearchOpen] = useState(false)
+
   return (
     <div className="min-h-screen bg-background">
-      <div className="container flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
-        <aside className="hidden md:block">
-          <DocsSidebar items={sidebarItems} />
-        </aside>
+      <div
+        className={cn(
+          "relative flex min-h-screen w-full flex-col transition duration-200 ease-out lg:flex-row",
+          searchOpen && "blur-sm sm:blur md:blur-[6px] lg:blur-[8px]"
+        )}
+      >
+        <DocsSidebar onSearchOpenChange={setSearchOpen} />
 
-        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
-          <div className="mx-auto w-full min-w-0">{children}</div>
-        </main>
+        <div className="flex-1 px-4 py-10 sm:px-6 lg:px-12 xl:px-16">
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 pb-10 pt-20">
+            <article data-docs-content className="space-y-10 text-foreground">
+              {children}
+            </article>
+          </div>
+        </div>
+
+        <DocsTableOfContents />
       </div>
     </div>
   )
