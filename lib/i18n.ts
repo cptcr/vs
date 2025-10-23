@@ -25,6 +25,7 @@ export const translations: Record<Language, TranslationRecord> = {
         label: "Language",
       },
       nav: {
+        home: "VaultScope",
         features: "Features",
         testimonials: "Testimonials",
         pricing: "Pricing",
@@ -32,10 +33,15 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Documentation",
         about: "About",
         status: "Status",
+        signup: "Sign Up",
+        login: "Login",
       },
       actions: {
         signIn: "Sign In",
         getStarted: "Get Started",
+        openMenu: "Open menu",
+        closeMenu: "Close menu",
+        menuTitle: "Menu",
       },
     },
     hero: {
@@ -248,6 +254,7 @@ export const translations: Record<Language, TranslationRecord> = {
         label: "Sprache",
       },
       nav: {
+        home: "VaultScope",
         features: "Features",
         testimonials: "Referenzen",
         pricing: "Preise",
@@ -255,10 +262,15 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Docs",
         about: "Über uns",
         status: "Status",
+        signup: "Registrieren",
+        login: "Login",
       },
       actions: {
         signIn: "Anmelden",
         getStarted: "Loslegen",
+        openMenu: "Menü öffnen",
+        closeMenu: "Menü schließen",
+        menuTitle: "Menü",
       },
     },
     hero: {
@@ -473,6 +485,7 @@ export const translations: Record<Language, TranslationRecord> = {
         label: "Langue",
       },
       nav: {
+        home: "VaultScope",
         features: "Fonctionnalités",
         testimonials: "Témoignages",
         pricing: "Tarifs",
@@ -480,10 +493,15 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Docs",
         about: "À propos",
         status: "Statut",
+        signup: "Inscription",
+        login: "Connexion",
       },
       actions: {
         signIn: "Connexion",
         getStarted: "Commencer",
+        openMenu: "Ouvrir le menu",
+        closeMenu: "Fermer le menu",
+        menuTitle: "Menu",
       },
     },
     hero: {

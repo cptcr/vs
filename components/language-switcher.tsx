@@ -11,9 +11,15 @@ type LanguageSwitcherProps = {
   className?: string
   buttonClassName?: string
   align?: "left" | "right"
+  dropdownPlacement?: "up" | "down"
 }
 
-export function LanguageSwitcher({ className, buttonClassName, align = "right" }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  className,
+  buttonClassName,
+  align = "right",
+  dropdownPlacement = "down",
+}: LanguageSwitcherProps) {
   const { language, languages, setLanguage, t } = useI18n()
   const [open, setOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -102,12 +108,13 @@ export function LanguageSwitcher({ className, buttonClassName, align = "right" }
         {open ? (
           <motion.div
             key="language-switcher-menu"
-            initial={{ opacity: 0, y: -4 }}
+            initial={{ opacity: 0, y: dropdownPlacement === "up" ? 4 : -4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
+            exit={{ opacity: 0, y: dropdownPlacement === "up" ? 4 : -4 }}
             transition={{ duration: 0.15 }}
             className={cn(
-              "absolute z-50 mt-2 min-w-[10rem] rounded-xl border border-white/12 bg-black/90 p-1 shadow-xl backdrop-blur-xl",
+              "absolute min-w-[10rem] rounded-xl border border-white/12 bg-black p-1 shadow-xl",
+              dropdownPlacement === "up" ? "bottom-full mb-2" : "top-full mt-2",
               menuAlignmentClass
             )}
           >

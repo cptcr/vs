@@ -56,7 +56,7 @@ export function Hero() {
               className="bg-white text-black hover:bg-white/90 text-base px-8 h-12 shadow-xl shadow-white/20 font-medium tracking-wide w-full sm:w-auto"
               asChild
             >
-              <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer">
+              <a href="https://pay.vaultscope.dev" target="_blank" rel="noopener noreferrer">
                 {heroCopy.ctas.primary}
                 <ArrowRight className="ml-2 h-5 w-5" strokeWidth={2.5} aria-hidden="true" />
               </a>

@@ -4,13 +4,13 @@ import { Shield, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
 import { useI18n } from "@/components/language-provider"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 type NavItem = {
-  key: "features" | "testimonials" | "pricing" | "community" | "documentation" | "about" | "status"
+  id: "home" | "about" | "docs" | "signup" | "login"
   href: string
+  label: string
   external?: boolean
 }
 
@@ -21,13 +21,11 @@ export function Header() {
 
   const navItems = useMemo<NavItem[]>(
     () => [
-      { key: "features", href: "/#features" },
-      { key: "testimonials", href: "/#testimonials" },
-      { key: "pricing", href: "/#pricing" },
-      { key: "community", href: "https://discord.gg/sRj3uPPpme", external: true },
-      { key: "documentation", href: "/docs" },
-      { key: "about", href: "/about" },
-      { key: "status", href: "https://status.vaultscope.dev", external: true },
+      { id: "home", href: "/", label: "VaultScope" },
+      { id: "about", href: "/about", label: "About" },
+      { id: "docs", href: "/docs", label: "Docs" },
+      { id: "signup", href: "https://pay.vaultscope.dev", label: "Sign Up", external: true },
+      { id: "login", href: "https://panel.vaultscope.dev", label: "Login", external: true },
     ],
     []
   )
@@ -70,51 +68,54 @@ export function Header() {
   }, [mobileMenuOpen])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/75 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex items-center justify-between py-3 md:h-16 md:py-0">
           <div className="flex items-center gap-2">
             <Shield className="h-8 w-8 text-foreground" aria-hidden="true" />
             <span className="text-xl font-bold text-foreground">{t("header.brand")}</span>
           </div>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
             {navItems.map((item) => {
-              const label = t(`header.nav.${item.key}`)
-              const className = "text-sm text-muted-foreground hover:text-foreground transition-colors"
+              const className =
+                "text-sm font-medium text-white/85 transition-colors hover:text-white focus-visible:text-white"
               if (item.external) {
                 return (
                   <a
-                    key={item.key}
+                    key={item.id}
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={className}
                   >
-                    {label}
+                    {item.label}
                   </a>
                 )
               }
               return (
                 <Link
-                  key={item.key}
+                  key={item.id}
                   href={item.href}
                   className={className}
                 >
-                  {label}
+                  {item.label}
                 </Link>
               )
             })}
           </nav>
 
-          <div className="flex items-center gap-3 md:gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <LanguageSwitcher className="hidden md:block" align="right" />
             <Button variant="ghost" className="hidden md:inline-flex text-foreground" asChild>
               <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer">
                 {t("header.actions.signIn")}
               </a>
             </Button>
-            <Button className="bg-foreground text-background hover:bg-foreground/90" asChild>
+            <Button
+              className="hidden bg-foreground text-background hover:bg-foreground/90 md:inline-flex"
+              asChild
+            >
               <a href="https://pay.vaultscope.dev" target="_blank" rel="noopener noreferrer">
                 {t("header.actions.getStarted")}
               </a>
@@ -122,90 +123,108 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-foreground"
+              className="h-11 w-11 rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20 focus-visible:ring-offset-background md:hidden"
               onClick={toggleMobileMenu}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
+              aria-label={
+                mobileMenuOpen
+                  ? t("header.actions.closeMenu", { fallback: "Close menu" })
+                  : t("header.actions.openMenu", { fallback: "Open menu" })
+              }
               id="mobile-open-button"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            key="mobile-nav-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 md:hidden"
-            aria-hidden={!mobileMenuOpen}
+      {mobileMenuOpen ? (
+        <div
+          className="fixed inset-0 z-[99999] flex flex-col text-white md:hidden"
+          style={{
+            backgroundColor: "#000",
+            minHeight: "100dvh",
+            paddingTop: "env(safe-area-inset-top)",
+            paddingBottom: "env(safe-area-inset-bottom)",
+          }}
+        >
+          <div
+            className="flex items-center justify-between border-b border-white/10 px-6 py-5 sm:px-10"
+            style={{ backgroundColor: "#000" }}
           >
-            <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-
-            <motion.nav
-              id="mobile-navigation"
-              aria-modal="true"
-              role="dialog"
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              className="absolute left-0 right-0 top-16 bg-background/95 border-t border-border p-4 shadow-lg"
+            <span className="text-base font-semibold uppercase tracking-wide text-white/50">
+              Menu
+            </span>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-11 w-11 rounded-full border border-white/10 bg-white/10 text-white transition hover:bg-white/20 focus-visible:ring-offset-black"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label={t("header.actions.closeMenu", { fallback: "Close menu" })}
             >
-              <div className="flex flex-col gap-4">
-                {navItems.map((item, index) => {
-                  const label = t(`header.nav.${item.key}`)
-                  const commonClass =
-                    "text-sm text-muted-foreground hover:text-foreground transition-colors px-2"
-                  if (item.external) {
-                    return (
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+
+          <nav
+            id="mobile-navigation"
+            aria-modal="true"
+            role="dialog"
+            className="flex flex-1 flex-col px-6 py-8 sm:px-10 sm:py-12"
+            style={{ backgroundColor: "#000" }}
+          >
+            <ul className="flex flex-1 flex-col gap-4 overflow-y-auto">
+              {navItems.map((item, index) => {
+                const commonClass =
+                  "block w-full rounded-lg px-4 py-4 text-xl font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+
+                if (item.external) {
+                  return (
+                    <li key={item.id}>
                       <a
-                        key={item.key}
                         ref={index === 0 ? firstLinkRef : undefined}
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={commonClass}
+                        onClick={() => setMobileMenuOpen(false)}
                       >
-                        {label}
+                        {item.label}
                       </a>
-                    )
-                  }
-                  return (
+                    </li>
+                  )
+                }
+
+                return (
+                  <li key={item.id}>
                     <Link
-                      key={item.key}
                       ref={index === 0 ? firstLinkRef : undefined}
                       href={item.href}
                       className={commonClass}
+                      onClick={() => setMobileMenuOpen(false)}
                     >
-                      {label}
+                      {item.label}
                     </Link>
-                  )
-                })}
-                <div className="pt-2">
-                  <LanguageSwitcher
-                    className="w-full"
-                    buttonClassName="w-full justify-between border-white/20 bg-white/[0.06] hover:bg-white/[0.1]"
-                    align="left"
-                  />
-                </div>
-                <a
-                  href="https://panel.vaultscope.dev"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors px-2"
-                >
-                  {t("header.actions.signIn")}
-                </a>
-              </div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  </li>
+                )
+              })}
+            </ul>
+
+            <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-6 text-sm text-white/40">
+              <span>VaultScope</span>
+              <LanguageSwitcher
+                className="w-auto"
+                buttonClassName="justify-between gap-2 rounded-lg border border-white/10 bg-white/10 text-white hover:bg-white/20"
+                align="left"
+                dropdownPlacement="up"
+              />
+            </div>
+          </nav>
+        </div>
+      ) : null}
     </header>
   )
 }
