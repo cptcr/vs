@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 import type { DocsNavChild, DocsNavItem } from "@/config/docs-navigation"
 import { slugify } from "@/lib/slugify"
 

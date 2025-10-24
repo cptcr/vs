@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 import Image, { type StaticImageData } from "next/image"
 import { cn } from "@/lib/utils"
 

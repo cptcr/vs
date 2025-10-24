@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 // layout is a server component; keep client-only UI inside client components
 import type React from "react"
 import { GeistSans } from "geist/font/sans"

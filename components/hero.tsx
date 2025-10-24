@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 "use client"
 import { ArrowRight, BookOpen, Server, Shield, Gauge } from "lucide-react"
 import { Button } from "@/components/ui/button"

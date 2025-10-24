@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 import { DocsScreenshot } from "@/components/docs-screenshot"
 import enable2FaButton from "@/app/assets/docs/server-account/2fa/enable-2fa-button.png"
 import enable2FaModal from "@/app/assets/docs/server-account/2fa/enable-2fa-window-follow-instructions-displayed.png"

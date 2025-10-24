@@ -152,3 +152,4 @@ The project combines Tailwind CSS utility classes with Radix UI components (see 
 ## License
 Copyright © 2025 VaultScope. All rights reserved.
 https://vaultscope.dev
+License: https://github.com/cptcr/vs/tree/main/LICENSE (BUSL-1.1, see: https://mariadb.com/bsl11)

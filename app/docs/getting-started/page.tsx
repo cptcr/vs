@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 import Link from "next/link"
 import { DocsScreenshot } from "@/components/docs-screenshot"
 import createDirectory from "@/app/assets/docs/manage-server/filemanager/create-new-directory-or-file-buttons.png"

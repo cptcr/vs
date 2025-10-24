@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 import { DocsScreenshot } from "@/components/docs-screenshot"
 import backupActions from "@/app/assets/docs/manage-server/backups/backup-actions-window-for-more-actions-if-needed.png"
 import restoreBackup from "@/app/assets/docs/manage-server/backups/restore-backup-window.png"

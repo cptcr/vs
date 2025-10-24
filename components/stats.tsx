@@ -1,3 +1,10 @@
+/**
+ * VaultScope Website
+ * Copyright (c) 2025 VaultScope
+ * Licensed under the Business Source License 1.1
+ * See LICENSE file for details.
+ */
+
 export function Stats() {
   const stats = [
     { value: "99.9%", label: "Uptime SLA", sublabel: "Guaranteed reliability" },
