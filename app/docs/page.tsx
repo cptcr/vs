@@ -25,58 +25,58 @@ const DOC_SECTIONS: {
   {
     title: "Getting started",
     href: "/docs/getting-started",
-    description: "Launch your first VaultScope environment and learn the control panel fundamentals.",
-    highlights: ["Quickstart checklist", "Panel walkthrough", "File & console access"],
+    description: "Work through the first-session checklist: console, files, backups and escalation paths.",
+    highlights: ["Orientation tour", "File uploads", "Backup safety net"],
     icon: Rocket,
   },
   {
     title: "Control panel",
     href: "/docs/control-panel",
-    description: "Operate day-to-day with confidence—manage servers, networking and resource usage.",
-    highlights: ["Provisioning runbook", "Ports & networking", "Usage insights"],
+    description: "Operate day-to-day with confidence—delegate access, automate schedules and manage networking.",
+    highlights: ["Run backups", "Build schedules", "Assign access"],
     icon: Settings2,
   },
   {
     title: "Billing & plans",
     href: "/docs/billing",
-    description: "Understand payment flows, invoices and how to right-size your footprint.",
-    highlights: ["Paymenter overview", "Free tier policy", "Upgrades & downgrades"],
+    description: "Set up Paymenter, verify invoices, manage renewals and handle refunds without guesswork.",
+    highlights: ["Account setup", "Invoice cadence", "Payment methods"],
     icon: CreditCard,
   },
   {
     title: "Operations hub",
     href: "/docs/troubleshooting",
-    description: "Diagnose issues fast with monitoring guides, runbooks and escalation paths.",
-    highlights: ["Common errors decoded", "Log inspection techniques", "Rescue workflows"],
+    description: "Diagnose issues fast with the incident runbook our on-call team uses every day.",
+    highlights: ["Startup triage", "Connectivity checks", "Escalation steps"],
     icon: Activity,
   },
   {
     title: "Advanced playbooks",
     href: "/docs/advanced",
-    description: "Level up with custom ports, database replicas and performance tuning tips.",
-    highlights: ["SFTP automation", "Database patterns", "Optimization recipes"],
+    description: "Level up with GitOps pipelines, custom networking and observability-driven automation.",
+    highlights: ["GitOps deploys", "Proxy patterns", "Security hardening"],
     icon: BookOpenCheck,
   },
   {
     title: "Security & trust",
     href: "/docs/security",
-    description: "Harden your environments with layered protection and safe operational habits.",
-    highlights: ["Account hygiene", "DDoS posture", "Safe file practices"],
+    description: "Harden your environments with layered protection, 2FA and incident response hygiene.",
+    highlights: ["Two-factor setup", "Credential rotation", "Incident response"],
     icon: Lock,
   },
 ]
 
 const QUICK_LINKS = [
-  { label: "View the quickstart guide", href: "/docs/quickstart" },
-  { label: "Read the FAQ", href: "/docs/faq" },
-  { label: "Explore database docs", href: "/docs/databases" },
+  { label: "Launch your first server", href: "/docs/quickstart" },
+  { label: "Secure your account", href: "/docs/security" },
+  { label: "Check billing policies", href: "/docs/billing" },
 ]
 
 const OPERATIONS_LINKS = [
   { label: "Server provisioning checklist", href: "/docs/servers" },
   { label: "Performance optimization", href: "/docs/optimization" },
   { label: "Monitoring and alerts", href: "/docs/monitoring" },
-  { label: "Advanced troubleshooting", href: "/docs/troubleshooting" },
+  { label: "Incident runbook", href: "/docs/troubleshooting" },
 ]
 
 export const metadata = buildMetadata({

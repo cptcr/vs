@@ -1,187 +1,127 @@
+import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
   title: "Advanced Guides — VaultScope Docs",
-  description: "Advanced guides for server management, SFTP, custom ports, databases and performance tuning.",
+  description:
+    "Automate VaultScope servers with GitOps, SFTP pipelines, custom ports, blue/green deploys and advanced performance tooling.",
   path: "/docs/advanced",
 })
 
 export default function AdvancedPage() {
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-4xl font-bold mb-6">Advanced Guides</h1>
-      
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Uploading Custom Files via SFTP</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">SFTP Setup</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Install an SFTP client (FileZilla, WinSCP)</li>
-                <li>Locate SFTP credentials in panel</li>
-                <li>Configure connection settings</li>
-                <li>Test connection</li>
-              </ul>
-            </div>
+    <div className="max-w-3xl space-y-10">
+      <header className="space-y-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">Level up</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Advanced VaultScope playbooks</h1>
+        <p className="text-lg text-muted-foreground">
+          Once you have the basics down, automate everything. These recipes combine the panel with CI/CD pipelines,
+          infrastructure as code and reliability practices the VaultScope team uses internally.
+        </p>
+      </header>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">File Management</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Navigate directory structure</li>
-                <li>Upload/download files</li>
-                <li>Set file permissions</li>
-                <li>Manage file ownership</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">GitOps for configuration</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Store panel configuration files (plugins, properties, scripts) in Git.</li>
+          <li>Use GitHub Actions or GitLab CI to build and package artifacts into ZIP files.</li>
+          <li>Upload artifacts using SFTP or the panel API, then trigger reloads via scheduled commands.</li>
+          <li>Rollback by restoring the previous release tag and redeploying.</li>
+        </ol>
+        <p className="text-muted-foreground">
+          Need API automation? Request API tokens from support@vaultscope.dev—public documentation is in the works.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Best Practices</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Use secure connections only</li>
-                <li>Maintain organized folders</li>
-                <li>Regular backup important files</li>
-                <li>Monitor file sizes</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">SFTP automation patterns</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Use SSH keys stored in your CI secret store to authenticate without passwords.</li>
+          <li>Deploy with rsync or lftp for delta uploads so you only transfer changed files.</li>
+          <li>Trigger post-upload hooks (like restarting a service) with scheduled tasks that run after deployment windows.</li>
+        </ul>
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          Rotate SFTP keys quarterly and revoke unused accounts under the <em>Users</em> tab to keep your pipeline secure.
+        </div>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Creating Custom Ports</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Port Configuration</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Request port allocation</li>
-                <li>Configure port settings</li>
-                <li>Set up port forwarding</li>
-                <li>Test port connectivity</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Custom ports and proxies</h2>
+        <p className="text-muted-foreground">
+          Many production environments run behind an edge proxy. Combine VaultScope with Cloudflare Tunnel, Nginx or Traefik.
+        </p>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Request additional allocations from the <em>Network</em> tab for dedicated proxy endpoints.</li>
+          <li>Run a reverse proxy on the same server or a dedicated relay VM to multiplex traffic.</li>
+          <li>Terminate SSL at the proxy and forward traffic internally over private allocations.</li>
+        </ul>
+        <p className="text-muted-foreground">
+          Reach out to <a href="mailto:neteng@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">neteng@vaultscope.dev</a> for help designing multi-region network topologies.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Port Management</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Monitor port usage</li>
-                <li>Configure firewall rules</li>
-                <li>Set up port restrictions</li>
-                <li>Troubleshoot port issues</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Blue/green deployments</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Clone production to a staging server using backups.</li>
+          <li>Deploy changes to staging and run load tests.</li>
+          <li>Cut traffic over by updating DNS or proxy routes.</li>
+          <li>Monitor metrics for one full cycle before deleting the old environment.</li>
+        </ol>
+        <p className="text-muted-foreground">
+          This approach pairs well with the{" "}
+          <Link href="/docs/monitoring" className="font-medium text-primary underline underline-offset-4">
+            monitoring guide
+          </Link>{" "}
+          to confirm nothing regresses during cutover.
+        </p>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Using Databases</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Database Setup</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Create database instance</li>
-                <li>Configure database settings</li>
-                <li>Set up user access</li>
-                <li>Import initial data</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Observability-driven scaling</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Feed metrics into automation (e.g., trigger a larger plan when TPS drops under target thresholds).</li>
+          <li>Schedule scripts that call the VaultScope API to spin up standby servers ahead of major events.</li>
+          <li>Use Canary scripts that join the server and report latency and join success rates.</li>
+        </ul>
+        <p className="text-muted-foreground">
+          Combine automation with human checks. Even advanced pipelines should require an operator sign-off before scaling
+          production.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Database Management</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Monitor database performance</li>
-                <li>Backup database regularly</li>
-                <li>Optimize queries</li>
-                <li>Manage storage space</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">Security-hardening checklist</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Enable two-factor authentication for every operator (see{" "}
+            <Link href="/docs/security" className="font-medium text-primary underline underline-offset-4">
+              security practices
+            </Link>
+            ).</li>
+          <li>Rotate secrets via schedules rather than manual updates so you can audit changes in version control.</li>
+          <li>Enforce signed commits or PR approvals before configuration files deploy to production.</li>
+          <li>Mirror backups to an external storage provider for defence in depth.</li>
+        </ul>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Security</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Set strong passwords</li>
-                <li>Configure access controls</li>
-                <li>Enable encryption</li>
-                <li>Regular security updates</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Optimizing Performance</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Resource Optimization</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Monitor resource usage</li>
-                <li>Optimize server settings</li>
-                <li>Configure caching</li>
-                <li>Manage background processes</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Performance Monitoring</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Track server metrics</li>
-                <li>Set up alerts</li>
-                <li>Analyze performance logs</li>
-                <li>Identify bottlenecks</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Optimization Tips</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Regular maintenance schedule</li>
-                <li>Clean up unused files</li>
-                <li>Optimize configurations</li>
-                <li>Update software regularly</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Advanced Security</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Security Measures</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Configure SSL/TLS</li>
-                <li>Set up IP whitelisting</li>
-                <li>Enable two-factor authentication</li>
-                <li>Implement access controls</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Monitoring & Alerts</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Set up security monitoring</li>
-                <li>Configure alert thresholds</li>
-                <li>Review security logs</li>
-                <li>Monitor access attempts</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-border pt-8">
-          <h2 className="text-2xl font-semibold mb-4">Additional Resources</h2>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              For more advanced topics and support:
-            </p>
-            <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-              <li>Join our Discord community</li>
-              <li>Check our knowledge base</li>
-              <li>Contact technical support</li>
-              <li>Review system documentation</li>
-            </ul>
-          </div>
-        </section>
-      </div>
+      <section className="space-y-6 border-t border-border pt-8">
+        <h2 className="text-2xl font-semibold">Share your automation</h2>
+        <p className="text-muted-foreground">
+          VaultScope thrives on community innovation. Publish your scripts and workflows in the{" "}
+          <span className="font-semibold text-foreground">#showcase</span> Discord channel or tag{" "}
+          <a href="https://twitter.com/vaultscope" className="font-medium text-primary underline underline-offset-4">
+            @vaultscope
+          </a>{" "}
+          on social media. We frequently highlight automation guides in new releases.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Looking for API access or deeper integration support? Email{" "}
+          <a href="mailto:solutions@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">
+            solutions@vaultscope.dev
+          </a>{" "}
+          with your use case.
+        </p>
+      </section>
     </div>
   )
 }

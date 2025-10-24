@@ -1,188 +1,122 @@
+import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
   title: "Troubleshooting — VaultScope Docs",
-  description: "Troubleshooting steps, console logs and common errors for VaultScope servers.",
+  description:
+    "Follow VaultScope runbooks for incident response: server startup failures, connection issues, panel outages and escalation paths.",
   path: "/docs/troubleshooting",
 })
 
 export default function TroubleshootingPage() {
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-4xl font-bold mb-6">Troubleshooting Guide</h1>
-      
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Common Errors</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Server Start Failures</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Check console logs for error messages</li>
-                <li>Verify resource allocation</li>
-                <li>Check file permissions</li>
-                <li>Validate configuration files</li>
-              </ul>
-            </div>
+    <div className="max-w-3xl space-y-10">
+      <header className="space-y-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">On-call toolkit</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Troubleshooting runbook</h1>
+        <p className="text-lg text-muted-foreground">
+          These are the same steps VaultScope engineers use during incidents. Start at the top, gather evidence and loop
+          in support with full context if you need a hand.
+        </p>
+      </header>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Port Issues</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Confirm port allocation</li>
-                <li>Check for port conflicts</li>
-                <li>Verify firewall settings</li>
-                <li>Test port accessibility</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">1. Server fails to start</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Check the console output for stack traces or port binding errors.</li>
+          <li>Verify the main jar or binary exists and the start command references the correct filename.</li>
+          <li>Ensure RAM allocation matches the JVM flags—out-of-memory kills appear as exit code 137.</li>
+          <li>Run a manual backup before retrying so you can roll back if the disk becomes corrupted.</li>
+        </ol>
+        <p className="text-muted-foreground">
+          Still stuck? Zip the latest log file and attach it to your support ticket for faster analysis.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Java Related Errors</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Verify Java version compatibility</li>
-                <li>Check memory allocation</li>
-                <li>Validate Java arguments</li>
-                <li>Review Java installation</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">2. Players cannot connect</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Confirm the server is online in the panel and not in a suspended or stopping state.</li>
+          <li>Verify the correct allocation is assigned under the <em>Network</em> tab.</li>
+          <li>Check firewall rules or proxies for recent changes.</li>
+          <li>Test connectivity using <code>mtr</code> or <code>ping</code> from a remote machine.</li>
+          <li>Rotate subdomains or DNS records if propagation issues linger.</li>
+        </ol>
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          If only some regions experience issues, gather traceroutes and node names—this helps our network engineers escalate to upstream providers.
+        </div>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Console Logs & Error Reading</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Reading Console Logs</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Access console through control panel</li>
-                <li>Identify error messages</li>
-                <li>Understand log severity levels</li>
-                <li>Use log filtering options</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">3. Panel or file manager errors</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Hard refresh the browser or try a different profile to rule out cached assets.</li>
+          <li>Check <a href="https://status.vaultscope.dev" className="font-medium text-primary underline underline-offset-4">status.vaultscope.dev</a> for active incidents.</li>
+          <li>Collect console logs from the browser DevTools if a specific request returns 500.</li>
+          <li>Attempt the action via SFTP or the API to confirm whether the issue is UI-specific.</li>
+        </ol>
+        <p className="text-muted-foreground">
+          Include request IDs or timestamps when contacting support—we can trace them in our application logs.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Common Error Messages</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Port already in use</li>
-                <li>Out of memory errors</li>
-                <li>Permission denied</li>
-                <li>Connection timeout</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">4. Performance degradation</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Review resource graphs in the panel for CPU or memory exhaustion.</li>
+          <li>Capture a profiler snapshot (spark, WarmRoast or VisualVM).</li>
+          <li>Check the <em>Schedules</em> tab for overlapping automated tasks causing spikes.</li>
+          <li>
+            Compare current plugins or mods against a known-good backup. Revert recently added modules to isolate the issue.
+          </li>
+        </ol>
+        <p className="text-muted-foreground">
+          Share profiler output with performance@vaultscope.dev if you need tuning suggestions.
+        </p>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Panel Not Loading</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Basic Checks</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Verify internet connection</li>
-                <li>Clear browser cache</li>
-                <li>Try different browser</li>
-                <li>Check system status page</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">5. Database problems</h2>
+        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+          <li>Confirm the database exists and credentials are valid in the <em>Databases</em> tab.</li>
+          <li>Check that your IP is whitelisted if connecting externally.</li>
+          <li>Inspect server logs for deadlocks or slow query warnings.</li>
+          <li>Restore from the most recent backup if corruption is detected.</li>
+        </ol>
+        <p className="text-muted-foreground">
+          The <Link href="/docs/databases" className="font-medium text-primary underline underline-offset-4">database guide</Link> covers common maintenance tasks in more depth.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Advanced Troubleshooting</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Check browser console for errors</li>
-                <li>Verify DNS resolution</li>
-                <li>Test with incognito mode</li>
-                <li>Disable browser extensions</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">6. Escalating to VaultScope support</h2>
+        <p className="text-muted-foreground">
+          When opening a ticket or emailing support@vaultscope.dev, include:
+        </p>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Server ID, region and the exact timestamp the issue started.</li>
+          <li>Steps to reproduce and whether the problem persists after a restart or backup restore.</li>
+          <li>Relevant logs, profiler output or screenshots.</li>
+          <li>Impact assessment (e.g., player count affected, revenue, tournaments).</li>
+        </ul>
+        <p className="text-muted-foreground">
+          For critical outages, submit the ticket first, then ping the on-call role in the{" "}
+          <a href="https://discord.gg/vaultscope" className="font-medium text-primary underline underline-offset-4">
+            VaultScope Discord
+          </a>
+          . Include the ticket number so the engineer can pick it up immediately.
+        </p>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Server Stuck / Unresponsive</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Immediate Actions</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Check resource usage</li>
-                <li>Review recent changes</li>
-                <li>Check console output</li>
-                <li>Force restart if necessary</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Prevention</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Monitor resource usage</li>
-                <li>Set up usage alerts</li>
-                <li>Regular maintenance</li>
-                <li>Backup important data</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Contacting Support</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Before Contacting Support</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Check documentation first</li>
-                <li>Gather error messages</li>
-                <li>List recent changes</li>
-                <li>Try basic troubleshooting</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Support Channels</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Email: support@vaultscope.dev</li>
-                <li>Discord community support</li>
-                <li>Support ticket system</li>
-                <li>Emergency contact (Premium only)</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Information to Include</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Server ID and details</li>
-                <li>Error messages</li>
-                <li>Steps to reproduce</li>
-                <li>Recent changes made</li>
-                <li>Attempted solutions</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-border pt-8">
-          <h2 className="text-2xl font-semibold mb-4">Emergency Procedures</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Emergency Recovery Steps</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Force stop unresponsive servers</li>
-                <li>Restore from latest backup</li>
-                <li>Contact emergency support</li>
-                <li>Document incident details</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Data Recovery</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Access backup archives</li>
-                <li>Restore specific files</li>
-                <li>Verify data integrity</li>
-                <li>Test recovered data</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section className="space-y-6 border-t border-border pt-8">
+        <h2 className="text-2xl font-semibold">Post-incident checklist</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Document the root cause, impact and resolution steps in your runbook.</li>
+          <li>Create or update schedules and alerts to prevent recurrence.</li>
+          <li>Share learnings in <span className="font-semibold text-foreground">#operations</span> so the wider team stays informed.</li>
+          <li>Celebrate the fix—operational excellence is a team sport.</li>
+        </ul>
+      </section>
     </div>
   )
 }

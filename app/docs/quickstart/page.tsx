@@ -1,157 +1,149 @@
+import Link from "next/link"
+import { DocsScreenshot } from "@/components/docs-screenshot"
+import createAccount from "@/app/assets/docs/create-billing-account/create-account.png"
+import verificationEmail from "@/app/assets/docs/create-billing-account/example-verification-email.png"
+import orderConfirmation from "@/app/assets/docs/create-server/order-confirmation.png"
+import passwordResetEmail from "@/app/assets/docs/create-server/password-reset.png"
+import passwordResetForm from "@/app/assets/docs/create-server/password-reset-site.png"
+import purchaseServer from "@/app/assets/docs/create-server/purchase-server.png"
+import successView from "@/app/assets/docs/create-server/success-view.png"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
   title: "Quickstart — VaultScope Docs",
-  description: "Quickstart walkthroughs to get your server up and running with VaultScope.",
+  description:
+    "Spin up your first VaultScope server in minutes: register, confirm billing, reset your panel password and access the control panel.",
   path: "/docs/quickstart",
 })
 
 export default function QuickStartPage() {
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-4xl font-bold mb-6">Quick Start Guide</h1>
-      
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Setting Up Your Server</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">1. Choose Your Configuration</h3>
-              <p className="text-muted-foreground mb-2">
-                Select your server specifications:
-              </p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>CPU cores and speed</li>
-                <li>Memory allocation</li>
-                <li>Storage capacity</li>
-                <li>Network bandwidth</li>
-              </ul>
-            </div>
-            
+    <div className="max-w-3xl space-y-10">
+      <header className="space-y-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">Launch faster</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Quickstart your first VaultScope server</h1>
+        <p className="text-lg text-muted-foreground">
+          Follow the same provisioning path our support team shares with new customers. These steps turn a brand-new
+          account into an active server with control panel access in under five minutes.
+        </p>
+      </header>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">2. Server Deployment</h3>
-              <p className="text-muted-foreground mb-2">
-                Your server will be automatically deployed with:
-              </p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Latest security updates</li>
-                <li>Optimized configuration</li>
-                <li>DDoS protection</li>
-                <li>Backup system</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">1. Create your billing profile</h2>
+        <p className="text-muted-foreground">
+          Visit{" "}
+          <a href="https://pay.vaultscope.dev/register" className="font-medium text-primary underline underline-offset-4">
+            pay.vaultscope.dev/register
+          </a>{" "}
+          and create a billing account. This unlocks the storefront, payment history and automated invoices.
+        </p>
+        <DocsScreenshot
+          image={createAccount}
+          alt="VaultScope billing registration form showing the required account details."
+          caption="Complete the registration form with the email address you will later use for the server control panel."
+          priority
+        />
+        <p className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+          Verification emails are only sent from <span className="font-semibold text-foreground">robot@vaultscope.dev</span>.
+          Add the address to your allowlist if you use aggressive spam filtering.
+        </p>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">3. Access Your Server</h3>
-              <p className="text-muted-foreground mb-2">
-                Multiple ways to manage your server:
-              </p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Web-based control panel</li>
-                <li>SSH access</li>
-                <li>SFTP for file management</li>
-                <li>Console access</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">2. Approve the verification email</h2>
+        <p className="text-muted-foreground">
+          Open the verification email in your inbox and click the confirmation link. If the message does not arrive
+          within two minutes, check your spam or updates folder before requesting a resend.
+        </p>
+        <DocsScreenshot
+          image={verificationEmail}
+          alt="Example VaultScope verification email with the confirm account button highlighted."
+          caption="You can safely verify the email by hovering the button and ensuring it points back to pay.vaultscope.dev."
+        />
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Initial Configuration</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Security Setup</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Change default passwords</li>
-                <li>Configure firewall rules</li>
-                <li>Set up SSH keys</li>
-                <li>Enable two-factor authentication</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">3. Purchase your first server</h2>
+        <p className="text-muted-foreground">
+          After verification, sign in to the billing area and choose the game or workload template that matches your
+          project. The storefront walks you through hardware selection and location preferences.
+        </p>
+        <DocsScreenshot
+          image={purchaseServer}
+          alt="VaultScope checkout screen showing the order summary and payment options."
+          caption="Review the server plan, location and recurring price before submitting the order."
+        />
+        <p className="text-muted-foreground">
+          Successful purchases display an on-screen confirmation and immediately queue the server for deployment.
+        </p>
+        <DocsScreenshot
+          image={orderConfirmation}
+          alt="VaultScope order confirmation view with order details and invoice download options."
+          caption="Keep the order number handy—support references it when helping you with deployment questions."
+        />
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Network Configuration</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Configure network ports</li>
-                <li>Set up domain names</li>
-                <li>Configure SSL certificates</li>
-                <li>Set up reverse proxy (if needed)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">4. Reset the panel password</h2>
+        <p className="text-muted-foreground">
+          A password reset email arrives from <span className="font-semibold text-foreground">robot@vaultscope.dev</span>{" "}
+          as soon as the server finishes installing. Use it to set a control panel password that is different from your
+          billing credentials.
+        </p>
+        <DocsScreenshot
+          image={passwordResetEmail}
+          alt="VaultScope password reset email containing the reset button."
+          caption="Each reset link expires after one hour. Request a new link from the billing area if it times out."
+        />
+        <DocsScreenshot
+          image={passwordResetForm}
+          alt="VaultScope password reset page with fields for the new password."
+          caption="Choose a strong password—VaultScope enforces a minimum of 12 characters and multi-factor authentication is available later."
+        />
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Basic Operations</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Server Controls</h3>
-              <p className="text-muted-foreground mb-2">Essential server operations:</p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Start/Stop server</li>
-                <li>Restart services</li>
-                <li>Monitor resources</li>
-                <li>View server logs</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">File Management</h3>
-              <p className="text-muted-foreground mb-2">Managing your files:</p>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Upload/download files</li>
-                <li>Edit configuration files</li>
-                <li>Set file permissions</li>
-                <li>Create backups</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Next Steps</h2>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              After completing the initial setup, explore these areas:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="border border-border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">Performance</h3>
-                <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                  <li>Resource monitoring</li>
-                  <li>Performance optimization</li>
-                  <li>Server scaling</li>
-                </ul>
-              </div>
-
-              <div className="border border-border rounded-lg p-4">
-                <h3 className="text-lg font-medium mb-2">Security</h3>
-                <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                  <li>Security hardening</li>
-                  <li>SSL configuration</li>
-                  <li>Backup strategies</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Common Issues</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Troubleshooting Tips</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Check server status and logs</li>
-                <li>Verify network connectivity</li>
-                <li>Monitor resource usage</li>
-                <li>Review recent changes</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">5. Sign in at panel.vaultscope.dev</h2>
+        <p className="text-muted-foreground">
+          Head to{" "}
+          <a href="https://panel.vaultscope.dev" className="font-medium text-primary underline underline-offset-4">
+            panel.vaultscope.dev
+          </a>{" "}
+          and log in with the billing email and the password you just created. Your newly provisioned server appears on
+          the dashboard with live status and resource usage.
+        </p>
+        <DocsScreenshot
+          image={successView}
+          alt="VaultScope control panel dashboard showing a newly provisioned server in the server list."
+          caption="Click the server card to open the console, file manager, networking tools and backups."
+        />
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3">
+          <h3 className="text-lg font-semibold text-foreground">Next up</h3>
+          <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+            <li>
+              Configure automatic backups by following the{" "}
+              <Link href="/docs/control-panel" className="font-medium text-primary underline underline-offset-4">
+                control panel guide
+              </Link>
+              .
+            </li>
+            <li>
+              Invite teammates or managers with scoped access through the{" "}
+              <Link href="/docs/servers" className="font-medium text-primary underline underline-offset-4">
+                server management walkthrough
+              </Link>
+              .
+            </li>
+            <li>
+              Enable two-factor authentication from the{" "}
+              <Link href="/docs/security" className="font-medium text-primary underline underline-offset-4">
+                account security doc
+              </Link>{" "}
+              to keep your login safe.
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   )
 }

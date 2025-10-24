@@ -1,174 +1,122 @@
+import Link from "next/link"
+import { DocsScreenshot } from "@/components/docs-screenshot"
+import createDatabaseButton from "@/app/assets/docs/manage-server/manage-database/create-new-database-button.png"
+import createDatabaseModal from "@/app/assets/docs/manage-server/manage-database/create-new-database-window-set-database-name-and-allowed-connections-origins-as-ipv4.png"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Databases — VaultScope Docs",
-  description: "How to create and manage databases for your servers on VaultScope.",
+  title: "Database Management — VaultScope Docs",
+  description:
+    "Create databases inside the VaultScope panel, manage credentials, allow remote connections and keep replicas healthy.",
   path: "/docs/databases",
 })
 
 export default function DatabasesPage() {
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-4xl font-bold mb-6">Database Management</h1>
-      
-      <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Database Overview</h2>
-          <p className="text-muted-foreground mb-4">
-            Comprehensive database management features and capabilities:
-          </p>
-          <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-            <li>Multiple database engine support</li>
-            <li>Automated backups</li>
-            <li>Performance monitoring</li>
-            <li>Security management</li>
-            <li>Scaling capabilities</li>
-          </ul>
-        </section>
+    <div className="max-w-3xl space-y-10">
+      <header className="space-y-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">Managed databases</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Provision and operate databases</h1>
+        <p className="text-lg text-muted-foreground">
+          VaultScope ships with built-in database management for each server. You can spin up MySQL-compatible instances,
+          control network access and share credentials with collaborators without leaving the panel.
+        </p>
+      </header>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Database Setup</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Creating Databases</h3>
-              <p className="text-muted-foreground">Steps to create a new database:</p>
-              <ul className="list-disc ml-6 mt-2 space-y-1 text-muted-foreground">
-                <li>Choose database engine</li>
-                <li>Set database name</li>
-                <li>Configure character set</li>
-                <li>Set collation</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">1. Create a database</h2>
+        <p className="text-muted-foreground">
+          Open the <em>Databases</em> tab on your server and click <em>Create New Database</em>. Give it a descriptive
+          name—VaultScope automatically prefixes it with your server identifier.
+        </p>
+        <DocsScreenshot
+          image={createDatabaseButton}
+          alt="VaultScope databases tab with the Create New Database button."
+          caption="You need to be logged in to panel.vaultscope.dev and inside the server view to see this option."
+          priority
+        />
+        <DocsScreenshot
+          image={createDatabaseModal}
+          alt="VaultScope create database modal with fields for name and allowed connections."
+          caption="Restrict access by whitelisting IPv4 addresses or leave it blank for panel-only usage."
+        />
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          Passwords generate automatically. Copy them into your password manager—the panel will only show each password
+          once.
+        </div>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">User Management</h3>
-              <p className="text-muted-foreground">Database user administration:</p>
-              <ul className="list-disc ml-6 mt-2 space-y-1 text-muted-foreground">
-                <li>Create database users</li>
-                <li>Set user permissions</li>
-                <li>Manage access control</li>
-                <li>Password policies</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">2. Connect from applications and tools</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Panel-hosted applications (plugins, containers) can connect using 127.0.0.1 and the provided credentials.</li>
+          <li>
+            External tools like TablePlus or DBeaver require you to add your workstation IP in the <em>Allowed Connections</em> field.
+          </li>
+          <li>Use SSL tunnels or VPNs for production workloads—open databases directly to the internet only during development.</li>
+        </ul>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Database Access</h2>
-          <div className="space-y-4">
-            <p className="text-muted-foreground">
-              Different ways to access your databases:
-            </p>
-            <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
-              <li>Web-based database manager</li>
-              <li>Command-line interface</li>
-              <li>Remote database connections</li>
-              <li>API access</li>
-              <li>Database administration tools</li>
-            </ul>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">3. Manage credentials securely</h2>
+        <p className="text-muted-foreground">
+          Rotate credentials from the <em>Settings</em> tab when teammates leave or after suspected compromise. VaultScope
+          updates environment variables for all running processes automatically.
+        </p>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Store secrets in a shared password manager rather than plain text documents.</li>
+          <li>Audit database access via the <em>Activity</em> log to trace who created, rotated or deleted credentials.</li>
+          <li>Use the <Link href="/docs/security" className="font-medium text-primary underline underline-offset-4">security guide</Link> to enable two-factor authentication before granting write access.</li>
+        </ul>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Backup & Recovery</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Backup Options</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Automated daily backups</li>
-                <li>Manual backup creation</li>
-                <li>Backup compression</li>
-                <li>Backup encryption</li>
-              </ul>
-            </div>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">4. Backups and restores</h2>
+        <p className="text-muted-foreground">
+          Databases piggyback on the server backup system. When you trigger a backup, VaultScope exports the database and
+          stores it alongside your files.
+        </p>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Include a nightly backup schedule to capture incremental changes.</li>
+          <li>For emergency restores, recover the database from the backup archive and import it via the panel console.</li>
+          <li>Keep larger exports (over 1&nbsp;GB) locally as well—downloads from the panel are throttled to 50&nbsp;Mbps for fairness.</li>
+        </ul>
+      </section>
 
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Recovery Procedures</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Point-in-time recovery</li>
-                <li>Full database restore</li>
-                <li>Table-level recovery</li>
-                <li>Emergency recovery options</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">5. Performance tuning checklist</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>Limit long-running queries by adding indexes for frequently queried columns.</li>
+          <li>Enable slow query logging and review results weekly.</li>
+          <li>Separate read-heavy workloads into replicas—open a ticket for managed replica options.</li>
+          <li>Monitor CPU, RAM and disk usage from the <em>Metrics</em> panel to detect spikes caused by database load.</li>
+        </ul>
+      </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Performance Optimization</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Monitoring</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Query performance analysis</li>
-                <li>Resource usage monitoring</li>
-                <li>Connection tracking</li>
-                <li>Performance metrics</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Optimization</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Query optimization</li>
-                <li>Index management</li>
-                <li>Cache configuration</li>
-                <li>Resource allocation</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Security</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Access Control</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>User authentication</li>
-                <li>Role-based access control</li>
-                <li>SSL/TLS encryption</li>
-                <li>IP whitelisting</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Security Best Practices</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Regular security updates</li>
-                <li>Password policies</li>
-                <li>Access logging</li>
-                <li>Security audits</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Troubleshooting</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Common Issues</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Connection problems</li>
-                <li>Performance issues</li>
-                <li>Backup failures</li>
-                <li>Access denied errors</li>
-              </ul>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Diagnostic Tools</h3>
-              <ul className="list-disc ml-6 space-y-1 text-muted-foreground">
-                <li>Log analysis</li>
-                <li>Query profiling</li>
-                <li>System monitoring</li>
-                <li>Diagnostic reports</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section className="space-y-6 border-t border-border pt-8">
+        <h2 className="text-2xl font-semibold">Troubleshooting</h2>
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>
+            <strong className="text-foreground">Connection refused:</strong> confirm your IP is allowed and the database
+            service is running.
+          </li>
+          <li>
+            <strong className="text-foreground">Authentication failed:</strong> reset the password from the panel and
+            restart dependent services so they pick up the new credentials.
+          </li>
+          <li>
+            <strong className="text-foreground">Timeouts or slow queries:</strong> export the slow query log and follow the{" "}
+            <Link href="/docs/optimization" className="font-medium text-primary underline underline-offset-4">
+              optimization checklist
+            </Link>
+            .
+          </li>
+        </ul>
+        <p className="text-sm text-muted-foreground">
+          If you get stuck, open a ticket under <em>Database Assistance</em> and include the server ID, database name and
+          exact timestamps of the issue.
+        </p>
+      </section>
     </div>
   )
 }

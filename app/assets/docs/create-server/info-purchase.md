@@ -1,0 +1,5 @@
+- User gets credentials via email
+- User gets confirmation via email
+- Server login: https://panel.vaultscope.dev
+- Create Account and get server: https://pay.vaultscope.dev
+- After successfull purchase they get an email from robot@vaultscope.dev for a password reset. When clicking on the link, they can reset the password and login to the server area after with the email used and the password set.

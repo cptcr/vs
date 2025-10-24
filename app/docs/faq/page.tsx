@@ -1,152 +1,148 @@
+import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
   title: "FAQ — VaultScope Docs",
-  description: "Frequently asked questions and answers for VaultScope users.",
+  description:
+    "Answers to common VaultScope questions covering billing, server provisioning, networking, backups and support policies.",
   path: "/docs/faq",
 })
 
+const faqs = [
+  {
+    category: "Getting started",
+    items: [
+      {
+        question: "How long does a new server take to deploy?",
+        answer:
+          "Most servers provision in under two minutes. Heavy modpacks or large game templates can take up to five minutes while dependencies install. You will receive a password reset email once the server is ready.",
+      },
+      {
+        question: "Where do I manage my billing details?",
+        answer:
+          "All invoices, payment methods and subscriptions live at pay.vaultscope.dev. Use the billing guide if you need a walkthrough.",
+        link: { href: "/docs/billing", label: "Billing guide" },
+      },
+      {
+        question: "Do I need separate logins for billing and the control panel?",
+        answer:
+          "No. VaultScope links billing and operational access via the same email address. Set a unique password for each system and enable two-factor authentication on the control panel.",
+        link: { href: "/docs/security", label: "Security practices" },
+      },
+    ],
+  },
+  {
+    category: "Operations",
+    items: [
+      {
+        question: "Can I invite teammates to manage a server?",
+        answer:
+          "Yes. Add them under the Users tab inside the control panel. You can grant granular permissions for console, SFTP, schedules and power actions.",
+        link: { href: "/docs/control-panel", label: "Control panel reference" },
+      },
+      {
+        question: "How often should I create backups?",
+        answer:
+          "We recommend a nightly automated backup plus an extra snapshot before major updates. Manual backups only count toward retention after they finish uploading.",
+        link: { href: "/docs/getting-started", label: "Getting started checklist" },
+      },
+      {
+        question: "Does VaultScope support custom domains?",
+        answer:
+          "Each server can claim one subdomain under vaultscope.dev or cptcr.dev. For custom domains, place a reverse proxy in front of your server or use Cloudflare Tunnel.",
+      },
+    ],
+  },
+  {
+    category: "Performance",
+    items: [
+      {
+        question: "What plan should I choose for 200 concurrent players?",
+        answer:
+          "Start with a plan offering at least 6 dedicated cores and 12 GB of RAM. Monitor metrics and upgrade before you sustain 80% utilization.",
+        link: { href: "/docs/optimization", label: "Optimization guide" },
+      },
+      {
+        question: "Can I run external exporters or monitoring agents?",
+        answer:
+          "Absolutely. Drop exporters onto the server via SFTP, expose them on a dedicated port and secure them with basic auth or mTLS.",
+        link: { href: "/docs/monitoring", label: "Monitoring strategy" },
+      },
+    ],
+  },
+  {
+    category: "Support & policies",
+    items: [
+      {
+        question: "How do I contact support?",
+        answer:
+          "Open a ticket from the control panel or email support@vaultscope.dev. For emergencies, ping the #incidents channel in Discord after submitting a ticket.",
+        link: { href: "/docs/troubleshooting", label: "Troubleshooting guide" },
+      },
+      {
+        question: "What happens if my payment fails?",
+        answer:
+          "We send reminders at 24 and 72 hours. Services suspend on day four. Data stays intact for seven days after suspension so you can resolve billing issues without losing progress.",
+        link: { href: "/docs/billing", label: "Billing policies" },
+      },
+      {
+        question: "What content is prohibited?",
+        answer:
+          "VaultScope prohibits malware, illegal content and abusive behaviour. Review the acceptable use policy for the full list before hosting community servers.",
+        link: { href: "/docs/acceptable-use", label: "Acceptable use policy" },
+      },
+    ],
+  },
+]
+
 export default function FAQPage() {
   return (
-    <div className="max-w-3xl">
-      <h1 className="text-4xl font-bold mb-6">Frequently Asked Questions</h1>
-      
+    <div className="max-w-3xl space-y-10">
+      <header className="space-y-4">
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">Answers on demand</p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Frequently asked questions</h1>
+        <p className="text-lg text-muted-foreground">
+          Quick answers to the topics we see most often in tickets, live chat and Discord. Each answer links to a deeper
+          guide when you want the full playbook.
+        </p>
+      </header>
+
       <div className="space-y-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">General Questions</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What resources are included with my server?</h3>
-              <p className="text-muted-foreground">
-                Each server includes dedicated CPU cores, allocated RAM, SSD storage, and unmetered bandwidth. Specific resources depend on your chosen plan.
-              </p>
+        {faqs.map(section => (
+          <section key={section.category} className="space-y-6">
+            <h2 className="text-2xl font-semibold">{section.category}</h2>
+            <div className="space-y-4">
+              {section.items.map(item => (
+                <article
+                  key={item.question}
+                  className="rounded-lg border border-border/60 bg-background/60 p-4 shadow-sm transition hover:border-primary/60 hover:bg-primary/5"
+                >
+                  <h3 className="text-lg font-semibold text-foreground">{item.question}</h3>
+                  <p className="mt-2 text-muted-foreground">{item.answer}</p>
+                  {item.link ? (
+                    <p className="mt-3 text-sm">
+                      <Link href={item.link.href} className="font-medium text-primary underline underline-offset-4">
+                        {item.link.label}
+                      </Link>
+                    </p>
+                  ) : null}
+                </article>
+              ))}
             </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">How quickly can I get started?</h3>
-              <p className="text-muted-foreground">
-                Server deployment is instant. Once payment is processed, your server will be ready within minutes, complete with all necessary configurations.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What operating systems are supported?</h3>
-              <p className="text-muted-foreground">
-                We support major Linux distributions including Ubuntu, CentOS, and Debian. Custom OS installations are available on request.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Technical Questions</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">How do I access my server?</h3>
-              <p className="text-muted-foreground">
-                You can access your server through our web-based control panel, SSH, SFTP, or direct console access. Detailed connection information is provided upon server creation.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What kind of backups are available?</h3>
-              <p className="text-muted-foreground">
-                We provide automated daily backups with 7-day retention. You can also create manual backups at any time, and download them for local storage.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Is DDoS protection included?</h3>
-              <p className="text-muted-foreground">
-                Yes, all servers include DDoS protection powered by Cloudflare. This provides enterprise-grade protection against various types of attacks.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Account & Billing</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">How does billing work?</h3>
-              <p className="text-muted-foreground">
-                We offer monthly and annual billing cycles. Services are billed in advance, and you can upgrade or downgrade at any time with pro-rated adjustments.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What payment methods are accepted?</h3>
-              <p className="text-muted-foreground">
-                We accept all major credit cards, PayPal, and cryptocurrency payments. Enterprise clients can arrange for wire transfers or purchase orders.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">Can I upgrade my server later?</h3>
-              <p className="text-muted-foreground">
-                Yes, you can upgrade your server resources at any time. Upgrades are applied instantly with minimal downtime, and billing is adjusted accordingly.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Support & Maintenance</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What support is included?</h3>
-              <p className="text-muted-foreground">
-                All plans include 24/7 technical support via email and ticket system. Premium plans also include priority support and direct phone assistance.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">How are updates handled?</h3>
-              <p className="text-muted-foreground">
-                Security updates are applied automatically. Major system updates are scheduled with advance notice and performed during maintenance windows.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What is your uptime guarantee?</h3>
-              <p className="text-muted-foreground">
-                We guarantee 99.9% uptime for all servers. Any downtime exceeding this is credited according to our Service Level Agreement.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Security</h2>
-          <div className="space-y-4">
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">How secure are your servers?</h3>
-              <p className="text-muted-foreground">
-                We implement multiple security layers including firewalls, DDoS protection, intrusion detection, and regular security audits. All data is encrypted at rest and in transit.
-              </p>
-            </div>
-
-            <div className="border border-border rounded-lg p-4">
-              <h3 className="text-lg font-medium mb-2">What about data privacy?</h3>
-              <p className="text-muted-foreground">
-                We adhere to strict data privacy standards and never access your server content without permission. All data centers are GDPR compliant.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="border-t border-border pt-8">
-          <h2 className="text-2xl font-semibold mb-4">Still Have Questions?</h2>
-          <p className="text-muted-foreground">
-            If you couldn&apos;t find the answer you&apos;re looking for, please contact our support team:
-          </p>
-          <ul className="list-disc ml-6 mt-2 space-y-1 text-muted-foreground">
-            <li>Email: support@vaultscope.dev</li>
-            <li>Submit a ticket through your control panel</li>
-            <li>Join our Discord community</li>
-          </ul>
-        </section>
+          </section>
+        ))}
       </div>
+
+      <section className="space-y-4 border-t border-border pt-8">
+        <h2 className="text-2xl font-semibold">Still need help?</h2>
+        <p className="text-muted-foreground">
+          Email <a href="mailto:support@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">support@vaultscope.dev</a>, open a control panel ticket or join the{" "}
+          <a href="https://discord.gg/vaultscope" className="font-medium text-primary underline underline-offset-4">
+            VaultScope Discord
+          </a>{" "}
+          for real-time answers.
+        </p>
+      </section>
     </div>
   )
 }
