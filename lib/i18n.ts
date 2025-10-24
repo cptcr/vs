@@ -196,11 +196,18 @@ export const translations: Record<Language, TranslationRecord> = {
           title: "Resources",
           links: {
             documentation: "Documentation",
-            community: "Community",
             controlPanel: "Control Panel",
             payment: "Billing Portal / Register",
             status: "Status",
             features: "Features",
+          },
+        },
+        socials: {
+          title: "Socials",
+          links: {
+            developmentServer: "Development Server",
+            mainServer: "Main Server",
+            github: "GitHub",
           },
         },
         infrastructure: {
@@ -428,11 +435,18 @@ export const translations: Record<Language, TranslationRecord> = {
           title: "Ressourcen",
           links: {
             documentation: "Dokumentation",
-            community: "Community",
             controlPanel: "Control Panel",
             payment: "Billing-Portal / Registrierung",
             status: "Status",
             features: "Features",
+          },
+        },
+        socials: {
+          title: "Soziale Kanäle",
+          links: {
+            developmentServer: "Entwickler-Server",
+            mainServer: "Haupt-Server",
+            github: "GitHub",
           },
         },
         infrastructure: {
@@ -660,11 +674,18 @@ export const translations: Record<Language, TranslationRecord> = {
           title: "Ressources",
           links: {
             documentation: "Documentation",
-            community: "Communauté",
             controlPanel: "Tableau de bord",
             payment: "Portail de facturation / Inscription",
             status: "Statut",
             features: "Fonctionnalités",
+          },
+        },
+        socials: {
+          title: "Réseaux sociaux",
+          links: {
+            developmentServer: "Serveur de développement",
+            mainServer: "Serveur principal",
+            github: "GitHub",
           },
         },
         infrastructure: {

@@ -59,6 +59,24 @@ export default function ServersPage() {
         </section>
 
         <section>
+          <h2 className="text-2xl font-semibold mb-4">Subdomain Management</h2>
+          <div className="space-y-4">
+            <p className="text-muted-foreground">
+              Assign a managed subdomain directly from the control panel to make your server reachable without custom DNS.
+            </p>
+            <ul className="list-disc ml-6 space-y-2 text-muted-foreground">
+              <li>Open the More menu in your server view and select Subdomains to get started</li>
+              <li>Each server can claim a single subdomain</li>
+              <li>Available parent domains: vaultscope.dev and cptcr.dev</li>
+              <li>Subdomains are served over HTTP only while SSL certificates are in development</li>
+            </ul>
+            <p className="text-muted-foreground">
+              Remove an existing subdomain before assigning a different one to the same server.
+            </p>
+          </div>
+        </section>
+
+        <section>
           <h2 className="text-2xl font-semibold mb-4">File Management</h2>
           <div className="space-y-4">
             <p className="text-muted-foreground">
