@@ -1,10 +1,3 @@
-/**
- * VaultScope Website
- * Copyright (c) 2025 VaultScope
- * Licensed under the Business Source License 1.1
- * See LICENSE file for details.
- */
-
 /// <reference types="next" />
 /// <reference types="next/image-types/global" />
 /// <reference path="./.next/types/routes.d.ts" />

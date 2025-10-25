@@ -15,7 +15,7 @@ import { useI18n } from "@/components/language-provider"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 type NavItem = {
-  id: "home" | "about" | "docs" | "signup" | "login"
+  id: "home" | "about" | "services" | "docs" | "signup" | "login"
   href: string
   label: string
   external?: boolean
@@ -24,17 +24,28 @@ type NavItem = {
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null)
-  const { t } = useI18n()
+  const { t, language } = useI18n()
 
   const navItems = useMemo<NavItem[]>(
     () => [
-      { id: "home", href: "/", label: "VaultScope" },
-      { id: "about", href: "/about", label: "About" },
-      { id: "docs", href: "/docs", label: "Docs" },
-      { id: "signup", href: "https://pay.vaultscope.dev", label: "Sign Up", external: true },
-      { id: "login", href: "https://panel.vaultscope.dev", label: "Login", external: true },
+      { id: "home", href: "/", label: t("header.nav.home", { fallback: "VaultScope" }) },
+      { id: "about", href: "/about", label: t("header.nav.about", { fallback: "About" }) },
+      { id: "services", href: "/services", label: t("header.nav.services", { fallback: "Services" }) },
+      { id: "docs", href: "/docs", label: t("header.nav.documentation", { fallback: "Documentation" }) },
+      {
+        id: "signup",
+        href: "https://pay.vaultscope.dev",
+        label: t("header.nav.signup", { fallback: "Sign Up" }),
+        external: true,
+      },
+      {
+        id: "login",
+        href: "https://panel.vaultscope.dev",
+        label: t("header.nav.login", { fallback: "Log In" }),
+        external: true,
+      },
     ],
-    []
+    [language, t]
   )
 
   const toggleMobileMenu = () => {
@@ -163,7 +174,7 @@ export function Header() {
             style={{ backgroundColor: "#000" }}
           >
             <span className="text-base font-semibold uppercase tracking-wide text-white/50">
-              Menu
+              {t("header.actions.menuTitle", { fallback: "Menu" })}
             </span>
             <Button
               variant="ghost"

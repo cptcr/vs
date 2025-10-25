@@ -39,6 +39,7 @@ export const translations: Record<Language, TranslationRecord> = {
         community: "Community",
         documentation: "Documentation",
         about: "About",
+        services: "Services",
         status: "Status",
         signup: "Sign Up",
         login: "Log In",
@@ -49,6 +50,197 @@ export const translations: Record<Language, TranslationRecord> = {
         openMenu: "Open menu",
         closeMenu: "Close menu",
         menuTitle: "Menu",
+      },
+    },
+    servicesPage: {
+      hero: {
+        badge: "Managed services",
+        title: "A services platform handcrafted for your workloads",
+        description:
+          "Orchestrate your entire stack on VaultScope’s automation-first infrastructure—hardened Docker hosts, Cloudflare ingress, and observability by default.",
+        ctas: {
+          primary: { label: "View deployment playbooks", href: "/docs/getting-started" },
+          secondary: { label: "Chat with our team", href: "https://discord.gg/wK8UZ7AAmc" },
+        },
+        metrics: [
+          {
+            label: "Languages",
+            value: "9 runtimes",
+            description: "Node.js, Python, Rust, Java, Go, C#, Elixir, Lua, and Dart ready to ship.",
+          },
+          {
+            label: "Databases",
+            value: "3 engines",
+            description: "Managed MongoDB, PostgreSQL, and MariaDB clusters included.",
+          },
+          {
+            label: "Deploy time",
+            value: "< 5 minutes",
+            description: "From panel login to a monitored container behind Cloudflare.",
+          },
+        ],
+        preview: {
+          eyebrow: "What you get",
+          title: "Orchestration built for velocity",
+          description:
+            "Our SRE team keeps every host patched, observed, and ready to burst—so you stay focused on building.",
+          points: [
+            "Opinionated Docker profiles tuned for application, game, and automation workloads",
+            "Cloudflare-backed routing with reverse proxy templates ready to deploy",
+            "Real-time telemetry streaming into Loki and Prometheus out of the box",
+          ],
+        },
+      },
+      highlights: {
+        title: "Beyond simple hosting",
+        description:
+          "VaultScope services blend infrastructure, automation, and observability into a single premium experience.",
+        items: [
+          {
+            key: "orchestratedPlaybooks",
+            title: "Orchestrated playbooks",
+            description: "Provision servers with Git-powered blueprints and lifecycle automation dialled in.",
+            icon: "orchestration",
+          },
+          {
+            key: "resilience",
+            title: "Reliability culture",
+            description: "Cloudflare ingress, patch automation, and incident runbooks keep uptime transparent.",
+            icon: "reliability",
+          },
+          {
+            key: "velocity",
+            title: "Velocity unlocked",
+            description: "One-click installers and Git auto-sync keep launches under five minutes.",
+            icon: "velocity",
+          },
+          {
+            key: "observability",
+            title: "Observability first",
+            description: "Dashboards, logs, and alerts land in Loki and Prometheus without extra wiring.",
+            icon: "observability",
+          },
+        ],
+      },
+      stack: {
+        title: "Stack coverage that matches how you build",
+        description:
+          "Provision containers tuned for your favourite runtimes, IDE tooling, data stores, and telemetry pipelines.",
+        categories: [
+          {
+            key: "languages",
+            title: "Languages & runtimes",
+            description: "Launch environments with modern language support and curated framework presets.",
+            items: ["Node.js", "Python", "Java", "Go", "Rust", "C#", "Elixir", "Lua", "Dart"],
+          },
+          {
+            key: "tools",
+            title: "Tooling",
+            description: "Operate inside hosted developer workspaces without leaving your browser.",
+            items: ["Visual Studio Code Server"],
+          },
+          {
+            key: "databases",
+            title: "Databases",
+            description: "Pair services with fully managed data stores ready for production.",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            key: "monitoring",
+            title: "Monitoring & tracing",
+            description: "Collect telemetry aligned with alerting, on-call, and SLO reviews.",
+            items: ["Loki", "Prometheus"],
+          },
+        ],
+      },
+      features: {
+        title: "Platform capabilities included with every service",
+        description:
+          "Every workload inherits our automation-first playbooks so you can deploy faster and operate with confidence.",
+        items: [
+          {
+            key: "reverseProxy",
+            title: "Managed reverse proxies",
+            description: "Ship production ingress patterns with automatic TLS and traffic shaping baked in.",
+            icon: "reverseProxy",
+            href: "/docs/reverse-proxy",
+            linkLabel: "Review the reverse proxy guide",
+          },
+          {
+            key: "subdomains",
+            title: "Instant subdomain routing",
+            description: "Assign branded subdomains to new services without touching DNS or waiting on support tickets.",
+            icon: "subdomains",
+            href: "/docs/subdomains",
+            linkLabel: "Configure subdomain routing",
+          },
+          {
+            key: "cloudflareDdos",
+            title: "Cloudflare-backed DDoS protection",
+            description: "Inbound traffic stays shielded behind Cloudflare’s global anycast network and smart routing.",
+            icon: "cloudflareDdos",
+          },
+          {
+            key: "docker",
+            title: "Docker-managed servers",
+            description: "Every workload runs inside hardened Docker profiles for predictable scaling and recovery.",
+            icon: "docker",
+          },
+          {
+            key: "oneClickInstall",
+            title: "One-click installs",
+            description: "Stand up popular stacks in minutes with curated templates and sequenced automation tasks.",
+            icon: "oneClickInstall",
+          },
+          {
+            key: "freeTier",
+            title: "Free tier across the board",
+            description: "All services launch on the enterprise-grade free tier featured on our homepage—no paid plan required.",
+            icon: "freeTier",
+          },
+          {
+            key: "gigabitUplink",
+            title: "1 Gbps shared uplink",
+            description: "Consistent networking with one gigabit uplink capacity tuned for low-latency concurrency.",
+            icon: "gigabitUplink",
+          },
+          {
+            key: "autoUpdates",
+            title: "Git-powered updates",
+            description: "Automatically pull and deploy the latest commits from your GitHub repository without manual sync.",
+            icon: "autoUpdates",
+          },
+        ],
+      },
+      workflow: {
+        title: "How managed services roll out",
+        description: "A three-step motion keeps every deployment fast, observable, and ready for scale.",
+        steps: [
+          {
+            key: "design",
+            title: "Design & blueprint",
+            description: "We capture your workload requirements, target users, scaling triggers, and security posture.",
+            result: "Receive a service blueprint with infrastructure, networking, and automation mapped out.",
+          },
+          {
+            key: "launch",
+            title: "Launch in minutes",
+            description: "Provision Docker nodes, attach databases, and wire Cloudflare ingress with opinionated templates.",
+            result: "Container image running with reverse proxy, subdomain, and monitoring enabled.",
+          },
+          {
+            key: "operate",
+            title: "Operate & evolve",
+            description: "Continuous Git sync, proactive patching, and telemetry keep production resilient.",
+            result: "Automated updates and insight loops so you can iterate without firefighting.",
+          },
+        ],
+      },
+      freeTier: {
+        title: "Start free, stay production-ready",
+        description:
+          "Every environment runs on enterprise hardware with observability and security guardrails preconfigured. As paid tiers launch, your free deployments will keep running unchanged.",
+        note: "Paid plans are not available yet—build confidently on the free platform while we gather production feedback.",
       },
     },
     hero: {
@@ -153,7 +345,7 @@ export const translations: Record<Language, TranslationRecord> = {
         ],
         price: "$0",
         priceCaption: "Forever free",
-        cta: "Start for free",
+        cta: "Claim your free server",
       },
       custom: {
         title: "Custom infrastructure solutions",
@@ -278,6 +470,7 @@ export const translations: Record<Language, TranslationRecord> = {
         community: "Community",
         documentation: "Dokumentation",
         about: "Über uns",
+        services: "Services",
         status: "Status",
         signup: "Registrieren",
         login: "Anmelden",
@@ -288,6 +481,199 @@ export const translations: Record<Language, TranslationRecord> = {
         openMenu: "Menü öffnen",
         closeMenu: "Menü schließen",
         menuTitle: "Menü",
+      },
+    },
+    servicesPage: {
+      hero: {
+        badge: "Managed Services",
+        title: "Eine Services-Plattform, die sich wie Maßarbeit anfühlt",
+        description:
+          "Orchestriere deinen gesamten Stack auf der Automation-first-Infrastruktur von VaultScope – mit gehärteten Docker-Hosts, Cloudflare-Eingang und Observability ab Werk.",
+        ctas: {
+          primary: { label: "Deploy-Playbooks ansehen", href: "/docs/getting-started" },
+          secondary: { label: "Mit unserem Team chatten", href: "https://discord.gg/wK8UZ7AAmc" },
+        },
+        metrics: [
+          {
+            label: "Sprachen",
+            value: "9 Runtimes",
+            description: "Node.js, Python, Rust, Java, Go, C#, Elixir, Lua und Dart sind sofort startklar.",
+          },
+          {
+            label: "Datenbanken",
+            value: "3 Engines",
+            description: "Managed-Cluster für MongoDB, PostgreSQL und MariaDB sind inklusive.",
+          },
+          {
+            label: "Bereitstellungszeit",
+            value: "< 5 Minuten",
+            description: "Vom ersten Login bis zum überwachten Container hinter Cloudflare.",
+          },
+        ],
+        preview: {
+          eyebrow: "Das bekommst du",
+          title: "Orchestrierung für Tempo",
+          description:
+            "Unser SRE-Team hält jeden Host gepatcht, überwacht und skalierungsbereit – du konzentrierst dich aufs Shipping.",
+          points: [
+            "Meinungsstarke Docker-Profile für Anwendungs-, Spiele- und Automatisierungs-Workloads",
+            "Cloudflare-gestütztes Routing mit einsatzbereiten Reverse-Proxy-Templates",
+            "Echtzeit-Telemetrie landet ohne Zusatzaufwand in Loki und Prometheus",
+          ],
+        },
+      },
+      highlights: {
+        title: "Mehr als simples Hosting",
+        description:
+          "VaultScope Services verbindet Infrastruktur, Automatisierung und Observability zu einem durchgängigen Premium-Erlebnis.",
+        items: [
+          {
+            key: "orchestratedPlaybooks",
+            title: "Orchestrierte Playbooks",
+            description: "Provisioniere Server mit Git-gestützten Blueprints und abgestimmter Lifecycle-Automatisierung.",
+            icon: "orchestration",
+          },
+          {
+            key: "resilience",
+            title: "Reliability-Kultur",
+            description: "Cloudflare-Eingang, Patch-Automatisierung und Incident-Runbooks halten die Uptime transparent.",
+            icon: "reliability",
+          },
+          {
+            key: "velocity",
+            title: "Tempo entfesselt",
+            description: "One-Click-Installer und Git-Auto-Sync drücken die Time-to-Live auf unter fünf Minuten.",
+            icon: "velocity",
+          },
+          {
+            key: "observability",
+            title: "Observability zuerst",
+            description: "Dashboards, Logs und Alerts landen ohne Zusatzaufwand in Loki und Prometheus.",
+            icon: "observability",
+          },
+        ],
+      },
+      stack: {
+        title: "Stack-Abdeckung, die zu deinem Workflow passt",
+        description:
+          "Provisioniere Container, die auf deine bevorzugten Runtimes, IDE-Tools, Datenbanken und Telemetrie-Pipelines abgestimmt sind.",
+        categories: [
+          {
+            key: "languages",
+            title: "Sprachen & Runtimes",
+            description: "Starte Umgebungen mit moderner Sprachunterstützung und kuratierten Framework-Presets.",
+            items: ["Node.js", "Python", "Java", "Go", "Rust", "C#", "Elixir", "Lua", "Dart"],
+          },
+          {
+            key: "tools",
+            title: "Tooling",
+            description: "Arbeite in gehosteten Entwickler-Workspaces direkt im Browser.",
+            items: ["Visual Studio Code Server"],
+          },
+          {
+            key: "databases",
+            title: "Datenbanken",
+            description: "Kopple deine Services mit vollständig verwalteten Datenspeichern.",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            key: "monitoring",
+            title: "Monitoring & Tracing",
+            description: "Sammle Telemetrie für Alerts, Incident Response und SLO-Reviews.",
+            items: ["Loki", "Prometheus"],
+          },
+        ],
+      },
+      features: {
+        title: "Plattformfunktionen, die bei jedem Service enthalten sind",
+        description:
+          "Jeder Workload profitiert von unseren Automation-Playbooks, damit du schneller deployst und souverän betreibst.",
+        items: [
+          {
+            key: "reverseProxy",
+            title: "Gemanagerte Reverse Proxies",
+            description: "Produktionsreife Ingress-Muster mit automatischem TLS und integriertem Traffic-Shaping ausliefern.",
+            icon: "reverseProxy",
+            href: "/docs/reverse-proxy",
+            linkLabel: "Reverse-Proxy-Guide ansehen",
+          },
+          {
+            key: "subdomains",
+            title: "Sofortiges Subdomain-Routing",
+            description:
+              "Weise neuen Services gebrandete Subdomains zu, ohne DNS anzufassen oder auf Tickets zu warten.",
+            icon: "subdomains",
+            href: "/docs/subdomains",
+            linkLabel: "Subdomain-Routing konfigurieren",
+          },
+          {
+            key: "cloudflareDdos",
+            title: "Cloudflare-gestützter DDoS-Schutz",
+            description: "Eingehender Traffic bleibt hinter dem globalen Anycast-Netzwerk von Cloudflare geschützt.",
+            icon: "cloudflareDdos",
+          },
+          {
+            key: "docker",
+            title: "Docker-gemanagte Server",
+            description: "Jeder Workload läuft in gehärteten Docker-Profilen - Skalierung, Rollbacks und Recovery bleiben planbar.",
+            icon: "docker",
+          },
+          {
+            key: "oneClickInstall",
+            title: "Installationen per Klick",
+            description: "Beliebte Stacks in Minuten mit kuratierten Templates und automatisierten Tasks bereitstellen.",
+            icon: "oneClickInstall",
+          },
+          {
+            key: "freeTier",
+            title: "Free Tier für alle Angebote",
+            description:
+              "Alle Services starten auf dem Enterprise-Free-Tier der Homepage - kein kostenpflichtiger Plan erforderlich.",
+            icon: "freeTier",
+          },
+          {
+            key: "gigabitUplink",
+            title: "Geteilter 1-Gbit/s-Uplink",
+            description: "Konstante Netzwerkkapazität mit Gigabit-Uplink, optimiert für latenzarme Parallelität.",
+            icon: "gigabitUplink",
+          },
+          {
+            key: "autoUpdates",
+            title: "Git-gesteuerte Updates",
+            description: "Ziehe automatisch die neuesten Commits aus deinem GitHub-Repository und deploye ohne manuelle Synchronisation.",
+            icon: "autoUpdates",
+          },
+        ],
+      },
+      workflow: {
+        title: "So rollen Managed Services aus",
+        description: "Drei Schritte halten jede Bereitstellung schnell, beobachtbar und skalierungsbereit.",
+        steps: [
+          {
+            key: "design",
+            title: "Design & Blueprint",
+            description: "Wir erfassen Workload-Anforderungen, Nutzerprofile, Skalierungstrigger und Sicherheitsvorgaben.",
+            result: "Du erhältst ein Service-Blueprint mit Infrastruktur-, Netzwerk- und Automationsplan.",
+          },
+          {
+            key: "launch",
+            title: "Launch in Minuten",
+            description: "Docker-Nodes, Datenbanken und Cloudflare-Eingang werden mit kuratierten Templates bereitgestellt.",
+            result: "Das Container-Image läuft mit Reverse Proxy, Subdomain und aktivem Monitoring.",
+          },
+          {
+            key: "operate",
+            title: "Betrieb & Weiterentwicklung",
+            description: "Kontinuierlicher Git-Sync, proaktive Patches und Telemetrie halten die Produktion resilient.",
+            result: "Automatisierte Updates und Insight-Loops, damit du ohne Feuerwehr-Einsätze iterieren kannst.",
+          },
+        ],
+      },
+      freeTier: {
+        title: "Kostenlos starten, produktionsreif bleiben",
+        description:
+          "Jede Umgebung läuft auf Enterprise-Hardware mit vorkonfigurierter Observability und Security. Sobald kostenpflichtige Tarife starten, bleiben deine Free-Deployments unverändert online.",
+        note: "Kostenpflichtige Pläne gibt es noch nicht – nutze die kostenlose Plattform, während wir Produktionsfeedback einsammeln.",
       },
     },
     hero: {
@@ -392,7 +778,7 @@ export const translations: Record<Language, TranslationRecord> = {
         ],
         price: "0 €",
         priceCaption: "Für immer kostenlos",
-        cta: "Kostenlos starten",
+        cta: "Kostenlosen Server sichern",
       },
       custom: {
         title: "Individuelle Infrastruktur-Lösungen",
@@ -517,6 +903,7 @@ export const translations: Record<Language, TranslationRecord> = {
         community: "Communauté",
         documentation: "Documentation",
         about: "À propos",
+        services: "Services",
         status: "Statut",
         signup: "Inscription",
         login: "Connexion",
@@ -527,6 +914,200 @@ export const translations: Record<Language, TranslationRecord> = {
         openMenu: "Ouvrir le menu",
         closeMenu: "Fermer le menu",
         menuTitle: "Menu",
+      },
+    },
+    servicesPage: {
+      hero: {
+        badge: "Services gérés",
+        title: "Une plateforme de services taillée sur mesure",
+        description:
+          "Orchestrez votre stack sur l'infrastructure automation-first de VaultScope : hôtes Docker renforcés, ingress Cloudflare et observabilité native.",
+        ctas: {
+          primary: { label: "Consulter les playbooks de déploiement", href: "/docs/getting-started" },
+          secondary: { label: "Discuter avec notre équipe", href: "https://discord.gg/wK8UZ7AAmc" },
+        },
+        metrics: [
+          {
+            label: "Langages",
+            value: "9 runtimes",
+            description: "Node.js, Python, Rust, Java, Go, C#, Elixir, Lua et Dart prêts à être déployés.",
+          },
+          {
+            label: "Bases de données",
+            value: "3 moteurs",
+            description: "Clusters gérés pour MongoDB, PostgreSQL et MariaDB inclus.",
+          },
+          {
+            label: "Temps de déploiement",
+            value: "< 5 minutes",
+            description: "Du premier accès au panneau à un conteneur monitoré derrière Cloudflare.",
+          },
+        ],
+        preview: {
+          eyebrow: "Ce que vous obtenez",
+          title: "Orchestration pensée pour la vélocité",
+          description:
+            "Notre équipe SRE maintient chaque hôte patché, observé et prêt à monter en charge – vous restez concentré sur la livraison.",
+          points: [
+            "Profils Docker opiniâtres pour workloads applicatifs, jeux et automatisation",
+            "Routage propulsé par Cloudflare avec templates de reverse proxy prêts à l'emploi",
+            "Télémétrie temps réel vers Loki et Prometheus sans câblage supplémentaire",
+          ],
+        },
+      },
+      highlights: {
+        title: "Au-delà d'un simple hébergement",
+        description:
+          "Les services VaultScope réunissent infrastructure, automatisation et observabilité dans une expérience premium.",
+        items: [
+          {
+            key: "orchestratedPlaybooks",
+            title: "Playbooks orchestrés",
+            description: "Provisionnez des serveurs avec des blueprints Git et une automatisation du cycle de vie maîtrisée.",
+            icon: "orchestration",
+          },
+          {
+            key: "resilience",
+            title: "Culture fiabilité",
+            description: "Ingress Cloudflare, patchs automatisés et runbooks d'incident assurent une disponibilité transparente.",
+            icon: "reliability",
+          },
+          {
+            key: "velocity",
+            title: "Vélocité débloquée",
+            description: "Installateurs en un clic et synchronisation Git automatique maintiennent les lancements sous cinq minutes.",
+            icon: "velocity",
+          },
+          {
+            key: "observability",
+            title: "Observabilité native",
+            description: "Tableaux de bord, logs et alertes aboutissent à Loki et Prometheus sans câblage supplémentaire.",
+            icon: "observability",
+          },
+        ],
+      },
+      stack: {
+        title: "Une couverture stack alignée sur vos pratiques",
+        description:
+          "Provisionnez des conteneurs adaptés à vos runtimes, outils IDE, bases de données et pipelines de télémétrie favoris.",
+        categories: [
+          {
+            key: "languages",
+            title: "Langages & runtimes",
+            description: "Lancez des environnements avec support moderne et presets de frameworks sélectionnés.",
+            items: ["Node.js", "Python", "Java", "Go", "Rust", "C#", "Elixir", "Lua", "Dart"],
+          },
+          {
+            key: "tools",
+            title: "Outils",
+            description: "Travaillez dans des espaces de développement hébergés directement depuis le navigateur.",
+            items: ["Visual Studio Code Server"],
+          },
+          {
+            key: "databases",
+            title: "Bases de données",
+            description: "Associez vos services à des bases entièrement gérées.",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            key: "monitoring",
+            title: "Monitoring & tracing",
+            description: "Collectez la télémétrie prête pour l'alerte, la réponse incident et les revues de SLO.",
+            items: ["Loki", "Prometheus"],
+          },
+        ],
+      },
+      features: {
+        title: "Capacités de plateforme incluses avec chaque service",
+        description:
+          "Chaque workload profite de nos playbooks orientés automatisation pour déployer plus vite et opérer sereinement.",
+        items: [
+          {
+            key: "reverseProxy",
+            title: "Reverse proxies managés",
+            description: "Publiez des schémas d'ingress prêts pour la production avec TLS automatique et gestion du trafic intégrée.",
+            icon: "reverseProxy",
+            href: "/docs/reverse-proxy",
+            linkLabel: "Consulter le guide reverse proxy",
+          },
+          {
+            key: "subdomains",
+            title: "Routage des sous-domaines instantané",
+            description:
+              "Attribuez des sous-domaines brandés aux nouveaux services sans toucher au DNS ni ouvrir de ticket.",
+            icon: "subdomains",
+            href: "/docs/subdomains",
+            linkLabel: "Configurer le routage des sous-domaines",
+          },
+          {
+            key: "cloudflareDdos",
+            title: "Protection DDoS via Cloudflare",
+            description: "Le trafic entrant reste protégé derrière le réseau anycast mondial de Cloudflare et son routage intelligent.",
+            icon: "cloudflareDdos",
+          },
+          {
+            key: "docker",
+            title: "Serveurs pilotés par Docker",
+            description: "Chaque workload tourne dans des profils Docker durcis pour des montées en charge, retours arrière et reprises prévisibles.",
+            icon: "docker",
+          },
+          {
+            key: "oneClickInstall",
+            title: "Installations en un clic",
+            description: "Déployez les stacks populaires en quelques minutes grâce à des templates et tâches automatisées.",
+            icon: "oneClickInstall",
+          },
+          {
+            key: "freeTier",
+            title: "Free tier pour tous les services",
+            description:
+              "Tous les services démarrent sur le free tier de niveau entreprise présenté sur notre page d'accueil — aucun plan payant requis.",
+            icon: "freeTier",
+          },
+          {
+            key: "gigabitUplink",
+            title: "Uplink partagé 1 Gbit/s",
+            description: "Réseau constant avec uplink gigabit optimisé pour la faible latence et la concurrence.",
+            icon: "gigabitUplink",
+          },
+          {
+            key: "autoUpdates",
+            title: "Mises à jour pilotées par Git",
+            description:
+              "Récupérez et déployez automatiquement les derniers commits de votre dépôt GitHub sans synchronisation manuelle.",
+            icon: "autoUpdates",
+          },
+        ],
+      },
+      workflow: {
+        title: "Déroulement des services gérés",
+        description: "Trois étapes pour des déploiements rapides, observables et prêts à monter en charge.",
+        steps: [
+          {
+            key: "design",
+            title: "Design & blueprint",
+            description: "Nous recueillons vos contraintes workload, profils utilisateurs, déclencheurs de montée en charge et posture de sécurité.",
+            result: "Recevez un blueprint de service détaillant infrastructure, réseau et automatisation.",
+          },
+          {
+            key: "launch",
+            title: "Lancement en quelques minutes",
+            description: "Provisionnement des nœuds Docker, bases de données et ingress Cloudflare via templates opinionés.",
+            result: "Image conteneur en ligne avec reverse proxy, sous-domaine et monitoring activés.",
+          },
+          {
+            key: "operate",
+            title: "Opérer et faire évoluer",
+            description: "Sync Git continu, patchs proactifs et télémétrie maintiennent la production résiliente.",
+            result: "Mises à jour automatisées et boucles d'insights pour itérer sans pompiers.",
+          },
+        ],
+      },
+      freeTier: {
+        title: "Commencez gratuitement, restez prêts pour la production",
+        description:
+          "Chaque environnement tourne sur du matériel enterprise avec observabilité et sécurité préconfigurées. Quand les offres payantes arriveront, vos déploiements gratuits resteront en ligne sans changement.",
+        note: "Les plans payants ne sont pas encore disponibles – profitez de la plateforme gratuite pendant que nous collectons des retours terrain.",
       },
     },
     hero: {
@@ -631,7 +1212,7 @@ export const translations: Record<Language, TranslationRecord> = {
         ],
         price: "0 €",
         priceCaption: "Gratuit pour toujours",
-        cta: "Commencer gratuitement",
+        cta: "Obtenir votre serveur gratuit",
       },
       custom: {
         title: "Solutions d'infrastructure sur mesure",
