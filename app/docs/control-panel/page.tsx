@@ -5,6 +5,7 @@
  * See LICENSE file for details.
  */
 
+import Link from "next/link"
 import { DocsScreenshot } from "@/components/docs-screenshot"
 import backupActions from "@/app/assets/docs/manage-server/backups/backup-actions-window-for-more-actions-if-needed.png"
 import restoreBackup from "@/app/assets/docs/manage-server/backups/restore-backup-window.png"
@@ -16,6 +17,16 @@ import createSubdomain from "@/app/assets/docs/manage-server/subdomain/create-ne
 import addUserButton from "@/app/assets/docs/manage-server/users/create-new-user-to-allow-to-see-server-make-sure-he-already-uses-the-platform-and-has-an-active-server-button.png"
 import userPermissions from "@/app/assets/docs/manage-server/users/add-new-user-window-set-email-and-permissions-permissions-can-be-edited-later.png"
 import newAllocation from "@/app/assets/docs/manage-server/network/add-new-allocation-if-server-allows-button.png"
+import changeStartupCommandButton from "@/app/assets/docs/manage-server/startup/change_startup_command_button.png"
+import editStartupCommandModal from "@/app/assets/docs/manage-server/startup/change_startup_command_marked_text_field.png"
+import saveStartupCommandButton from "@/app/assets/docs/manage-server/startup/change_startup_command_save_button.png"
+import restoreStartupDefaultButton from "@/app/assets/docs/manage-server/startup/restore_to_default_button.png"
+import confirmStartupResetModal from "@/app/assets/docs/manage-server/startup/reset_button.png"
+import openProxyMenu from "@/app/assets/docs/manage-server/reverse-proxy/click_more_then_proxy_button.png"
+import createProxyButton from "@/app/assets/docs/manage-server/reverse-proxy/click_create_proxy_button.png"
+import createProxyModal from "@/app/assets/docs/manage-server/reverse-proxy/create_new_reverse_proxy_window.png"
+import cloudflareProxyExample from "@/app/assets/docs/manage-server/reverse-proxy/example_configuration_in_cloudflare_dont_use_proxy.png"
+import proxyFinalResult from "@/app/assets/docs/manage-server/reverse-proxy/final_result.png"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
@@ -128,10 +139,55 @@ export default function ControlPanelPage() {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">5. Expose services via networking and subdomains</h2>
+        <h2 className="text-2xl font-semibold">5. Customize startup commands</h2>
         <p className="text-muted-foreground">
-          The <em>Network</em> tab manages port allocations while <em>Subdomains</em> lets you assign VaultScope-managed
-          DNS records.
+          The <em>Startup</em> tab lets you adjust launch arguments without redeploying files. This is the quickest way to
+          roll out JVM flags, memory switches or plugin bootstrap parameters.
+        </p>
+        <DocsScreenshot
+          image={changeStartupCommandButton}
+          alt="VaultScope server Startup tab highlighting the Change Startup Command button."
+          caption="Open the Startup tab from the sidebar and select Change Startup Command to edit the launch template."
+        />
+        <DocsScreenshot
+          image={editStartupCommandModal}
+          alt="Startup command modal with the editable command text field highlighted."
+          caption="Update the command inline. Environment variables remain available in the template for easy reuse."
+        />
+        <DocsScreenshot
+          image={saveStartupCommandButton}
+          alt="Save button in the Startup command modal highlighted."
+          caption="Click Save to persist the new startup command. Restart the server to apply your changes."
+        />
+        <p className="text-muted-foreground">
+          Need to revert? Use <em>Restore to Default</em> to bring back the original command that shipped with your plan.
+          We keep the template versioned so you can experiment safely.
+        </p>
+        <DocsScreenshot
+          image={restoreStartupDefaultButton}
+          alt="Restore to Default button highlighted inside the Startup command modal."
+          caption="Restore to Default reinstates the VaultScope baseline command in one click."
+        />
+        <DocsScreenshot
+          image={confirmStartupResetModal}
+          alt="Confirmation dialog showing the Reset button after choosing Restore to Default."
+          caption="Confirm with Reset to finish the rollback. The panel stores the previous command in your activity log."
+        />
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          Want a dedicated walkthrough? Visit the{" "}
+          <Link href="/docs/startup-commands" className="font-medium text-primary underline underline-offset-4">
+            startup command guide
+          </Link>{" "}
+          for step-by-step instructions and rollback tips.
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-2xl font-semibold">6. Expose services via networking and subdomains</h2>
+        <p className="text-muted-foreground">
+          The <em>Network</em> tab manages port allocations while <em>Subdomains</em> maps VaultScope-managed DNS records
+          to those ports. Subdomains provide friendly hostnames under <code>vaultscope.dev</code> or <code>cptcr.dev</code>
+          but they do not provision SSL or replace a full reverse proxy.
         </p>
         <DocsScreenshot
           image={newAllocation}
@@ -146,8 +202,75 @@ export default function ControlPanelPage() {
         <DocsScreenshot
           image={createSubdomain}
           alt="VaultScope subdomain creation modal with allocation selector."
-          caption="Map a subdomain to the allocation serving your game or application. SSL is coming soon—stick with HTTP until then."
+          caption="Map a subdomain to the allocation serving your workload. For HTTPS, route traffic through a reverse proxy."
         />
+        <p className="text-muted-foreground">
+          Need SSL or a custom domain? Reverse proxies handle certificates and edge routing while subdomains remain a
+          lightweight pointer. Follow the{" "}
+          <Link href="#reverse-proxies" className="font-medium text-primary underline underline-offset-4">
+            reverse proxy walkthrough
+          </Link>{" "}
+          below to secure traffic end-to-end.
+        </p>
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          Looking for more examples? See the{" "}
+          <Link href="/docs/subdomains" className="font-medium text-primary underline underline-offset-4">
+            subdomains guide
+          </Link>{" "}
+          for naming conventions and common troubleshooting steps.
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <h2 id="reverse-proxies" className="text-2xl font-semibold">7. Publish reverse proxies for custom domains</h2>
+        <p className="text-muted-foreground">
+          Reverse proxies sit in front of your allocation, terminate SSL and forward traffic to the internal port. They are
+          separate from subdomains—use subdomains for VaultScope-provided hostnames, and reverse proxies when you need
+          custom domains or edge security controls.
+        </p>
+        <DocsScreenshot
+          image={openProxyMenu}
+          alt="VaultScope server sidebar showing the Proxy option under the More menu."
+          caption="Open More → Proxy to manage reverse proxies for the current server."
+        />
+        <DocsScreenshot
+          image={createProxyButton}
+          alt="Create Proxy button highlighted inside the reverse proxy tab."
+          caption="Click Create Proxy to launch the configuration modal."
+        />
+        <DocsScreenshot
+          image={createProxyModal}
+          alt="Reverse proxy creation modal with domain, allocation and SSL options."
+          caption="Point your domain at the server IPv4 via an A record, then choose the allocation and SSL preference."
+        />
+        <DocsScreenshot
+          image={cloudflareProxyExample}
+          alt="Cloudflare DNS configuration showing an A record without the proxy (gray cloud)."
+          caption="Disable third-party orange-cloud proxies when setting up the DNS record so VaultScope can validate SSL."
+        />
+        <DocsScreenshot
+          image={proxyFinalResult}
+          alt="Reverse proxy list showing an active proxy with SSL enabled."
+          caption="Once created, the proxy appears in the list with status indicators for SSL and Let&apos;s Encrypt automation."
+        />
+        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+          <li>
+            Toggle <em>Let&apos;s Encrypt</em> to auto-issue certificates. If disabled, upload your own trusted certificate and
+            private key pair.
+          </li>
+          <li>
+            Keep Cloudflare/DNS proxies off while provisioning SSL; you can re-enable additional protection after validation
+            succeeds.
+          </li>
+          <li>Restart the workload after creating a proxy if it binds to the new hostname for virtual hosting rules.</li>
+        </ul>
+        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+          Need deeper coverage? The{" "}
+          <Link href="/docs/reverse-proxy" className="font-medium text-primary underline underline-offset-4">
+            reverse proxy guide
+          </Link>{" "}
+          covers DNS validation, certificate management and expected status indicators.
+        </div>
       </section>
 
       <section className="space-y-6 border-t border-border pt-8">
