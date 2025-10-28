@@ -26,6 +26,9 @@ import {
   Rocket,
   ShieldCheck,
   Shuffle,
+  Package,
+  Plug,
+  Users,
 } from "lucide-react"
 
 export type DocsNavChild = {
@@ -254,6 +257,32 @@ export const docsNavigation: DocsNavSection[] = [
         description: "How to report abuse, escalation timelines and forensic expectations.",
         icon: AlertTriangle,
         keywords: ["abuse", "compliance", "report"],
+      },
+    ],
+  },
+  {
+    title: "Minecraft",
+    items: [
+      {
+        title: "Mod installer",
+        href: "/docs/minecraft/mod-installer",
+        description: "Browse curated mods, filter by loader or version and install them directly from the panel.",
+        icon: Package,
+        keywords: ["minecraft", "mods", "installer", "modrinth"],
+      },
+      {
+        title: "Plugin installer",
+        href: "/docs/minecraft/plugin-installer",
+        description: "Search trusted Minecraft plugins, review versions and deploy with a single click.",
+        icon: Plug,
+        keywords: ["minecraft", "plugins", "installer", "modrinth"],
+      },
+      {
+        title: "Player management",
+        href: "/docs/minecraft/players",
+        description: "Monitor active, offline, banned and whitelisted players and run moderation actions.",
+        icon: Users,
+        keywords: ["minecraft", "players", "moderation", "management"],
       },
     ],
   },
