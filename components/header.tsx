@@ -15,7 +15,7 @@ import { useI18n } from "@/components/language-provider"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 type NavItem = {
-  id: "home" | "about" | "services" | "docs" | "signup" | "login"
+  id: "home" | "about" | "services" | "partners" | "docs"
   href: string
   label: string
   external?: boolean
@@ -24,28 +24,17 @@ type NavItem = {
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null)
-  const { t, language } = useI18n()
+  const { t } = useI18n()
 
   const navItems = useMemo<NavItem[]>(
     () => [
       { id: "home", href: "/", label: t("header.nav.home", { fallback: "VaultScope" }) },
       { id: "about", href: "/about", label: t("header.nav.about", { fallback: "About" }) },
       { id: "services", href: "/services", label: t("header.nav.services", { fallback: "Services" }) },
+      { id: "partners", href: "/partners", label: t("header.nav.partners", { fallback: "Partners" }) },
       { id: "docs", href: "/docs", label: t("header.nav.documentation", { fallback: "Documentation" }) },
-      {
-        id: "signup",
-        href: "https://pay.vaultscope.dev",
-        label: t("header.nav.signup", { fallback: "Sign Up" }),
-        external: true,
-      },
-      {
-        id: "login",
-        href: "https://panel.vaultscope.dev",
-        label: t("header.nav.login", { fallback: "Log In" }),
-        external: true,
-      },
     ],
-    [language, t]
+    [t]
   )
 
   const toggleMobileMenu = () => {
@@ -230,6 +219,36 @@ export function Header() {
                 )
               })}
             </ul>
+
+            <div className="mt-6 flex flex-col gap-3">
+              <Button
+                asChild
+                variant="outline"
+                className="w-full justify-center border-white/20 bg-white/5 text-white hover:bg-white/15"
+              >
+                <a
+                  href="https://panel.vaultscope.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t("header.actions.signIn")}
+                </a>
+              </Button>
+              <Button
+                asChild
+                className="w-full justify-center bg-white text-black hover:bg-white/90"
+              >
+                <a
+                  href="https://pay.vaultscope.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t("header.actions.getStarted")}
+                </a>
+              </Button>
+            </div>
 
             <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-6 text-sm text-white/40">
               <span>VaultScope</span>
