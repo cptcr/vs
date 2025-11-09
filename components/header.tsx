@@ -7,12 +7,13 @@
 
 "use client"
 
-import { Shield, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useI18n } from "@/components/language-provider"
 import { LanguageSwitcher } from "@/components/language-switcher"
+import Image from "next/image"
 
 type NavItem = {
   id: "home" | "about" | "services" | "partners" | "docs"
@@ -78,10 +79,19 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/75 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 md:h-16 md:py-0">
-          <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-foreground" aria-hidden="true" />
-            <span className="text-xl font-bold text-foreground">{t("header.brand")}</span>
-          </div>
+          <Link href="/" className="flex items-center gap-2" aria-label={t("header.brand")}>
+            <Image
+              src="/favicon.ico"
+              alt=""
+              width={32}
+              height={32}
+              className="h-8 w-8 rounded"
+              priority
+            />
+            <span aria-hidden className="text-xl font-bold text-foreground">
+              {t("header.brand")}
+            </span>
+          </Link>
 
           <nav className="hidden items-center gap-6 md:flex lg:gap-8">
             {navItems.map((item) => {

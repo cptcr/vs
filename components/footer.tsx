@@ -43,6 +43,8 @@ export function Footer() {
         links: {
           pricing: string
           security: string
+          minecraft: string
+          services: string
         }
       }
       legal: {
@@ -166,6 +168,16 @@ export function Footer() {
               <li>
                 <a href="/security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   {copy.sections.infrastructure.links.security}
+                </a>
+              </li>
+              <li>
+                <a href="/minecraft" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {copy.sections.infrastructure.links.minecraft}
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {copy.sections.infrastructure.links.services}
                 </a>
               </li>
             </ul>

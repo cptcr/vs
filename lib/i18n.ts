@@ -486,6 +486,8 @@ export const translations: Record<Language, TranslationRecord> = {
           links: {
             pricing: "Pricing",
             security: "Security",
+            minecraft: "Minecraft",
+            services: "Services",
           },
         },
         legal: {
@@ -994,6 +996,8 @@ export const translations: Record<Language, TranslationRecord> = {
           links: {
             pricing: "Preise",
             security: "Sicherheit",
+            minecraft: "Minecraft",
+            services: "Services",
           },
         },
         legal: {
@@ -1503,6 +1507,8 @@ export const translations: Record<Language, TranslationRecord> = {
           links: {
             pricing: "Tarifs",
             security: "Sécurité",
+            minecraft: "Minecraft",
+            services: "Services",
           },
         },
         legal: {

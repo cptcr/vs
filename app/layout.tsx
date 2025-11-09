@@ -33,6 +33,9 @@ export default function RootLayout({
   return (
     <html lang={DEFAULT_LANGUAGE} className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
         <script
           key="organization-schema"
           type="application/ld+json"
