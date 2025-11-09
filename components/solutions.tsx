@@ -21,10 +21,11 @@ type SolutionsCopy = {
   freePlan: {
     title: string
     description: string
-    features: Array<{ key: "cpuShare" | "memory" | "storage" | "ipv4" | "ddos" | "traffic"; label: string }>
+    features: Array<{ key: "cpuShare" | "memory" | "storage" | "ipv4" | "ddos" | "traffic" | "uplink"; label: string }>
     price: string
     priceCaption: string
-    cta: string
+    ctaLabel: string
+    ctaHref: string
   }
   custom: {
     title: string
@@ -53,6 +54,7 @@ const freePlanIcons: Record<SolutionsCopy["freePlan"]["features"][number]["key"]
   ipv4: Network,
   ddos: Shield,
   traffic: Gauge,
+  uplink: Network,
 }
 
 const customIcons: Record<SolutionsCopy["custom"]["cards"][number]["key"], typeof Server> = {
@@ -142,11 +144,11 @@ export function Solutions() {
                   </div>
                   <Button
                     size="lg"
-                    className="bg-white text-black hover:bg-white/90 text-base px-8 shadow-xl shadow-white/20 font-medium tracking-wide w-full sm:w-auto"
+                    className="bg-white text-black hover:bg-white/90 text-base px-8 font-medium tracking-wide shadow-xl shadow-white/20 w-full sm:w-auto"
                     asChild
                   >
-                    <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer">
-                      {copy.freePlan.cta}
+                    <a href={copy.freePlan.ctaHref} target="_blank" rel="noopener noreferrer">
+                      {copy.freePlan.ctaLabel}
                     </a>
                   </Button>
                 </div>

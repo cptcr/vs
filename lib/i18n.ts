@@ -40,7 +40,6 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Documentation",
         about: "About",
         services: "Services",
-        partners: "Partners",
         status: "Status",
         signup: "Sign Up",
         login: "Log In",
@@ -244,6 +243,79 @@ export const translations: Record<Language, TranslationRecord> = {
         note: "Paid plans are not available yet—build confidently on the free platform while we gather production feedback.",
       },
     },
+    servicesPageV2: {
+      hero: {
+        badge: "Services lineup",
+        title: "Managed infrastructure for builders and communities",
+        description:
+          "Ship applications, databases, and automation workloads on infrastructure that bakes in observability and Cloudflare protection. Start free with coding servers and expand when you need more headroom.",
+        highlights: ["Free coding servers", "Cloudflare DDoS protection", "1 Gbps network"],
+        ctas: {
+          primary: { label: "Launch a free coding server", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Explore documentation", href: "/docs" },
+        },
+      },
+      coding: {
+        badge: "Free tier",
+        title: "Coding Servers — free forever",
+        description:
+          "Spin up language-specific containers, managed databases, and observability stacks without a credit card. Each workspace inherits our Cloudflare ingress, backups, and monitoring.",
+        specsTitle: "Included resources",
+        featuresTitle: "Why teams choose our coding servers",
+        features: [
+          "40% shared vCPU, 512 MiB RAM, and 5 GiB SSD storage per workspace",
+          "Curated templates for popular languages, databases, and developer tooling",
+          "Cloudflare-backed networking with shared IPv4 and unmetered traffic",
+          "Observability baked in with Prometheus and Loki dashboards",
+        ],
+        serverTypesTitle: "Launch-ready templates",
+        serverTypes: [
+          {
+            title: "Languages & runtimes",
+            items: ["Java", "Node.js", "C / C#", "Lua", "Python", "Elixir", "Go", "Rust", "Dart"],
+          },
+          {
+            title: "Databases",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            title: "Developer tooling",
+            items: ["Visual Studio Code Web"],
+          },
+          {
+            title: "Observability",
+            items: ["Prometheus", "Loki"],
+          },
+        ],
+        note: "Every container includes shared IPv4 connectivity, Cloudflare DDoS protection, and unmetered bandwidth.",
+        ctas: {
+          primary: { label: "Claim your free container", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Read the coding server guide", href: "/docs/coding-servers" },
+        },
+      },
+      contact: {
+        title: "Need something more bespoke?",
+        description:
+          "We design custom environments for game studios, platform teams, and community projects. Reach out and we’ll help scope the right infrastructure.",
+        items: [
+          {
+            label: "Talk with our team on Discord",
+            description: "Join the community and get architecture guidance in #infrastructure.",
+            href: "https://discord.gg/wK8UZ7AAmc",
+          },
+          {
+            label: "Request tailored infrastructure",
+            description: "Email support@vaultscope.dev for dedicated, GPU, or compliance workloads.",
+            href: "mailto:support@vaultscope.dev",
+          },
+          {
+            label: "Browse automation playbooks",
+            description: "Review deployment guides, reverse proxy templates, and lifecycle automation.",
+            href: "/docs",
+          },
+        ],
+      },
+    },
     hero: {
       badge: "Enterprise-grade infrastructure on us",
       title: "Enterprise Power, Ready for Every Builder",
@@ -335,18 +407,20 @@ export const translations: Record<Language, TranslationRecord> = {
       },
       freePlan: {
         title: "Free hosting plan",
-        description: "Start on our free tier, powered by enterprise hardware and protected by Cloudflare.",
+        description: "Completely free containers with Cloudflare protection, automated backups, and observability baked in.",
         features: [
-          { key: "cpuShare", label: "40% CPU share" },
-          { key: "memory", label: "512 MB RAM" },
-          { key: "storage", label: "5 GB storage" },
+          { key: "cpuShare", label: "40% CPU • 0.4 vCores" },
+          { key: "memory", label: "512 MiB RAM" },
+          { key: "storage", label: "5120 MiB SSD storage" },
           { key: "ipv4", label: "Shared IPv4" },
-          { key: "ddos", label: "DDoS protection" },
+          { key: "ddos", label: "DDoS protection included" },
           { key: "traffic", label: "Unmetered traffic" },
+          { key: "uplink", label: "Shared 1 Gbps uplink" },
         ],
-        price: "$0",
-        priceCaption: "Forever free",
-        cta: "Claim your free server",
+        price: "€0",
+        priceCaption: "Completely free",
+        ctaLabel: "Claim your free server",
+        ctaHref: "https://pay.vaultscope.dev/products/free-server",
       },
       custom: {
         title: "Custom infrastructure solutions",
@@ -383,14 +457,6 @@ export const translations: Record<Language, TranslationRecord> = {
       },
     },
     footer: {
-      description: "Free enterprise hosting engineered for security, performance, and scale.",
-      statusLink: "Check detailed status",
-      stats: {
-        cpu: "40% CPU",
-        ram: "512 MB RAM",
-        storage: "5120 MB storage",
-        network: "1 Gbps network",
-      },
       sections: {
         resources: {
           title: "Resources",
@@ -405,9 +471,14 @@ export const translations: Record<Language, TranslationRecord> = {
         socials: {
           title: "Socials",
           links: {
-            developmentServer: "Development Server",
-            mainServer: "Main Server",
+            mainServer: "Discord",
             github: "GitHub",
+          },
+        },
+        software: {
+          title: "Software",
+          links: {
+            syncor: "Syncor",
           },
         },
         infrastructure: {
@@ -423,6 +494,9 @@ export const translations: Record<Language, TranslationRecord> = {
             privacy: "Privacy Policy",
             terms: "Terms of Service",
             acceptableUse: "Acceptable Use Policy",
+            fairUsage: "Fair Usage Policy",
+            sla: "Service Level Agreement",
+            cookiePolicy: "Cookie Policy",
           },
         },
       },
@@ -472,7 +546,6 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Dokumentation",
         about: "Über uns",
         services: "Services",
-        partners: "Partner",
         status: "Status",
         signup: "Registrieren",
         login: "Anmelden",
@@ -678,6 +751,79 @@ export const translations: Record<Language, TranslationRecord> = {
         note: "Kostenpflichtige Pläne gibt es noch nicht – nutze die kostenlose Plattform, während wir Produktionsfeedback einsammeln.",
       },
     },
+    servicesPageV2: {
+      hero: {
+        badge: "Service-Portfolio",
+        title: "Managed-Infrastruktur für Builder und Communities",
+        description:
+          "Betreibe Anwendungen, Datenbanken und Automations-Workloads auf unserer Automation-first-Infrastruktur. Starte kostenlos mit Coding-Servern und skaliere bei Bedarf mit Cloudflare-geschütztem Networking.",
+        highlights: ["Kostenlose Coding-Server", "Cloudflare-DDoS-Schutz", "1 Gbit/s-Netzwerk"],
+        ctas: {
+          primary: { label: "Kostenlosen Coding-Server starten", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Dokumentation erkunden", href: "/docs" },
+        },
+      },
+      coding: {
+        badge: "Free Tier",
+        title: "Coding-Server – dauerhaft kostenlos",
+        description:
+          "Starte sprachspezifische Container, verwaltete Datenbanken und Observability-Stacks ohne Kreditkarte. Jeder Workspace erbt unseren Cloudflare-Eingang, Backups und Monitoring.",
+        specsTitle: "Enthaltene Ressourcen",
+        featuresTitle: "Warum Teams unsere Coding-Server nutzen",
+        features: [
+          "40 % geteilte vCPU, 512 MiB RAM und 5 GiB SSD-Speicher pro Workspace",
+          "Kuratiere Templates für beliebte Sprachen, Datenbanken und Entwickler-Tooling",
+          "Cloudflare-gestütztes Netzwerk mit geteilter IPv4 und unlimitiertem Traffic",
+          "Observability inklusive Prometheus- und Loki-Dashboards",
+        ],
+        serverTypesTitle: "Startbereite Templates",
+        serverTypes: [
+          {
+            title: "Sprachen & Runtimes",
+            items: ["Java", "Node.js", "C / C#", "Lua", "Python", "Elixir", "Go", "Rust", "Dart"],
+          },
+          {
+            title: "Datenbanken",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            title: "Developer-Tooling",
+            items: ["Visual Studio Code Web"],
+          },
+          {
+            title: "Observability",
+            items: ["Prometheus", "Loki"],
+          },
+        ],
+        note: "Jeder Container liefert geteilte IPv4-Konnektivität, Cloudflare-DDoS-Schutz und unlimitierten Traffic mit.",
+        ctas: {
+          primary: { label: "Kostenlosen Container sichern", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Coding-Server-Guide lesen", href: "/docs/coding-servers" },
+        },
+      },
+      contact: {
+        title: "Du brauchst mehr als das Free Tier?",
+        description:
+          "Wir entwerfen maßgeschneiderte Umgebungen für Game-Studios, Plattform-Teams und Community-Projekte. Melde dich – wir helfen beim Scoping der passenden Infrastruktur.",
+        items: [
+          {
+            label: "Mit unserem Team auf Discord sprechen",
+            description: "Tritt der Community bei und erhalte Architektur-Guidance im Channel #infrastructure.",
+            href: "https://discord.gg/wK8UZ7AAmc",
+          },
+          {
+            label: "Maßgeschneiderte Infrastruktur anfragen",
+            description: "Schreibe an support@vaultscope.dev für dedizierte, GPU- oder Compliance-Workloads.",
+            href: "mailto:support@vaultscope.dev",
+          },
+          {
+            label: "Automation-Playbooks durchsuchen",
+            description: "Deployment-Guides, Reverse-Proxy-Templates und Lifecycle-Automation im Überblick.",
+            href: "/docs",
+          },
+        ],
+      },
+    },
     hero: {
       badge: "Enterprise-Infrastruktur – kostenlos",
       title: "Enterprise-Power für jedes Team",
@@ -769,18 +915,20 @@ export const translations: Record<Language, TranslationRecord> = {
       },
       freePlan: {
         title: "Kostenloser Hosting-Tarif",
-        description: "Starte im Free Tier – Enterprise-Hardware mit Cloudflare-Schutz.",
+        description: "Vollständig kostenloses Containertier mit Cloudflare-Schutz, Backups und Observability out of the box.",
         features: [
-          { key: "cpuShare", label: "40 % CPU-Anteil" },
-          { key: "memory", label: "512 MB RAM" },
-          { key: "storage", label: "5 GB Storage" },
+          { key: "cpuShare", label: "40 % CPU • 0,4 vCores" },
+          { key: "memory", label: "512 MiB RAM" },
+          { key: "storage", label: "5120 MiB SSD-Speicher" },
           { key: "ipv4", label: "Geteilte IPv4" },
-          { key: "ddos", label: "DDoS-Schutz" },
+          { key: "ddos", label: "DDoS-Schutz inklusive" },
           { key: "traffic", label: "Unmetered Traffic" },
+          { key: "uplink", label: "Geteilter 1-Gbit/s-Uplink" },
         ],
         price: "0 €",
-        priceCaption: "Für immer kostenlos",
-        cta: "Kostenlosen Server sichern",
+        priceCaption: "Vollständig kostenlos",
+        ctaLabel: "Kostenlosen Server sichern",
+        ctaHref: "https://pay.vaultscope.dev/products/free-server",
       },
       custom: {
         title: "Individuelle Infrastruktur-Lösungen",
@@ -817,14 +965,6 @@ export const translations: Record<Language, TranslationRecord> = {
       },
     },
     footer: {
-      description: "Kostenloses Enterprise-Hosting, entwickelt für Sicherheit, Performance und Skalierung.",
-      statusLink: "Detaillierten Status prüfen",
-      stats: {
-        cpu: "40 % CPU",
-        ram: "512 MB RAM",
-        storage: "5120 MB Storage",
-        network: "1 Gbit/s Netzwerk",
-      },
       sections: {
         resources: {
           title: "Ressourcen",
@@ -839,9 +979,14 @@ export const translations: Record<Language, TranslationRecord> = {
         socials: {
           title: "Soziale Kanäle",
           links: {
-            developmentServer: "Entwickler-Server",
-            mainServer: "Haupt-Server",
+            mainServer: "Discord",
             github: "GitHub",
+          },
+        },
+        software: {
+          title: "Software",
+          links: {
+            syncor: "Syncor",
           },
         },
         infrastructure: {
@@ -857,6 +1002,9 @@ export const translations: Record<Language, TranslationRecord> = {
             privacy: "Datenschutz",
             terms: "Nutzungsbedingungen",
             acceptableUse: "Richtlinie zur zulässigen Nutzung",
+            fairUsage: "Fair-Usage-Richtlinie",
+            sla: "Service Level Agreement",
+            cookiePolicy: "Cookie-Richtlinie",
           },
         },
       },
@@ -906,7 +1054,6 @@ export const translations: Record<Language, TranslationRecord> = {
         documentation: "Documentation",
         about: "À propos",
         services: "Services",
-        partners: "Partenaires",
         status: "Statut",
         signup: "Inscription",
         login: "Connexion",
@@ -1113,6 +1260,79 @@ export const translations: Record<Language, TranslationRecord> = {
         note: "Les plans payants ne sont pas encore disponibles – profitez de la plateforme gratuite pendant que nous collectons des retours terrain.",
       },
     },
+    servicesPageV2: {
+      hero: {
+        badge: "Offre de services",
+        title: "Infrastructure managée pour les builders et leurs communautés",
+        description:
+          "Déployez applications, bases de données et workloads automatisés sur notre infrastructure orientée automatisation. Commencez gratuitement avec les serveurs de code et évoluez avec un réseau protégé par Cloudflare quand vous en avez besoin.",
+        highlights: ["Serveurs de code gratuits", "Protection DDoS Cloudflare", "Réseau 1 Gbit/s"],
+        ctas: {
+          primary: { label: "Lancer un serveur de code gratuit", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Explorer la documentation", href: "/docs" },
+        },
+      },
+      coding: {
+        badge: "Free Tier",
+        title: "Serveurs de code — gratuits pour toujours",
+        description:
+          "Démarrez des conteneurs dédiés à vos langages, des bases de données managées et une observabilité intégrée sans carte bancaire. Chaque workspace bénéficie de l'ingress Cloudflare, de sauvegardes et du monitoring.",
+        specsTitle: "Ressources incluses",
+        featuresTitle: "Pourquoi choisir nos serveurs de code",
+        features: [
+          "40 % de vCPU partagée, 512 MiB de RAM et 5 GiB de SSD par workspace",
+          "Templates prêts à l'emploi pour les langages, bases de données et outils développeur populaires",
+          "Réseau protégé par Cloudflare avec IPv4 mutualisée et trafic illimité",
+          "Observabilité prête à l'emploi grâce à Prometheus et Loki",
+        ],
+        serverTypesTitle: "Templates prêts à lancer",
+        serverTypes: [
+          {
+            title: "Langages & runtimes",
+            items: ["Java", "Node.js", "C / C#", "Lua", "Python", "Elixir", "Go", "Rust", "Dart"],
+          },
+          {
+            title: "Bases de données",
+            items: ["MongoDB", "PostgreSQL", "MariaDB"],
+          },
+          {
+            title: "Outils développeur",
+            items: ["Visual Studio Code Web"],
+          },
+          {
+            title: "Observabilité",
+            items: ["Prometheus", "Loki"],
+          },
+        ],
+        note: "Chaque conteneur inclut une IPv4 mutualisée, la protection DDoS Cloudflare et un trafic illimité.",
+        ctas: {
+          primary: { label: "Obtenir votre conteneur gratuit", href: "https://pay.vaultscope.dev/products/free-server" },
+          secondary: { label: "Lire le guide des serveurs de code", href: "/docs/coding-servers" },
+        },
+      },
+      contact: {
+        title: "Besoin d'une solution sur mesure ?",
+        description:
+          "Nous concevons des environnements personnalisés pour studios de jeux, équipes plateforme et projets communautaires. Contactez-nous pour dimensionner la bonne infrastructure.",
+        items: [
+          {
+            label: "Discuter avec notre équipe sur Discord",
+            description: "Rejoignez la communauté et obtenez des conseils d'architecture sur #infrastructure.",
+            href: "https://discord.gg/wK8UZ7AAmc",
+          },
+          {
+            label: "Demander une infrastructure dédiée",
+            description: "Écrivez à support@vaultscope.dev pour des besoins dédiés, GPU ou conformes.",
+            href: "mailto:support@vaultscope.dev",
+          },
+          {
+            label: "Consulter les playbooks d'automatisation",
+            description: "Guides de déploiement, modèles de reverse proxy et automatisation du cycle de vie.",
+            href: "/docs",
+          },
+        ],
+      },
+    },
     hero: {
       badge: "Infrastructure d'entreprise offerte",
       title: "La puissance d'entreprise pour chaque équipe",
@@ -1204,18 +1424,20 @@ export const translations: Record<Language, TranslationRecord> = {
       },
       freePlan: {
         title: "Offre d'hébergement gratuite",
-        description: "Commencez sur notre free tier, propulsé par du matériel enterprise et protégé par Cloudflare.",
+        description: "Offre entièrement gratuite avec protection Cloudflare, sauvegardes et observabilité intégrées.",
         features: [
-          { key: "cpuShare", label: "40 % de CPU partagée" },
-          { key: "memory", label: "512 Mo de RAM" },
-          { key: "storage", label: "5 Go de stockage" },
+          { key: "cpuShare", label: "40 % de CPU • 0,4 vCores" },
+          { key: "memory", label: "512 MiB de RAM" },
+          { key: "storage", label: "5120 MiB de stockage SSD" },
           { key: "ipv4", label: "IPv4 mutualisée" },
-          { key: "ddos", label: "Protection DDoS" },
+          { key: "ddos", label: "Protection DDoS incluse" },
           { key: "traffic", label: "Trafic illimité" },
+          { key: "uplink", label: "Uplink partagé 1 Gbit/s" },
         ],
         price: "0 €",
-        priceCaption: "Gratuit pour toujours",
-        cta: "Obtenir votre serveur gratuit",
+        priceCaption: "Entièrement gratuit",
+        ctaLabel: "Obtenir votre serveur gratuit",
+        ctaHref: "https://pay.vaultscope.dev/products/free-server",
       },
       custom: {
         title: "Solutions d'infrastructure sur mesure",
@@ -1252,14 +1474,6 @@ export const translations: Record<Language, TranslationRecord> = {
       },
     },
     footer: {
-      description: "Hébergement d'entreprise gratuit pensé pour la sécurité, la performance et l'évolutivité.",
-      statusLink: "Consulter le statut détaillé",
-      stats: {
-        cpu: "40 % CPU",
-        ram: "512 Mo de RAM",
-        storage: "5120 Mo de stockage",
-        network: "Réseau 1 Gbit/s",
-      },
       sections: {
         resources: {
           title: "Ressources",
@@ -1274,9 +1488,14 @@ export const translations: Record<Language, TranslationRecord> = {
         socials: {
           title: "Réseaux sociaux",
           links: {
-            developmentServer: "Serveur de développement",
-            mainServer: "Serveur principal",
+            mainServer: "Discord",
             github: "GitHub",
+          },
+        },
+        software: {
+          title: "Logiciels",
+          links: {
+            syncor: "Syncor",
           },
         },
         infrastructure: {
@@ -1292,6 +1511,9 @@ export const translations: Record<Language, TranslationRecord> = {
             privacy: "Politique de confidentialité",
             terms: "Conditions d'utilisation",
             acceptableUse: "Politique d'utilisation acceptable",
+            fairUsage: "Politique d'usage équitable",
+            sla: "Service Level Agreement",
+            cookiePolicy: "Politique relative aux cookies",
           },
         },
       },
@@ -1320,8 +1542,8 @@ export const translations: Record<Language, TranslationRecord> = {
         accept: "Tout accepter",
       },
     },
-  },
-}
+  }
+};
 
 export function isLanguage(value: string | null | undefined): value is Language {
   return typeof value === "string" && (SUPPORTED_LANGUAGE_SET.has(value as Language) as boolean)

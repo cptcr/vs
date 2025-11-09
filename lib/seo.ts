@@ -91,6 +91,11 @@ export function buildMetadata({
       description: pageDescription,
       images: [imageUrl],
     },
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
     robots: {
       index: true,
       follow: true,

@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
 
       <main className="container max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <h1 className="mb-4 text-4xl font-bold text-foreground">Privacy Policy</h1>
-        <p className="mb-8 text-muted-foreground">Last updated: January 2025</p>
+        <p className="mb-8 text-muted-foreground">Last updated: November 2025</p>
 
         <div className="space-y-8 text-foreground">
           <section>
@@ -42,8 +42,8 @@ export default function PrivacyPolicy() {
                   usage, and panel activity through Pterodactyl
                 </li>
                 <li>
-                  <strong className="text-foreground">Billing Information:</strong> Payment details processed securely
-                  through our payment processors (we do not store full payment details)
+                  <strong className="text-foreground">Billing Information:</strong> Payment preferences and identifiers
+                  processed securely through Stripe (VaultScope never stores full card or bank details)
                 </li>
                 <li>
                   <strong className="text-foreground">Technical Data:</strong> IP addresses, browser type, device
@@ -54,6 +54,20 @@ export default function PrivacyPolicy() {
                   other correspondence
                 </li>
               </ul>
+              <p className="text-sm text-muted-foreground">
+                VaultScope now accepts payments exclusively via Stripe. We record only your preferred payment provider
+                (currently Stripe) and transaction status references; complete payment details remain with Stripe in
+                accordance with{" "}
+                <a
+                  href="https://stripe.com/privacy"
+                  className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Stripe&apos;s Privacy Policy
+                </a>
+                .
+              </p>
             </div>
           </section>
 
@@ -95,16 +109,39 @@ export default function PrivacyPolicy() {
               <p>We do not sell your personal information. We may share data with:</p>
               <ul className="pl-6 space-y-2 list-disc">
                 <li>
-                  <strong className="text-foreground">Payment Processors:</strong> Payments are processed and stored by
-                  Stripe, PayPal, and Cryptomus. These processors handle and store payment information according to their own
-                  privacy policies and industry standards. We do not store full payment details — we only retain your selected
-                  or preferred payment method (for example a processor-specific token or a last-4 reference) to facilitate billing
-                  and recurring payments.
+                  <strong className="text-foreground">Payment Processor:</strong> Payments are processed and stored by
+                  Stripe. Stripe handles payment information according to{" "}
+                  <a
+                    href="https://stripe.com/privacy"
+                    className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    its Privacy Policy
+                  </a>{" "}
+                  and industry standards. VaultScope does not store full payment details — only provider tokens or
+                  masked references required to facilitate billing and recurring payments.
                 </li>
                 <li>
-                  <strong className="text-foreground">Infrastructure Providers:</strong> We partner with Hetzner Cloud
-                  and Linode as infrastructure providers. Your service usage data may be processed on their platforms
-                  according to their respective privacy policies.
+                  <strong className="text-foreground">Reviews & customer feedback:</strong> After placing an order,
+                  activating a server, or cancelling service we may share your email address with Trustpilot to request a
+                  review. Trustpilot stores review invitations and responses on its own infrastructure; VaultScope does
+                  not host this data. {" "}<a 
+                  href="https://legal.trustpilot.com/for-reviewers/end-user-privacy-terms" 
+                  className="underline text-foreground underline-offset-4 hover:text-foreground/80" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                    Trustpilot Privacy Policy (Reviewers)
+                  </a>{" "} {" "}<a 
+                  href="https://legal.trustpilot.com/for-businesses/business-privacy-policy" 
+                  className="underline text-foreground underline-offset-4 hover:text-foreground/80" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                    Trustpilot Privacy Policy (Businesses)
+                  </a>{" "}
+                  
                 </li>
                 <li>
                   <strong className="text-foreground">Analytics:</strong> We use Google Analytics to understand service
@@ -255,10 +292,10 @@ export default function PrivacyPolicy() {
                 Google's opt-out browser add-on.
               </p>
               <p>
-                Our payment processors (Stripe, PayPal, and Cryptomus) may also use cookies and tracking technologies for
-                fraud prevention and security purposes. Payment information is stored and processed by those providers; VaultScope
-+                does not store full payment credentials.
-+              </p>
+                Stripe may also use cookies and tracking technologies for fraud prevention and security purposes.
+                Payment information is stored and processed by Stripe; VaultScope does not store full payment
+                credentials.
+              </p>
             </div>
           </section>
 

@@ -8,14 +8,12 @@
 "use client"
 
 import type { SVGProps } from "react"
-import { Github, Shield, Cpu, MemoryStick, HardDrive, Network } from "lucide-react"
+import { Github } from "lucide-react"
 import { useI18n } from "@/components/language-provider"
 
 export function Footer() {
-  const { getValue, t } = useI18n()
+  const { getValue } = useI18n()
   const copy = getValue<{
-    description: string
-    stats: { cpu: string; ram: string; storage: string; network: string }
     sections: {
       resources: {
         title: string
@@ -30,9 +28,14 @@ export function Footer() {
       socials: {
         title: string
         links: {
-          developmentServer: string
           mainServer: string
           github: string
+        }
+      }
+      software: {
+        title: string
+        links: {
+          syncor: string
         }
       }
       infrastructure: {
@@ -48,6 +51,9 @@ export function Footer() {
           privacy: string
           terms: string
           acceptableUse: string
+          fairUsage: string
+          sla: string
+          cookiePolicy: string
         }
       }
     }
@@ -57,34 +63,7 @@ export function Footer() {
   return (
     <footer className="relative border-t border-border bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <Shield className="h-6 w-6 text-foreground" aria-hidden="true" />
-              <span className="text-lg font-bold text-foreground">{t("header.brand")}</span>
-            </div>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">{copy.description}</p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-2">
-                <Cpu className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                <span className="text-xs text-muted-foreground">{copy.stats.cpu}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MemoryStick className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                <span className="text-xs text-muted-foreground">{copy.stats.ram}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <HardDrive className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                <span className="text-xs text-muted-foreground">{copy.stats.storage}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Network className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                <span className="text-xs text-muted-foreground">{copy.stats.network}</span>
-              </div>
-            </div>
-            <div className="mt-6 h-px w-full bg-border/60" />
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div>
             <h4 className="font-semibold text-foreground mb-4">{copy.sections.resources.title}</h4>
             <ul className="space-y-3">
@@ -136,17 +115,6 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://discord.gg/4cKvw6ytTB"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <DiscordIcon className="h-4 w-4" aria-hidden="true" />
-                  <span>{copy.sections.socials.links.developmentServer}</span>
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://discord.gg/wK8UZ7AAmc"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -165,6 +133,23 @@ export function Footer() {
                 >
                   <Github className="h-4 w-4" aria-hidden="true" />
                   <span>{copy.sections.socials.links.github}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">{copy.sections.software.title}</h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="https://github.com/VaultScope/syncor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="h-4 w-4" aria-hidden="true" />
+                  <span>{copy.sections.software.links.syncor}</span>
                 </a>
               </li>
             </ul>
@@ -202,6 +187,21 @@ export function Footer() {
               <li>
                 <a href="/acceptable-use" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   {copy.sections.legal.links.acceptableUse}
+                </a>
+              </li>
+              <li>
+                <a href="/fair-usage" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {copy.sections.legal.links.fairUsage}
+                </a>
+              </li>
+              <li>
+                <a href="/sla" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {copy.sections.legal.links.sla}
+                </a>
+              </li>
+              <li>
+                <a href="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  {copy.sections.legal.links.cookiePolicy}
                 </a>
               </li>
             </ul>

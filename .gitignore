@@ -2,3 +2,4 @@ node_modules/
 .next/
 AGENTS.md
 /new/
+.vercel/

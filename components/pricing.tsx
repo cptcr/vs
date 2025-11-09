@@ -5,61 +5,80 @@
  * See LICENSE file for details.
  */
 
+"use client"
+
 import { Check, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { useI18n } from "@/components/language-provider"
+
+type PricingSectionCopy = {
+  badge: string
+  title: string
+  description: string
+  plan: {
+    name: string
+    price: string
+    priceCaption: string
+    description: string
+    ctaLabel: string
+    ctaHref: string
+    includeTitle: string
+    features: string[]
+  }
+}
 
 export function Pricing() {
-  const plan = {
-    name: "Free Tier",
-    price: "Free",
-    description: "Everything you need to get started",
-    features: ["40% CPU", "512 MB RAM", "5120 MB ROM", "No Bandwidth Limits", "Shared IPv4", "5 Ports"],
-  }
+  const { getValue } = useI18n()
+  const copy = getValue<PricingSectionCopy>("pricingSection")
 
   return (
-    <section id="pricing" className="relative py-16 sm:py-28 px-4 sm:px-6 lg:px-8 bg-black">
-      <div className="container mx-auto relative z-10">
-        <div className="text-center mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 backdrop-blur-sm text-secondary-foreground text-sm mb-6 border border-border/50">
+    <section id="pricing" className="relative bg-black px-4 py-16 sm:px-6 sm:py-28 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <div className="mb-14 text-center sm:mb-20">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/50 bg-secondary/50 px-4 py-2 text-sm text-secondary-foreground backdrop-blur-sm">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
-            <span className="font-medium">No Credit Card Required</span>
+            <span className="font-medium">{copy.badge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 text-balance tracking-tight">
-            Premium hosting, completely free
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            {copy.title}
           </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-            Get started with our free tier. All the resources you need with enterprise-grade features included.
-          </p>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {copy.description}
+            </p>
         </div>
 
-        <div className="max-w-lg mx-auto">
-          <Card className="bg-card border-2 border-foreground/20 shadow-2xl shadow-foreground/10 hover:border-foreground/40 transition-all duration-300">
+        <div className="mx-auto max-w-2xl">
+          <Card className="border-2 border-foreground/20 bg-card shadow-2xl shadow-foreground/10 transition-all duration-300 hover:border-foreground/40">
             <CardHeader className="p-6 pb-6 sm:p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-2">{plan.name}</h3>
-              <p className="text-muted-foreground mb-6">{plan.description}</p>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl sm:text-6xl font-bold text-foreground tracking-tight">{plan.price}</span>
-                  <span className="text-lg text-muted-foreground">forever</span>
-                </div>
+              <h3 className="mb-2 text-2xl font-bold text-foreground">{copy.plan.name}</h3>
+              <p className="mb-6 text-muted-foreground">{copy.plan.description}</p>
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+                  {copy.plan.price}
+                </span>
+                <span className="text-lg text-muted-foreground">{copy.plan.priceCaption}</span>
+              </div>
             </CardHeader>
-              <CardContent className="p-6 pt-6 sm:p-8">
+            <CardContent className="p-6 pt-6 sm:p-8">
               <Button
-                className="w-full mb-8 bg-foreground text-background hover:bg-foreground/90 h-12 text-base font-semibold shadow-lg shadow-foreground/20"
+                className="mb-8 h-12 w-full bg-foreground text-background shadow-lg shadow-foreground/20 hover:bg-foreground/90"
                 asChild
               >
-                <a href="https://discord.gg/sRj3uPPpme" target="_blank" rel="noopener noreferrer">
-                  Get Started Free
+                <a href={copy.plan.ctaHref} target="_blank" rel="noopener noreferrer">
+                  {copy.plan.ctaLabel}
                 </a>
               </Button>
               <div className="space-y-4">
-                <p className="text-sm font-semibold text-foreground mb-3">What&apos;s included:</p>
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-foreground flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-muted-foreground leading-relaxed">{feature}</span>
-                  </li>
-                ))}
+                <p className="text-sm font-semibold text-foreground">{copy.plan.includeTitle}</p>
+                <ul className="space-y-3">
+                  {copy.plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-foreground" aria-hidden="true" />
+                      <span className="leading-relaxed text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </CardContent>
           </Card>
