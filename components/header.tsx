@@ -77,7 +77,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/75 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-xl">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 md:h-16 md:py-0">
           <Link href="/" className="flex items-center gap-2" aria-label={t("header.brand")}>
             <Image
@@ -85,7 +85,7 @@ export function Header() {
               alt=""
               width={32}
               height={32}
-              className="h-8 w-8 rounded"
+              className="w-8 h-8 rounded"
               priority
             />
             <span aria-hidden className="text-xl font-bold text-foreground">
@@ -93,10 +93,10 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+          <nav className="items-center hidden gap-6 md:flex lg:gap-8">
             {navItems.map((item) => {
               const className =
-                "text-sm font-medium text-white/85 transition-colors hover:text-white focus-visible:text-white"
+                "text-sm font-medium transition-colors text-white/85 hover:text-white focus-visible:text-white"
               if (item.external) {
                 return (
                   <a
@@ -140,7 +140,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="h-11 w-11 rounded-full border border-white/15 bg-white/10 text-white transition hover:bg-white/20 focus-visible:ring-offset-background md:hidden"
+              className="text-white transition border rounded-full h-11 w-11 border-white/15 bg-white/10 hover:bg-white/20 focus-visible:ring-offset-background md:hidden"
               onClick={toggleMobileMenu}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
@@ -151,7 +151,7 @@ export function Header() {
               }
               id="mobile-open-button"
             >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
         </div>
@@ -169,20 +169,20 @@ export function Header() {
           }}
         >
           <div
-            className="flex items-center justify-between border-b border-white/10 px-6 py-5 sm:px-10"
+            className="flex items-center justify-between px-6 py-5 border-b border-white/10 sm:px-10"
             style={{ backgroundColor: "#000" }}
           >
-            <span className="text-base font-semibold uppercase tracking-wide text-white/50">
+            <span className="text-base font-semibold tracking-wide uppercase text-white/50">
               {t("header.actions.menuTitle", { fallback: "Menu" })}
             </span>
             <Button
               variant="ghost"
               size="icon"
-              className="h-11 w-11 rounded-full border border-white/10 bg-white/10 text-white transition hover:bg-white/20 focus-visible:ring-offset-black"
+              className="text-white transition border rounded-full h-11 w-11 border-white/10 bg-white/10 hover:bg-white/20 focus-visible:ring-offset-black"
               onClick={() => setMobileMenuOpen(false)}
               aria-label={t("header.actions.closeMenu", { fallback: "Close menu" })}
             >
-              <X className="h-6 w-6" />
+              <X className="w-6 h-6" />
             </Button>
           </div>
 
@@ -190,10 +190,10 @@ export function Header() {
             id="mobile-navigation"
             aria-modal="true"
             role="dialog"
-            className="flex flex-1 flex-col px-6 py-8 sm:px-10 sm:py-12"
+            className="flex flex-col flex-1 px-6 py-8 sm:px-10 sm:py-12"
             style={{ backgroundColor: "#000" }}
           >
-            <ul className="flex flex-1 flex-col gap-4 overflow-y-auto">
+            <ul className="flex flex-col flex-1 gap-4 overflow-y-auto">
               {navItems.map((item, index) => {
                 const commonClass =
                   "block w-full rounded-lg px-4 py-4 text-xl font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
@@ -230,11 +230,11 @@ export function Header() {
               })}
             </ul>
 
-            <div className="mt-6 flex flex-col gap-3">
+            <div className="flex flex-col gap-3 mt-6">
               <Button
                 asChild
                 variant="outline"
-                className="w-full justify-center border-white/20 bg-white/5 text-white hover:bg-white/15"
+                className="justify-center w-full text-white border-white/20 bg-white/5 hover:bg-white/15"
               >
                 <a
                   href="https://panel.vaultscope.dev"
@@ -247,7 +247,7 @@ export function Header() {
               </Button>
               <Button
                 asChild
-                className="w-full justify-center bg-white text-black hover:bg-white/90"
+                className="justify-center w-full text-black bg-white hover:bg-white/90"
               >
                 <a
                   href="https://pay.vaultscope.dev"
@@ -260,7 +260,7 @@ export function Header() {
               </Button>
             </div>
 
-            <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-6 text-sm text-white/40">
+            <div className="flex items-center justify-between pt-6 mt-auto text-sm border-t border-white/10 text-white/40">
               <span>VaultScope</span>
               <LanguageSwitcher
                 className="w-auto"
