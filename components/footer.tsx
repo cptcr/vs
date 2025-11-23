@@ -63,14 +63,14 @@ export function Footer() {
   }>("footer")
 
   return (
-    <footer className="relative border-t border-border bg-black">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+    <footer className="relative bg-black border-t border-border">
+      <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-2 lg:grid-cols-5">
           <div>
-            <h4 className="font-semibold text-foreground mb-4">{copy.sections.resources.title}</h4>
+            <h4 className="mb-4 font-semibold text-foreground">{copy.sections.resources.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/docs" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/docs" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.resources.links.documentation}
                 </a>
               </li>
@@ -79,7 +79,7 @@ export function Footer() {
                   href="https://panel.vaultscope.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   {copy.sections.resources.links.controlPanel}
                 </a>
@@ -89,7 +89,7 @@ export function Footer() {
                   href="https://pay.vaultscope.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   {copy.sections.resources.links.payment}
                 </a>
@@ -99,13 +99,13 @@ export function Footer() {
                   href="https://status.vaultscope.dev"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   {copy.sections.resources.links.status}
                 </a>
               </li>
               <li>
-                <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#features" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.resources.links.features}
                 </a>
               </li>
@@ -113,16 +113,16 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">{copy.sections.socials.title}</h4>
+            <h4 className="mb-4 font-semibold text-foreground">{copy.sections.socials.title}</h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="https://discord.gg/wK8UZ7AAmc"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
-                  <DiscordIcon className="h-4 w-4" aria-hidden="true" />
+                  <DiscordIcon className="w-4 h-4" aria-hidden="true" />
                   <span>{copy.sections.socials.links.mainServer}</span>
                 </a>
               </li>
@@ -131,9 +131,9 @@ export function Footer() {
                   href="https://github.com/VaultScope"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
-                  <Github className="h-4 w-4" aria-hidden="true" />
+                  <Github className="w-4 h-4" aria-hidden="true" />
                   <span>{copy.sections.socials.links.github}</span>
                 </a>
               </li>
@@ -141,42 +141,62 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">{copy.sections.software.title}</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="https://github.com/VaultScope/syncor"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github className="h-4 w-4" aria-hidden="true" />
-                  <span>{copy.sections.software.links.syncor}</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+  <h4 className="mb-4 font-semibold text-foreground">{copy.sections.software.title}</h4>
+  <ul className="space-y-3">
+    <li>
+      <a
+        href="/technologies/nodejs-sdk"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+      >
+        <span>Node.js SDK</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/technologies/connect"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+      >
+        <span>Connect</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://github.com/VaultScope/syncor"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+      >
+        <span>{copy.sections.software.links.syncor}</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">{copy.sections.infrastructure.title}</h4>
+            <h4 className="mb-4 font-semibold text-foreground">{copy.sections.infrastructure.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="#pricing" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.pricing}
                 </a>
               </li>
               <li>
-                <a href="/security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/security" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.security}
                 </a>
               </li>
               <li>
-                <a href="/minecraft" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/minecraft" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.minecraft}
                 </a>
               </li>
               <li>
-                <a href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/services" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.services}
                 </a>
               </li>
@@ -184,35 +204,35 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">{copy.sections.legal.title}</h4>
+            <h4 className="mb-4 font-semibold text-foreground">{copy.sections.legal.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/privacy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.privacy}
                 </a>
               </li>
               <li>
-                <a href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/terms" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.terms}
                 </a>
               </li>
               <li>
-                <a href="/acceptable-use" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/acceptable-use" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.acceptableUse}
                 </a>
               </li>
               <li>
-                <a href="/fair-usage" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/fair-usage" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.fairUsage}
                 </a>
               </li>
               <li>
-                <a href="/sla" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/sla" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.sla}
                 </a>
               </li>
               <li>
-                <a href="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <a href="/cookie-policy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.cookiePolicy}
                 </a>
               </li>

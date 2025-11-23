@@ -476,7 +476,7 @@ export const translations: Record<Language, TranslationRecord> = {
           },
         },
         software: {
-          title: "Software",
+          title: "Technologies",
           links: {
             syncor: "Syncor",
           },
@@ -986,7 +986,7 @@ export const translations: Record<Language, TranslationRecord> = {
           },
         },
         software: {
-          title: "Software",
+          title: "Technologien",
           links: {
             syncor: "Syncor",
           },
@@ -1497,7 +1497,7 @@ export const translations: Record<Language, TranslationRecord> = {
           },
         },
         software: {
-          title: "Logiciels",
+          title: "Technologies",
           links: {
             syncor: "Syncor",
           },
