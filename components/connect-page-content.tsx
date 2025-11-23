@@ -158,7 +158,7 @@ export function ConnectPageContent() {
                     <h3 className="text-lg font-semibold text-white">Installation</h3>
                   </div>
                   <div className="p-4 font-mono text-sm border rounded-xl border-white/10 bg-black/60 text-emerald-300">
-                    npm i -g @vaultscope/vs-connect
+                    npm i -g vs-connect
                   </div>
                   <p className="text-sm text-white/65">
                     Install globally to access the CLI from anywhere in your system.
