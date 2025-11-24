@@ -11,6 +11,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // required for static export
   },
+  outputFileTracingRoot: "C:/Users/toowa/OneDrive/Desktop/Projects/vs>"
 };
 
 export default nextConfig;
