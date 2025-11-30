@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 
 export default function RecorePreview() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -92,3 +92,4 @@ export default function RecorePreview() {
     </main>
   );
 }
+
