@@ -27,7 +27,7 @@ export default function RecorePreview() {
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = "rgba(255,255,255,0.7)";
 
-      for (let p of particles) {
+      for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
 
@@ -91,3 +91,4 @@ export default function RecorePreview() {
     </main>
   );
 }
+
