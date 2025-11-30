@@ -7,6 +7,7 @@ export default function RecorePreview() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
     let w = (canvas.width = window.innerWidth);
     let h = (canvas.height = window.innerHeight);
@@ -91,4 +92,3 @@ export default function RecorePreview() {
     </main>
   );
 }
-
