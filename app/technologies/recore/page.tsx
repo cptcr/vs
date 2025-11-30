@@ -9,10 +9,11 @@ export default function RecorePreview() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    if (!ctx) return;("2d");
     let w = (canvas.width = window.innerWidth);
     let h = (canvas.height = window.innerHeight);
 
-    const particles = [];
+    const particles: { x: number; y: number; vx: number; vy: number }[] = [];
     const count = Math.floor((w * h) / 13000);
 
     for (let i = 0; i < count; i++) {
