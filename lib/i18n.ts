@@ -403,6 +403,10 @@ export const translations: Record<Language, TranslationRecord> = {
           { key: "memory", name: "Memory", spec: "128 GB DDR4 ECC", detail: "4× 32 GB Registered ECC" },
           { key: "storage", name: "Storage", spec: "2 TB enterprise HDD", detail: "High-performance SATA" },
           { key: "network", name: "Network", spec: "1 Gbps unmetered", detail: "Consistent high-speed connectivity" },
+          { key: "processor", name: "Processor", spec: "AMD Epyc 7401P", detail: "24 cores / 48 threads" },
+          { key: "memory", name: "Memory", spec: "128 GB DDR4 ECC", detail: "4× 32 GB Registered ECC" },
+          { key: "storage", name: "Storage", spec: "2x 2TB Datacenter SSD (RAID 1)", detail: "High-performance SATA" },
+          { key: "network", name: "Network", spec: "1 Gbps unmetered", detail: "Consistent high-speed connectivity" }
         ],
       },
       freePlan: {
@@ -912,7 +916,11 @@ export const translations: Record<Language, TranslationRecord> = {
           { key: "processor", name: "Prozessor", spec: "Intel Xeon W-2295", detail: "18 Kerne / 36 Threads" },
           { key: "memory", name: "Arbeitsspeicher", spec: "128 GB DDR4 ECC", detail: "4× 32 GB Registered ECC" },
           { key: "storage", name: "Speicher", spec: "2 TB Enterprise-HDD", detail: "High-Performance-SATA" },
-          { key: "network", name: "Netzwerk", spec: "1 Gbit/s unlimitiert", detail: "Konstante Hochgeschwindigkeits-Anbindung" },
+          { key: "network", name: "Netzwerk", spec: "1 Gbit/s unlimitiert", detail: "Konstante Hochgeschwindigkeits-Anbindung" },         
+          { key: "processor", name: "Prozessor", spec: "AMD Epyc 7401P", detail: "24 cores / 48 threads" },
+          { key: "memory", name: "RAM", spec: "128 GB DDR4 ECC", detail: "4× 32 GB Registered ECC" },
+          { key: "storage", name: "Speicher", spec: "2x 2TB Datacenter SSD (RAID 1)", detail: "High-performance SATA" },
+          { key: "network", name: "Netzwerk", spec: "1 Gbit/s unlimitiert", detail: "Konstante Hochgeschwindigkeits-Anbindung" }
         ],
       },
       freePlan: {
