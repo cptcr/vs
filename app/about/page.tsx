@@ -117,7 +117,7 @@ const futureFocus = [
 ]
 
 export const metadata = buildMetadata({
-  title: "About VaultScope",
+  title: "About",
   description: "Learn about VaultScope's mission, team values, and commitment to reliable infrastructure.",
   path: "/about",
 })

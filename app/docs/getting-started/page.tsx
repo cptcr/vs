@@ -14,7 +14,7 @@ import backupWindow from "@/app/assets/docs/manage-server/backups/create-backup-
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Getting Started — VaultScope Docs",
+  title: "Getting Started — Docs",
   description:
     "Tour the VaultScope control panel, upload your first files, create a manual backup and learn the fastest paths to support.",
   path: "/docs/getting-started",
@@ -39,7 +39,7 @@ export default function GettingStartedPage() {
           CPU, memory and network usage along the top and exposes quick actions—start, stop and restart—above the
           terminal. Keep the browser open during troubleshooting so you can reference historical output.
         </p>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Tip: The control panel automatically reconnects after temporary network drops. You can safely leave the tab
           open in the background while a command runs.
         </div>
@@ -96,7 +96,7 @@ export default function GettingStartedPage() {
           passwords and allocation details. Rotate sensitive values from here, not the billing portal—the panel syncs
           them instantly across the cluster.
         </p>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Enable SFTP if you prefer a desktop client such as FileZilla or WinSCP.</li>
           <li>Copy the connection details into your password manager so teammates can retrieve them securely.</li>
           <li>Audit credential usage from the <em>Activity</em> tab in the billing area if you suspect a compromise.</li>
@@ -109,7 +109,7 @@ export default function GettingStartedPage() {
           Support staffing follows the same runbooks published in this documentation. When you need help, include the
           following in your ticket:
         </p>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Server ID, region and the action you attempted.</li>
           <li>Console output or log snippets around the time of failure.</li>
           <li>Whether the issue reproduces after a restart or backup restore.</li>
@@ -121,19 +121,19 @@ export default function GettingStartedPage() {
         </p>
       </section>
 
-      <section className="space-y-6 border-t border-border pt-8">
+      <section className="pt-8 space-y-6 border-t border-border">
         <h2 className="text-2xl font-semibold">Where to go next</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <Link
             href="/docs/control-panel"
-            className="rounded-lg border border-border/60 bg-background/60 p-4 transition hover:border-primary/70 hover:bg-primary/10"
+            className="p-4 transition border rounded-lg border-border/60 bg-background/60 hover:border-primary/70 hover:bg-primary/10"
           >
             <h3 className="text-lg font-semibold text-foreground">Deep dive the control panel</h3>
             <p className="mt-2 text-sm text-muted-foreground">Learn how backups, schedules, subdomains and user access tie together.</p>
           </Link>
           <Link
             href="/docs/security"
-            className="rounded-lg border border-border/60 bg-background/60 p-4 transition hover:border-primary/70 hover:bg-primary/10"
+            className="p-4 transition border rounded-lg border-border/60 bg-background/60 hover:border-primary/70 hover:bg-primary/10"
           >
             <h3 className="text-lg font-semibold text-foreground">Lock down your account</h3>
             <p className="mt-2 text-sm text-muted-foreground">Enable 2FA, rotate passwords and keep billing separate from operational access.</p>

@@ -12,7 +12,7 @@ import playerManagerWindow from "@/app/assets/docs/minecraft/players/player_mana
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Minecraft Player Management — VaultScope Docs",
+  title: "Minecraft Player Management — Docs",
   description:
     "Monitor and manage players on your VaultScope Minecraft server, including bans, whitelists and live actions.",
   path: "/docs/minecraft/players",
@@ -58,7 +58,7 @@ export default function MinecraftPlayersPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">3. Take action on individual players</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Click a player to open the action drawer and confirm you&apos;re targeting the correct account.</li>
           <li>Run moderation steps like <em>Ban</em>, <em>Kick</em>, <em>Clear Inventory</em>, <em>Kill</em> or{" "}
             <em>Wipe</em>.</li>

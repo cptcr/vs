@@ -11,7 +11,7 @@ import moreThenModsInstaller from "@/app/assets/docs/minecraft/mod-installer/mor
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Minecraft Mod Installer — VaultScope Docs",
+  title: "Minecraft Mod Installer — Docs",
   description:
     "Install Minecraft mods in seconds with VaultScope’s Mod Installer, filter by version or loader, and review release details before deploying.",
   path: "/docs/minecraft/mod-installer",
@@ -58,7 +58,7 @@ export default function MinecraftModInstallerPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">3. Review and install</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Click any mod to inspect its release history, changelog and outbound links to the official project page.</li>
           <li>Pick the version you want to deploy—VaultScope highlights the builds matching your server loader.</li>
           <li>Hit <strong>Install</strong> to queue a deployment. The panel confirms when the files are on disk.</li>

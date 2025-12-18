@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo"
 import { NodeJsSDKPageContent } from "@/components/nodejs-sdk-page-content"
 
 export const metadata = buildMetadata({
-  title: "Node.js SDK — VaultScope",
+  title: "Node.js SDK",
   description:
     "TypeScript/JavaScript SDK for VaultScope Statistics Server. Monitor system resources, manage alerts, and control infrastructure with a fully typed API and automatic retry logic.",
   path: "/technologies/nodejs-sdk",

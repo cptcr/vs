@@ -12,7 +12,7 @@ import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Service Level Agreement — VaultScope",
+  title: "Service Level Agreement (SLA)",
   description: "Availability targets, response commitments, and service credits for VaultScope managed infrastructure.",
   path: "/sla",
 })
@@ -50,9 +50,9 @@ const creditTable = [
 export default function ServiceLevelAgreement() {
   return (
     <div className="min-h-screen bg-black">
-      <main className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <header className="mb-10 flex items-center gap-4">
-          <ShieldCheck className="h-10 w-10 text-foreground" aria-hidden="true" />
+      <main className="container max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <header className="flex items-center gap-4 mb-10">
+          <ShieldCheck className="w-10 h-10 text-foreground" aria-hidden="true" />
           <div>
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Service Commitment</p>
             <h1 className="text-4xl font-bold text-foreground">Service Level Agreement (SLA)</h1>
@@ -61,15 +61,15 @@ export default function ServiceLevelAgreement() {
         </header>
 
         <div className="space-y-10 text-foreground">
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <p>
               This SLA describes the availability targets and support response timelines for VaultScope managed services,
               including the free tier, paid Minecraft servers, and bespoke infrastructure. It supplements our{" "}
-              <Link href="/terms" className="text-foreground underline underline-offset-4 hover:text-foreground/80">
+              <Link href="/terms" className="underline text-foreground underline-offset-4 hover:text-foreground/80">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link href="/acceptable-use" className="text-foreground underline underline-offset-4 hover:text-foreground/80">
+              <Link href="/acceptable-use" className="underline text-foreground underline-offset-4 hover:text-foreground/80">
                 Acceptable Use Policy
               </Link>
               .
@@ -81,9 +81,9 @@ export default function ServiceLevelAgreement() {
             </p>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Availability targets</h2>
-            <ul className="list-disc space-y-2 pl-6 text-sm">
+            <ul className="pl-6 space-y-2 text-sm list-disc">
               <li>Control panel and API: 99.9% monthly uptime.</li>
               <li>Free tier workloads: best-effort availability with 99.5% internal target.</li>
               <li>Paid Minecraft servers and bespoke environments: 99.9% monthly uptime.</li>
@@ -99,14 +99,14 @@ export default function ServiceLevelAgreement() {
               </p>
             </div>
 
-            <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-black/40">
+            <div className="border divide-y divide-white/10 rounded-2xl border-white/10 bg-black/40">
               {priorities.map((priority) => (
-                <div key={priority.name} className="space-y-3 px-6 py-6">
+                <div key={priority.name} className="px-6 py-6 space-y-3">
                   <div>
                     <p className="text-lg font-semibold text-foreground">{priority.name}</p>
                     <p className="text-sm text-muted-foreground">{priority.target}</p>
                   </div>
-                  <ul className="list-disc space-y-1 pl-6 text-sm text-muted-foreground">
+                  <ul className="pl-6 space-y-1 text-sm list-disc text-muted-foreground">
                     {priority.examples.map((example) => (
                       <li key={example}>{example}</li>
                     ))}
@@ -116,11 +116,11 @@ export default function ServiceLevelAgreement() {
             </div>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Service credits</h2>
             <p>Customers on paid plans may request credits when monthly uptime falls below the contractual target.</p>
-            <div className="overflow-x-auto rounded-2xl border border-white/10">
-              <table className="min-w-full divide-y divide-white/10 text-left text-sm text-muted-foreground">
+            <div className="overflow-x-auto border rounded-2xl border-white/10">
+              <table className="min-w-full text-sm text-left divide-y divide-white/10 text-muted-foreground">
                 <thead className="bg-white/[0.02] text-white/60">
                   <tr>
                     <th className="px-4 py-3 font-semibold">Monthly uptime</th>
@@ -137,40 +137,40 @@ export default function ServiceLevelAgreement() {
                 </tbody>
               </table>
             </div>
-            <ul className="list-disc space-y-2 pl-6 text-sm">
+            <ul className="pl-6 space-y-2 text-sm list-disc">
               <li>Requests must be submitted to support@vaultscope.dev within 30 days of the incident.</li>
               <li>Credits apply to future invoices and cannot exceed the monthly fee for the affected service.</li>
               <li>Credits are unavailable if fees are overdue or if the incident was caused by customer-side configuration.</li>
             </ul>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Exclusions</h2>
-            <ul className="list-disc space-y-2 pl-6 text-sm">
+            <ul className="pl-6 space-y-2 text-sm list-disc">
               <li>Force majeure events (natural disasters, large-scale internet outages).</li>
               <li>Issues caused by customer software, third-party plugins, or denial-of-service attacks beyond Cloudflare coverage.</li>
               <li>Maintenance requested by the customer or performed to address Acceptable Use violations.</li>
             </ul>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Questions & escalation</h2>
             <p>
               Open a ticket in the panel, reach out via{" "}
               <a
                 href="https://discord.gg/wK8UZ7AAmc"
-                className="text-foreground underline underline-offset-4 hover:text-foreground/80"
+                className="underline text-foreground underline-offset-4 hover:text-foreground/80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Discord
               </a>
               , or email{" "}
-              <a className="text-foreground underline underline-offset-4 hover:text-foreground/80" href="mailto:support@vaultscope.dev">
+              <a className="underline text-foreground underline-offset-4 hover:text-foreground/80" href="mailto:support@vaultscope.dev">
                 support@vaultscope.dev
               </a>{" "}
               for clarification. Formal escalation requests can be sent to{" "}
-              <a className="text-foreground underline underline-offset-4 hover:text-foreground/80" href="mailto:legal@vaultscope.dev">
+              <a className="underline text-foreground underline-offset-4 hover:text-foreground/80" href="mailto:legal@vaultscope.dev">
                 legal@vaultscope.dev
               </a>
               .

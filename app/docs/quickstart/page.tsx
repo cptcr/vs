@@ -17,7 +17,7 @@ import successView from "@/app/assets/docs/create-server/success-view.png"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Quickstart — VaultScope Docs",
+  title: "Quickstart — Docs",
   description:
     "Spin up your first VaultScope server in minutes: register, confirm billing, reset your panel password and access the control panel.",
   path: "/docs/quickstart",
@@ -39,7 +39,7 @@ export default function QuickStartPage() {
         <h2 className="text-2xl font-semibold">1. Create your billing profile</h2>
         <p className="text-muted-foreground">
           Visit{" "}
-          <a href="https://pay.vaultscope.dev/register" className="font-medium text-primary underline underline-offset-4">
+          <a href="https://pay.vaultscope.dev/register" className="font-medium underline text-primary underline-offset-4">
             pay.vaultscope.dev/register
           </a>{" "}
           and create a billing account. This unlocks the storefront, payment history and automated invoices.
@@ -50,7 +50,7 @@ export default function QuickStartPage() {
           caption="Complete the registration form with the email address you will later use for the server control panel."
           priority
         />
-        <p className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="px-4 py-3 text-sm leading-relaxed border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Verification emails are only sent from <span className="font-semibold text-foreground">robot@vaultscope.dev</span>.
           Add the address to your allowlist if you use aggressive spam filtering.
         </p>
@@ -113,7 +113,7 @@ export default function QuickStartPage() {
         <h2 className="text-2xl font-semibold">5. Sign in at panel.vaultscope.dev</h2>
         <p className="text-muted-foreground">
           Head to{" "}
-          <a href="https://panel.vaultscope.dev" className="font-medium text-primary underline underline-offset-4">
+          <a href="https://panel.vaultscope.dev" className="font-medium underline text-primary underline-offset-4">
             panel.vaultscope.dev
           </a>{" "}
           and log in with the billing email and the password you just created. Your newly provisioned server appears on
@@ -124,26 +124,26 @@ export default function QuickStartPage() {
           alt="VaultScope control panel dashboard showing a newly provisioned server in the server list."
           caption="Click the server card to open the console, file manager, networking tools and backups."
         />
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3">
+        <div className="px-4 py-3 border rounded-lg border-border/60 bg-muted/10">
           <h3 className="text-lg font-semibold text-foreground">Next up</h3>
-          <ul className="mt-2 list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+          <ul className="pl-5 mt-2 space-y-2 text-sm list-disc text-muted-foreground">
             <li>
               Configure automatic backups by following the{" "}
-              <Link href="/docs/control-panel" className="font-medium text-primary underline underline-offset-4">
+              <Link href="/docs/control-panel" className="font-medium underline text-primary underline-offset-4">
                 control panel guide
               </Link>
               .
             </li>
             <li>
               Invite teammates or managers with scoped access through the{" "}
-              <Link href="/docs/servers" className="font-medium text-primary underline underline-offset-4">
+              <Link href="/docs/servers" className="font-medium underline text-primary underline-offset-4">
                 server management walkthrough
               </Link>
               .
             </li>
             <li>
               Enable two-factor authentication from the{" "}
-              <Link href="/docs/security" className="font-medium text-primary underline underline-offset-4">
+              <Link href="/docs/security" className="font-medium underline text-primary underline-offset-4">
                 account security doc
               </Link>{" "}
               to keep your login safe.

@@ -9,7 +9,7 @@ import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Monitoring & Alerts — VaultScope Docs",
+  title: "Monitoring & Alerts — Docs",
   description:
     "Instrument VaultScope servers with built-in metrics, external exporters, alert routing and incident response workflows.",
   path: "/docs/monitoring",
@@ -29,7 +29,7 @@ export default function MonitoringPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">Baseline metrics in the panel</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
             The console header shows real-time CPU, RAM and disk usage averaged across the last 15 seconds. Click any
             metric to expand historical charts for the previous hour, day or week.
@@ -45,7 +45,7 @@ export default function MonitoringPage() {
           VaultScope supports sidecar exporters and agent-based collectors. Popular setups include Prometheus node_exporter,
           Influx Telegraf or lightweight StatsD daemons.
         </p>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Deploy exporters via the file manager or an automation schedule so they restart after reboots.</li>
           <li>Use custom ports for exporters and expose them via the <em>Network</em> tab if your monitoring stack lives elsewhere.</li>
           <li>Secure exporters with basic auth or mTLS. Never leave plaintext metrics endpoints open to the internet.</li>
@@ -58,12 +58,12 @@ export default function MonitoringPage() {
           Alerts should page the right person at the right time. VaultScope teams typically route alerts using a mix of
           Discord, PagerDuty and email.
         </p>
-        <ol className="list-decimal space-y-2 pl-6 text-muted-foreground">
+        <ol className="pl-6 space-y-2 list-decimal text-muted-foreground">
           <li>Define thresholds for CPU, memory, TPS, ping and scheduled task failures.</li>
           <li>Send low-severity alerts to a Discord channel. Reserve PagerDuty or SMS for SLO-impacting incidents.</li>
           <li>Document escalation paths and expected response times in your runbook.</li>
         </ol>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Every alert should include the server ID, region, metric value and links to relevant dashboards. Replace guesswork with actionable data.
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function MonitoringPage() {
         <p className="text-muted-foreground">
           Treat console output as ephemeral. Ship logs off the server so you can search them during and after incidents.
         </p>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
             Configure log shippers (Vector, Fluent Bit) to push data to services like Loki, Elastic or Datadog.
           </li>
@@ -88,9 +88,9 @@ export default function MonitoringPage() {
           Combine metrics and logs with actionable runbooks. If a graph spikes or a process crashes, the team should know
           the first three steps automatically.
         </p>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Link alerts to specific troubleshooting sections—start with the{" "}
-            <Link href="/docs/troubleshooting" className="font-medium text-primary underline underline-offset-4">
+            <Link href="/docs/troubleshooting" className="font-medium underline text-primary underline-offset-4">
               troubleshooting guide
             </Link>
             .</li>
@@ -99,16 +99,16 @@ export default function MonitoringPage() {
         </ul>
       </section>
 
-      <section className="space-y-6 border-t border-border pt-8">
+      <section className="pt-8 space-y-6 border-t border-border">
         <h2 className="text-2xl font-semibold">Compliance and retention</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Retain monitoring data for at least 30 days and security logs for 90 days to support incident forensics.</li>
           <li>Restrict access to dashboards and alert configs to trusted operators with two-factor authentication.</li>
           <li>Back up your observability configuration just like any other critical system—store Terraform or Helm charts in version control.</li>
         </ul>
         <p className="text-sm text-muted-foreground">
           Questions about integrating a specific monitoring stack? Reach the reliability team at{" "}
-          <a href="mailto:sre@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">
+          <a href="mailto:sre@vaultscope.dev" className="font-medium underline text-primary underline-offset-4">
             sre@vaultscope.dev
           </a>
           .

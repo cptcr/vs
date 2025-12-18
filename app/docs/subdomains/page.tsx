@@ -12,7 +12,7 @@ import createSubdomain from "@/app/assets/docs/manage-server/subdomain/create-ne
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Subdomains — VaultScope Docs",
+  title: "Subdomains — Docs",
   description:
     "Map VaultScope-managed subdomains to your server allocations and understand how they differ from reverse proxies.",
   path: "/docs/subdomains",
@@ -54,7 +54,7 @@ export default function SubdomainsPage() {
           alt="VaultScope subdomain creation modal with allocation selector."
           caption="Set the subdomain slug and map it to the correct allocation."
         />
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Remove an existing subdomain before claiming a new one—one hostname per server.</li>
           <li>Tag subdomains with environment names (e.g., <code>prod-lobby</code>, <code>staging-api</code>) for clarity.</li>
           <li>Need extra ports? Request them under the <em>Network</em> tab before assigning the subdomain.</li>
@@ -67,9 +67,9 @@ export default function SubdomainsPage() {
           Subdomains are HTTP-only pointers. For HTTPS certificates or custom domains, route traffic through a reverse
           proxy instead.
         </p>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Looking for SSL? Follow the{" "}
-          <Link href="/docs/reverse-proxy" className="font-medium text-primary underline underline-offset-4">
+          <Link href="/docs/reverse-proxy" className="font-medium underline text-primary underline-offset-4">
             reverse proxy guide
           </Link>{" "}
           to terminate TLS and reuse your VaultScope allocations securely.

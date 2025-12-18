@@ -11,7 +11,7 @@ import pluginInstallerPage from "@/app/assets/docs/minecraft/plugin-installer/pl
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Minecraft Plugin Installer — VaultScope Docs",
+  title: "Minecraft Plugin Installer — Docs",
   description:
     "Discover and deploy Minecraft server plugins through the VaultScope Plugin Installer with version-aware filters and one-click installs.",
   path: "/docs/minecraft/plugin-installer",
@@ -58,7 +58,7 @@ export default function MinecraftPluginInstallerPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">3. Install and confirm</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Select a plugin to review versions and changelog notes prior to installation.</li>
           <li>Click <strong>Install</strong> and VaultScope downloads the chosen release directly to your server.</li>
           <li>Restart the server so the plugin initializes alongside the rest of your mods.</li>

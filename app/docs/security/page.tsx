@@ -13,7 +13,7 @@ import updatePassword from "@/app/assets/docs/server-account/update-password/upd
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Security Practices — VaultScope Docs",
+  title: "Security Practices — Docs",
   description:
     "Secure your VaultScope account with two-factor authentication, strong passwords, email hygiene and operational safeguards.",
   path: "/docs/security",
@@ -48,7 +48,7 @@ export default function SecurityPage() {
           alt="VaultScope modal guiding the user through two-factor authentication setup."
           caption="Store recovery codes securely in case you lose access to your authenticator device."
         />
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Require 2FA for every user with console, SFTP or billing access. It&apos;s the easiest way to prevent account
           takeovers.
         </div>
@@ -78,14 +78,14 @@ export default function SecurityPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">3. Limit privileged access</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Grant console and SFTP permissions only to operators who need them.</li>
           <li>Audit user lists monthly and remove stale accounts immediately.</li>
           <li>Use separate logins for personal play and administrative work to reduce risk.</li>
         </ul>
         <p className="text-muted-foreground">
           Pair access controls with the{" "}
-          <a href="https://vaultscope.dev/privacy" className="font-medium text-primary underline underline-offset-4">
+          <a href="https://vaultscope.dev/privacy" className="font-medium underline text-primary underline-offset-4">
             privacy policy
           </a>{" "}
           to understand how we handle personal data.
@@ -94,7 +94,7 @@ export default function SecurityPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">4. Secure billing</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Never share your billing password. Finance can pay invoices without accessing the control panel.</li>
           <li>Enable email alerts for new invoices and payment failures to detect fraud quickly.</li>
           <li>Remove old payment methods so they can’t be charged accidentally.</li>
@@ -103,23 +103,23 @@ export default function SecurityPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">5. Incident response</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Suspect a compromise? Change your password, revoke API tokens and remove all user invites immediately.</li>
           <li>Restore from a known-clean backup and diff the filesystem against your repository.</li>
           <li>Contact security@vaultscope.dev with timestamps, IP addresses and affected servers for forensic support.</li>
         </ul>
       </section>
 
-      <section className="space-y-6 border-t border-border pt-8">
+      <section className="pt-8 space-y-6 border-t border-border">
         <h2 className="text-2xl font-semibold">Compliance checklist</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Keep audit logs for at least 90 days.</li>
           <li>Store secrets in an encrypted vault and rotate them quarterly.</li>
           <li>Run regular vulnerability scans against your workloads.</li>
         </ul>
         <p className="text-sm text-muted-foreground">
           Need a custom security review or enterprise documentation? Email{" "}
-          <a href="mailto:security@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">
+          <a href="mailto:security@vaultscope.dev" className="font-medium underline text-primary underline-offset-4">
             security@vaultscope.dev
           </a>
           .

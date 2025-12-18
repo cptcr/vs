@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo"
 import { ConnectPageContent } from "@/components/connect-page-content"
 
 export const metadata = buildMetadata({
-  title: "Connect — VaultScope",
+  title: "Connect",
   description:
     "Deploy to Pterodactyl game servers with a single command. VaultScope Connect automates compression, uploads, extraction, and restarts for streamlined deployments.",
   path: "/technologies/connect",

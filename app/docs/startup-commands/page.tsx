@@ -15,7 +15,7 @@ import confirmStartupResetModal from "@/app/assets/docs/manage-server/startup/re
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Startup Commands — VaultScope Docs",
+  title: "Startup Commands — Docs",
   description:
     "Use the VaultScope Startup tab to edit launch commands, apply JVM flags, and roll back to the default template safely.",
   path: "/docs/startup-commands",
@@ -80,11 +80,11 @@ export default function StartupCommandsPage() {
           alt="Confirmation dialog showing the Reset button after choosing Restore to Default."
           caption="Confirm with Reset to finalize the rollback."
         />
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Need automation? Pair startup command tweaks with the{" "}
           <Link
             href="/docs/control-panel#3-automate-maintenance-with-schedules"
-            className="font-medium text-primary underline underline-offset-4"
+            className="font-medium underline text-primary underline-offset-4"
           >
             control panel schedules workflow
           </Link>{" "}

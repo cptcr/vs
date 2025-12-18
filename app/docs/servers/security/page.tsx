@@ -8,7 +8,7 @@
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Server Security — VaultScope Docs",
+  title: "Server Security — Docs",
   description: "Server hardening, access control and monitoring best practices.",
   path: "/docs/servers/security",
 })

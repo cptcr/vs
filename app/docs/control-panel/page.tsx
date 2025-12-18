@@ -30,7 +30,7 @@ import proxyFinalResult from "@/app/assets/docs/manage-server/reverse-proxy/fina
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Control Panel — VaultScope Docs",
+  title: "Control Panel — Docs",
   description:
     "Operate the VaultScope control panel: schedules, backups, networking, delegated access and subdomain management for your servers.",
   path: "/docs/control-panel",
@@ -50,7 +50,7 @@ export default function ControlPanelPage() {
 
       <section className="space-y-6">
         <h2 className="text-2xl font-semibold">1. Orient yourself</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
             Tabs run down the left rail: <em>Console</em>, <em>Files</em>, <em>Schedules</em>, <em>Users</em>, <em>Backups</em>, <em>Network</em> and <em>Settings</em>.
           </li>
@@ -60,7 +60,7 @@ export default function ControlPanelPage() {
             by panel users.
           </li>
         </ul>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           The control panel mirrors real-time state. If something looks out of sync, refresh the page first—most drift is
           transient replication delay.
         </div>
@@ -131,7 +131,7 @@ export default function ControlPanelPage() {
           alt="VaultScope user invitation modal showing permission toggles."
           caption="Granular permissions let you grant console access without billing or power controls."
         />
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Keep console access limited to trusted operators—it includes raw command execution.</li>
           <li>Use the <em>SFTP</em> toggle to allow external file management via clients like WinSCP.</li>
           <li>Revoke access instantly by removing the user; changes propagate across nodes immediately.</li>
@@ -173,9 +173,9 @@ export default function ControlPanelPage() {
           alt="Confirmation dialog showing the Reset button after choosing Restore to Default."
           caption="Confirm with Reset to finish the rollback. The panel stores the previous command in your activity log."
         />
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Want a dedicated walkthrough? Visit the{" "}
-          <Link href="/docs/startup-commands" className="font-medium text-primary underline underline-offset-4">
+          <Link href="/docs/startup-commands" className="font-medium underline text-primary underline-offset-4">
             startup command guide
           </Link>{" "}
           for step-by-step instructions and rollback tips.
@@ -207,14 +207,14 @@ export default function ControlPanelPage() {
         <p className="text-muted-foreground">
           Need SSL or a custom domain? Reverse proxies handle certificates and edge routing while subdomains remain a
           lightweight pointer. Follow the{" "}
-          <Link href="#reverse-proxies" className="font-medium text-primary underline underline-offset-4">
+          <Link href="#reverse-proxies" className="font-medium underline text-primary underline-offset-4">
             reverse proxy walkthrough
           </Link>{" "}
           below to secure traffic end-to-end.
         </p>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Looking for more examples? See the{" "}
-          <Link href="/docs/subdomains" className="font-medium text-primary underline underline-offset-4">
+          <Link href="/docs/subdomains" className="font-medium underline text-primary underline-offset-4">
             subdomains guide
           </Link>{" "}
           for naming conventions and common troubleshooting steps.
@@ -253,7 +253,7 @@ export default function ControlPanelPage() {
           alt="Reverse proxy list showing an active proxy with SSL enabled."
           caption="Once created, the proxy appears in the list with status indicators for SSL and Let&apos;s Encrypt automation."
         />
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
             Toggle <em>Let&apos;s Encrypt</em> to auto-issue certificates. If disabled, upload your own trusted certificate and
             private key pair.
@@ -264,18 +264,18 @@ export default function ControlPanelPage() {
           </li>
           <li>Restart the workload after creating a proxy if it binds to the new hostname for virtual hosting rules.</li>
         </ul>
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Need deeper coverage? The{" "}
-          <Link href="/docs/reverse-proxy" className="font-medium text-primary underline underline-offset-4">
+          <Link href="/docs/reverse-proxy" className="font-medium underline text-primary underline-offset-4">
             reverse proxy guide
           </Link>{" "}
           covers DNS validation, certificate management and expected status indicators.
         </div>
       </section>
 
-      <section className="space-y-6 border-t border-border pt-8">
+      <section className="pt-8 space-y-6 border-t border-border">
         <h2 className="text-2xl font-semibold">Operational best practices</h2>
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Schedule a daily backup even if you use version control—snapshots simplify disaster recovery.</li>
           <li>Audit user access monthly and remove former collaborators right away.</li>
           <li>Tag subdomains with the environment name (e.g., <code>prod-lobby</code>) so the team recognizes them instantly.</li>

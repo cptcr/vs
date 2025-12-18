@@ -1,6 +1,13 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata = buildMetadata({
+  path: "/technologies/recore",
+  title: "Recore",
+  description: "Next generation hosting solution."
+})
 
 export default function RecorePreview() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -73,21 +80,21 @@ export default function RecorePreview() {
   }, []);
 
   return (
-    <main className="relative min-h-screen w-full bg-black overflow-hidden text-white flex items-center justify-center">
+    <main className="relative flex items-center justify-center w-full min-h-screen overflow-hidden text-white bg-black">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
       <div className="relative z-10 px-6 text-center">
-        <h1 className="text-5xl sm:text-7xl font-bold tracking-tight bg-gradient-to-br from-white to-zinc-500 text-transparent bg-clip-text drop-shadow-xl">
+        <h1 className="text-5xl font-bold tracking-tight text-transparent sm:text-7xl bg-gradient-to-br from-white to-zinc-500 bg-clip-text drop-shadow-xl">
           Recore
         </h1>
-        <p className="mt-4 text-lg sm:text-xl text-zinc-400 tracking-wide">
+        <p className="mt-4 text-lg tracking-wide sm:text-xl text-zinc-400">
           A new experience is forming.
         </p>
 
         <p className="mt-10 text-sm text-zinc-600">Coming Soon</p>
       </div>
 
-      <div className="absolute bottom-6 left-0 w-full text-center text-xs text-zinc-700">
+      <div className="absolute left-0 w-full text-xs text-center bottom-6 text-zinc-700">
         © {new Date().getFullYear()} Vaultscope
       </div>
     </main>

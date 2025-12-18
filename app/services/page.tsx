@@ -9,7 +9,7 @@ import { ServicesPageContent } from "@/components/services-page-content"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Services — VaultScope",
+  title: "Services",
   description:
     "Explore VaultScope’s managed services: supported languages, tooling, infrastructure features, and the free tier that powers every deployment.",
   path: "/services",

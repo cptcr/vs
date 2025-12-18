@@ -15,7 +15,7 @@ import { WaveWrapper } from "@/components/wave-wrapper"
 import { BackToTopLink } from "@/components/back-to-top-link"
 
 export const metadata = buildMetadata({
-  title: "VaultScope — Custom Infrastructure Solutions",
+  title: "Main",
   description:
     "Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.",
   path: "/",
@@ -30,7 +30,7 @@ export default function Home() {
         <Features />
         <Testimonials />
         <Solutions />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="container px-4 pb-16 mx-auto sm:px-6 lg:px-8">
           <div className="flex justify-end">
             <BackToTopLink />
           </div>

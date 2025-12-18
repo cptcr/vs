@@ -9,7 +9,7 @@ import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Troubleshooting — VaultScope Docs",
+  title: "Troubleshooting — Docs",
   description:
     "Follow VaultScope runbooks for incident response: server startup failures, connection issues, panel outages and escalation paths.",
   path: "/docs/troubleshooting",

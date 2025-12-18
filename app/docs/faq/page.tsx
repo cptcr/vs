@@ -9,7 +9,7 @@ import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "FAQ — VaultScope Docs",
+  title: "FAQ — Docs",
   description:
     "Answers to common VaultScope questions covering billing, server provisioning, networking, backups and support policies.",
   path: "/docs/faq",
@@ -122,13 +122,13 @@ export default function FAQPage() {
               {section.items.map(item => (
                 <article
                   key={item.question}
-                  className="rounded-lg border border-border/60 bg-background/60 p-4 shadow-sm transition hover:border-primary/60 hover:bg-primary/5"
+                  className="p-4 transition border rounded-lg shadow-sm border-border/60 bg-background/60 hover:border-primary/60 hover:bg-primary/5"
                 >
                   <h3 className="text-lg font-semibold text-foreground">{item.question}</h3>
                   <p className="mt-2 text-muted-foreground">{item.answer}</p>
                   {item.link ? (
                     <p className="mt-3 text-sm">
-                      <Link href={item.link.href} className="font-medium text-primary underline underline-offset-4">
+                      <Link href={item.link.href} className="font-medium underline text-primary underline-offset-4">
                         {item.link.label}
                       </Link>
                     </p>
@@ -140,11 +140,11 @@ export default function FAQPage() {
         ))}
       </div>
 
-      <section className="space-y-4 border-t border-border pt-8">
+      <section className="pt-8 space-y-4 border-t border-border">
         <h2 className="text-2xl font-semibold">Still need help?</h2>
         <p className="text-muted-foreground">
-          Email <a href="mailto:support@vaultscope.dev" className="font-medium text-primary underline underline-offset-4">support@vaultscope.dev</a>, open a control panel ticket or join the{" "}
-          <a href="https://discord.gg/vaultscope" className="font-medium text-primary underline underline-offset-4">
+          Email <a href="mailto:support@vaultscope.dev" className="font-medium underline text-primary underline-offset-4">support@vaultscope.dev</a>, open a control panel ticket or join the{" "}
+          <a href="https://discord.gg/vaultscope" className="font-medium underline text-primary underline-offset-4">
             VaultScope Discord
           </a>{" "}
           for real-time answers.

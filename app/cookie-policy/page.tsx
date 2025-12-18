@@ -12,7 +12,7 @@ import Link from "next/link"
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Cookie Policy — VaultScope",
+  title: "Cookie Policy",
   description: "Details about the cookies and similar technologies used across vaultscope.dev and related services.",
   path: "/cookie-policy",
 })
@@ -56,9 +56,9 @@ const cookieCategories = [
 export default function CookiePolicy() {
   return (
     <div className="min-h-screen bg-black">
-      <main className="container mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <header className="mb-10 flex items-center gap-4">
-          <Cookie className="h-10 w-10 text-foreground" aria-hidden="true" />
+      <main className="container max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <header className="flex items-center gap-4 mb-10">
+          <Cookie className="w-10 h-10 text-foreground" aria-hidden="true" />
           <div>
             <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Cookies & Storage</p>
             <h1 className="text-4xl font-bold text-foreground">Cookie Policy</h1>
@@ -67,7 +67,7 @@ export default function CookiePolicy() {
         </header>
 
         <div className="space-y-10 text-foreground">
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <p>
               VaultScope uses cookies, local storage, and similar technologies to operate vaultscope.dev, the billing portal,
               and related documentation sites. This policy explains how and why those technologies are used.
@@ -81,7 +81,7 @@ export default function CookiePolicy() {
 
           <section className="space-y-4">
             <h2 className="text-2xl font-semibold text-foreground">Consent management</h2>
-            <div className="space-y-2 text-sm text-muted-foreground leading-relaxed">
+            <div className="space-y-2 text-sm leading-relaxed text-muted-foreground">
               <p>
                 On your first visit we display a banner that lets you accept or reject optional cookies. You can revisit this choice at
                 any time via the “Cookie settings” link in the banner or by clearing browser cookies.
@@ -94,15 +94,15 @@ export default function CookiePolicy() {
 
           <section className="space-y-6">
             <h2 className="text-2xl font-semibold text-foreground">Cookie categories</h2>
-            <div className="divide-y divide-white/10 rounded-2xl border border-white/10 bg-black/40">
+            <div className="border divide-y divide-white/10 rounded-2xl border-white/10 bg-black/40">
               {cookieCategories.map((category) => (
-                <div key={category.title} className="space-y-3 px-6 py-6">
+                <div key={category.title} className="px-6 py-6 space-y-3">
                   <div>
                     <p className="text-lg font-semibold text-foreground">{category.title}</p>
                     <p className="text-sm text-muted-foreground">{category.description}</p>
                   </div>
-                  <div className="overflow-x-auto rounded-2xl border border-white/10">
-                    <table className="min-w-full divide-y divide-white/10 text-left text-sm text-muted-foreground">
+                  <div className="overflow-x-auto border rounded-2xl border-white/10">
+                    <table className="min-w-full text-sm text-left divide-y divide-white/10 text-muted-foreground">
                       <thead className="bg-white/[0.02] text-white/60">
                         <tr>
                           <th className="px-4 py-3 font-semibold">Name</th>
@@ -126,16 +126,16 @@ export default function CookiePolicy() {
             </div>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Third-party services</h2>
-            <ul className="list-disc space-y-2 pl-6 text-sm">
+            <ul className="pl-6 space-y-2 text-sm list-disc">
               <li>
                 <strong className="text-foreground">Stripe:</strong> required for billing and fraud prevention. See the{" "}
                 <a
                   href="https://stripe.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground underline underline-offset-4 hover:text-foreground/80"
+                  className="underline text-foreground underline-offset-4 hover:text-foreground/80"
                 >
                   Stripe Privacy Policy
                 </a>
@@ -150,7 +150,7 @@ export default function CookiePolicy() {
             </ul>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Managing cookies</h2>
             <p>
               You can delete or block cookies through your browser settings. Refer to the help documentation for Chrome, Firefox,
@@ -158,16 +158,16 @@ export default function CookiePolicy() {
             </p>
           </section>
 
-          <section className="space-y-4 text-muted-foreground leading-relaxed">
+          <section className="space-y-4 leading-relaxed text-muted-foreground">
             <h2 className="text-2xl font-semibold text-foreground">Updates & contact</h2>
             <p>
               We may update this Cookie Policy as our services evolve. Changes will be posted here with an updated “Last updated” date.
               For questions, email{" "}
-              <a className="text-foreground underline underline-offset-4 hover:text-foreground/80" href="mailto:support@vaultscope.dev">
+              <a className="underline text-foreground underline-offset-4 hover:text-foreground/80" href="mailto:support@vaultscope.dev">
                 support@vaultscope.dev
               </a>{" "}
               or review our{" "}
-              <Link href="/privacy" className="text-foreground underline underline-offset-4 hover:text-foreground/80">
+              <Link href="/privacy" className="underline text-foreground underline-offset-4 hover:text-foreground/80">
                 Privacy Policy
               </Link>
               .

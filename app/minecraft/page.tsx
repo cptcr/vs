@@ -9,7 +9,7 @@ import { MinecraftServersPageContent } from "@/components/minecraft-servers-page
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Minecraft Hosting — VaultScope",
+  title: "Minecraft Hosting",
   description:
     "Provision managed Minecraft servers starting at €4.99/month with panel-driven mod installs, player management, and Cloudflare protection.",
   path: "/minecraft",

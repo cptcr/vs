@@ -26,7 +26,7 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
         <DocsSidebar onSearchOpenChange={setSearchOpen} />
 
         <div className="flex-1 px-4 py-10 sm:px-6 lg:px-12 xl:px-16">
-          <div className="mx-auto flex w-full max-w-3xl flex-col gap-8 pb-10 pt-20">
+          <div className="flex flex-col w-full max-w-3xl gap-8 pt-20 pb-10 mx-auto">
             <article data-docs-content className="space-y-10 text-foreground">
               {children}
             </article>

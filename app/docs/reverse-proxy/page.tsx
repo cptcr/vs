@@ -15,7 +15,7 @@ import proxyFinalResult from "@/app/assets/docs/manage-server/reverse-proxy/fina
 import { buildMetadata } from "@/lib/seo"
 
 export const metadata = buildMetadata({
-  title: "Reverse Proxy — VaultScope Docs",
+  title: "Reverse Proxy — Docs",
   description:
     "Provision reverse proxies to terminate SSL, connect custom domains, and forward traffic to VaultScope allocations.",
   path: "/docs/reverse-proxy",
@@ -75,7 +75,7 @@ export default function ReverseProxyPage() {
           alt="Cloudflare DNS configuration showing an A record without the proxy (gray cloud)."
           caption="Set the Cloudflare record to DNS only so VaultScope can validate SSL."
         />
-        <ul className="list-disc space-y-2 pl-6 text-muted-foreground">
+        <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>Toggle <em>Let&apos;s Encrypt</em> for automatic certificate issuance and renewals.</li>
           <li>Uploading your own certificate? Provide the full chain and private key in PEM format.</li>
           <li>Re-enable upstream CDNs after SSL verification succeeds if you need additional protection.</li>
@@ -93,9 +93,9 @@ export default function ReverseProxyPage() {
           alt="Reverse proxy list showing an active proxy with SSL enabled."
           caption="Provisioned proxies display SSL and Let&apos;s Encrypt status at a glance."
         />
-        <div className="rounded-lg border border-border/60 bg-muted/10 px-4 py-3 text-sm text-muted-foreground">
+        <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
           Need a hostname without SSL? Use a{" "}
-          <Link href="/docs/subdomains" className="font-medium text-primary underline underline-offset-4">
+          <Link href="/docs/subdomains" className="font-medium underline text-primary underline-offset-4">
             VaultScope subdomain
           </Link>{" "}
           instead—they&apos;re lightweight pointers for internal traffic.
