@@ -146,7 +146,6 @@ export function Footer() {
     <li>
       <a
         href="/technologies/nodejs-sdk"
-        target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
       >
@@ -156,7 +155,6 @@ export function Footer() {
     <li>
       <a
         href="/technologies/connect"
-        target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
       >
@@ -172,6 +170,9 @@ export function Footer() {
       >
         <span>{copy.sections.software.links.syncor}</span>
       </a>
+    </li>
+    <li>
+      <a href="/technologies/recore" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"><span>Recore</span></a>
     </li>
   </ul>
 </div>

@@ -38,6 +38,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --vault-primary: #4f46e5;  /* Indigo */
+  --vault-secondary: #22d3ee; /* Cyan */
+  --vault-accent: #f472b6;    /* Pink */
 }
 
 .dark {
@@ -150,3 +153,59 @@ body {
 *::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
+
+.bg-vault-primary { background-color: var(--vault-primary); }
+.bg-vault-secondary { background-color: var(--vault-secondary); }
+.bg-vault-accent { background-color: var(--vault-accent); }
+
+/* Waves animation */
+@keyframes wave1 {
+  0%, 100% { transform: translate(-25%, 0) rotate(0deg); }
+  50% { transform: translate(25%, -20%) rotate(45deg); }
+}
+@keyframes wave2 {
+  0%, 100% { transform: translate(0, -25%) rotate(0deg); }
+  50% { transform: translate(-20%, 25%) rotate(-30deg); }
+}
+@keyframes wave3 {
+  0%, 100% { transform: translate(20%, 0) rotate(0deg); }
+  50% { transform: translate(-20%, -25%) rotate(60deg); }
+}
+
+.animate-wave1 { animation: wave1 25s ease-in-out infinite; }
+.animate-wave2 { animation: wave2 30s ease-in-out infinite; }
+.animate-wave3 { animation: wave3 35s ease-in-out infinite; }
+
+/* Floating particles */
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 0.3; }
+  50% { transform: translateY(-15px); opacity: 0.6; }
+}
+.animate-float {
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Smooth wave motions for big blurred gradient circles */
+@keyframes wave-slow {
+  0% { transform: translate(-20%, -10%) rotate(0deg); }
+  50% { transform: translate(20%, 10%) rotate(15deg); }
+  100% { transform: translate(-20%, -10%) rotate(0deg); }
+}
+
+@keyframes wave-medium {
+  0% { transform: translate(10%, 0%) rotate(0deg); }
+  50% { transform: translate(-15%, 20%) rotate(-20deg); }
+  100% { transform: translate(10%, 0%) rotate(0deg); }
+}
+
+@keyframes wave-fast {
+  0% { transform: translate(-15%, 10%) rotate(0deg); }
+  50% { transform: translate(15%, -15%) rotate(25deg); }
+  100% { transform: translate(-15%, 10%) rotate(0deg); }
+}
+
+.animate-wave-slow { animation: wave-slow 80s linear infinite; }
+.animate-wave-medium { animation: wave-medium 60s linear infinite; }
+.animate-wave-fast { animation: wave-fast 40s linear infinite; }
