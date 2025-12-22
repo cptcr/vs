@@ -34,7 +34,8 @@ type CheckResult = {
 }
 
 const HOSTS: Array<{ label: string; host: string }> = [
-  { label: 'Node 1 (Helsinki)', host: 'https://hel1.vaultscope.dev' },
+  { label: 'Node 1 [NOVEL] (Helsinki)', host: '65.108.36.54' },
+  { label: 'Node 2 [KILO] (Helsinki)', host: "95.216.69.111"},
   { label: 'Payment Area', host: 'https://pay.vaultscope.dev' },
   { label: 'Server Area', host: 'https://panel.vaultscope.dev' },
 ]

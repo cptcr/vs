@@ -21,7 +21,7 @@ const resourceGuidelines = [
   {
     title: "Compute & memory",
     items: [
-      "Free tier workloads are capped at 40% shared vCPU and 512 MiB RAM. Bursts above 80% sustained for more than 10 minutes may be throttled.",
+      "Free tier workloads are capped at 75% shared vCPU and 1024 MiB RAM. Bursts above 80% sustained for more than 10 minutes may be throttled.",
       "Paid workloads are entitled to the resources purchased for their tier. Bursting above 125% of the included CPU for longer than 15 minutes may trigger throttling.",
       "Cryptomining or synthetic load generation to monopolize CPU is prohibited on every plan.",
     ],
@@ -29,7 +29,7 @@ const resourceGuidelines = [
   {
     title: "Storage & backups",
     items: [
-      "Free tier storage is limited to 5 GiB per container. Long-lived artifacts, ISO images, or backup archives are not permitted on the free tier.",
+      "Free tier storage is limited to 8 GiB per container. Long-lived artifacts, ISO images, or backup archives are not permitted on the free tier.",
       "Paid plans must keep utilization under 90% of the provisioned SSD quota to maintain snapshot reliability.",
       "Backups older than 30 days may be pruned if they exceed the number of guaranteed backup slots on your tier.",
     ],
