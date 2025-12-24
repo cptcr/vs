@@ -5,22 +5,22 @@
  * See LICENSE file for details.
  */
 
-"use client"
+'use client';
 
-import { useState, type ReactNode } from "react"
-import { cn } from "@/lib/utils"
-import DocsSidebar from "@/components/docs-sidebar"
-import DocsTableOfContents from "@/components/docs-table-of-contents"
+import { useState, type ReactNode } from 'react';
+import { cn } from '@/lib/utils';
+import DocsSidebar from '@/components/docs-sidebar';
+import DocsTableOfContents from '@/components/docs-table-of-contents';
 
 export default function DocsLayout({ children }: { children: ReactNode }) {
-  const [searchOpen, setSearchOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
       <div
         className={cn(
-          "relative flex min-h-screen w-full flex-col transition duration-200 ease-out lg:flex-row",
-          searchOpen && "blur-sm sm:blur md:blur-[6px] lg:blur-[8px]"
+          'relative flex min-h-screen w-full flex-col transition duration-200 ease-out lg:flex-row',
+          searchOpen && 'blur-sm sm:blur md:blur-[6px] lg:blur-[8px]'
         )}
       >
         <DocsSidebar onSearchOpenChange={setSearchOpen} />
@@ -36,5 +36,5 @@ export default function DocsLayout({ children }: { children: ReactNode }) {
         <DocsTableOfContents />
       </div>
     </div>
-  )
+  );
 }

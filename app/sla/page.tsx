@@ -6,56 +6,86 @@
  */
 
 /* eslint-disable react/no-unescaped-entities */
-import { ShieldCheck } from "lucide-react"
-import Link from "next/link"
+import { ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
 
-import { buildMetadata } from "@/lib/seo"
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: "Service Level Agreement (SLA)",
-  description: "Availability targets, response commitments, and service credits for VaultScope managed infrastructure.",
-  path: "/sla",
-})
+  title: 'Service Level Agreement (SLA)',
+  description:
+    'Availability targets, response commitments, and service credits for VaultScope managed infrastructure.',
+  path: '/sla',
+});
 
 const priorities = [
   {
-    name: "P1 — Critical outage",
-    target: "15 minutes acknowledgement · constant effort until resolution",
-    examples: ["Complete control panel outage", "Global loss of connectivity", "Security event impacting multiple tenants"],
+    name: 'P1 — Critical outage',
+    target: '15 minutes acknowledgement · constant effort until resolution',
+    examples: [
+      'Complete control panel outage',
+      'Global loss of connectivity',
+      'Security event impacting multiple tenants',
+    ],
   },
   {
-    name: "P2 — Major degradation",
-    target: "1 hour acknowledgement · workaround or fix within 4 hours",
-    examples: ["Single region downtime", "Severe packet loss", "Minecraft tier unavailable"],
+    name: 'P2 — Major degradation',
+    target: '1 hour acknowledgement · workaround or fix within 4 hours',
+    examples: [
+      'Single region downtime',
+      'Severe packet loss',
+      'Minecraft tier unavailable',
+    ],
   },
   {
-    name: "P3 — Standard incident",
-    target: "4 hour acknowledgement · resolution target 1 business day",
-    examples: ["Isolated container failure", "Backup job delay", "Intermittent API errors"],
+    name: 'P3 — Standard incident',
+    target: '4 hour acknowledgement · resolution target 1 business day',
+    examples: [
+      'Isolated container failure',
+      'Backup job delay',
+      'Intermittent API errors',
+    ],
   },
   {
-    name: "P4 — Service request",
-    target: "1 business day acknowledgement · delivery scheduled with customer",
-    examples: ["Quota increase request", "DNS / reverse proxy change", "Guidance on best practices"],
+    name: 'P4 — Service request',
+    target: '1 business day acknowledgement · delivery scheduled with customer',
+    examples: [
+      'Quota increase request',
+      'DNS / reverse proxy change',
+      'Guidance on best practices',
+    ],
   },
-]
+];
 
 const creditTable = [
-  { uptime: "≥ 99.9%", credit: "No credit (target met)" },
-  { uptime: "99.0% – 99.89%", credit: "10% of monthly fee for affected service" },
-  { uptime: "95.0% – 98.99%", credit: "25% of monthly fee for affected service" },
-  { uptime: "< 95.0%", credit: "50% of monthly fee for affected service" },
-]
+  { uptime: '≥ 99.9%', credit: 'No credit (target met)' },
+  {
+    uptime: '99.0% – 99.89%',
+    credit: '10% of monthly fee for affected service',
+  },
+  {
+    uptime: '95.0% – 98.99%',
+    credit: '25% of monthly fee for affected service',
+  },
+  { uptime: '< 95.0%', credit: '50% of monthly fee for affected service' },
+];
 
 export default function ServiceLevelAgreement() {
   return (
     <div className="min-h-screen bg-black">
       <main className="container max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <header className="flex items-center gap-4 mb-10">
-          <ShieldCheck className="w-10 h-10 text-foreground" aria-hidden="true" />
+          <ShieldCheck
+            className="w-10 h-10 text-foreground"
+            aria-hidden="true"
+          />
           <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">Service Commitment</p>
-            <h1 className="text-4xl font-bold text-foreground">Service Level Agreement (SLA)</h1>
+            <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">
+              Service Commitment
+            </p>
+            <h1 className="text-4xl font-bold text-foreground">
+              Service Level Agreement (SLA)
+            </h1>
             <p className="text-muted-foreground">Last updated: November 2025</p>
           </div>
         </header>
@@ -63,39 +93,65 @@ export default function ServiceLevelAgreement() {
         <div className="space-y-10 text-foreground">
           <section className="space-y-4 leading-relaxed text-muted-foreground">
             <p>
-              This SLA describes the availability targets and support response timelines for VaultScope managed services,
-              including the free tier, paid Minecraft servers, and bespoke infrastructure. It supplements our{" "}
-              <Link href="/terms" className="underline text-foreground underline-offset-4 hover:text-foreground/80">
+              This SLA describes the availability targets and support response
+              timelines for VaultScope managed services, including the free
+              tier, paid Minecraft servers, and bespoke infrastructure. It
+              supplements our{' '}
+              <Link
+                href="/terms"
+                className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+              >
                 Terms of Service
-              </Link>{" "}
-              and{" "}
-              <Link href="/acceptable-use" className="underline text-foreground underline-offset-4 hover:text-foreground/80">
+              </Link>{' '}
+              and{' '}
+              <Link
+                href="/acceptable-use"
+                className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+              >
                 Acceptable Use Policy
               </Link>
               .
             </p>
             <p>
-              “Monthly uptime percentage” is calculated per calendar month using the formula:{" "}
-              <span className="font-semibold text-foreground">(Total minutes - Downtime) / Total minutes</span>. Downtime is
-              any full minute when customer workloads are unavailable due to VaultScope-controlled infrastructure issues.
+              “Monthly uptime percentage” is calculated per calendar month using
+              the formula:{' '}
+              <span className="font-semibold text-foreground">
+                (Total minutes - Downtime) / Total minutes
+              </span>
+              . Downtime is any full minute when customer workloads are
+              unavailable due to VaultScope-controlled infrastructure issues.
             </p>
           </section>
 
           <section className="space-y-4 leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-semibold text-foreground">Availability targets</h2>
+            <h2 className="text-2xl font-semibold text-foreground">
+              Availability targets
+            </h2>
             <ul className="pl-6 space-y-2 text-sm list-disc">
               <li>Control panel and API: 99.9% monthly uptime.</li>
-              <li>Free tier workloads: best-effort availability with 99.5% internal target.</li>
-              <li>Paid Minecraft servers and bespoke environments: 99.9% monthly uptime.</li>
-              <li>Scheduled maintenance up to 4 hours per month is excluded when announced at least 48 hours in advance.</li>
+              <li>
+                Free tier workloads: best-effort availability with 99.5%
+                internal target.
+              </li>
+              <li>
+                Paid Minecraft servers and bespoke environments: 99.9% monthly
+                uptime.
+              </li>
+              <li>
+                Scheduled maintenance up to 4 hours per month is excluded when
+                announced at least 48 hours in advance.
+              </li>
             </ul>
           </section>
 
           <section className="space-y-6">
             <div>
-              <h2 className="text-2xl font-semibold text-foreground">Incident response commitments</h2>
+              <h2 className="text-2xl font-semibold text-foreground">
+                Incident response commitments
+              </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                Submit incidents through the panel, status page, or Discord. Priority is determined jointly with the customer.
+                Submit incidents through the panel, status page, or Discord.
+                Priority is determined jointly with the customer.
               </p>
             </div>
 
@@ -103,8 +159,12 @@ export default function ServiceLevelAgreement() {
               {priorities.map((priority) => (
                 <div key={priority.name} className="px-6 py-6 space-y-3">
                   <div>
-                    <p className="text-lg font-semibold text-foreground">{priority.name}</p>
-                    <p className="text-sm text-muted-foreground">{priority.target}</p>
+                    <p className="text-lg font-semibold text-foreground">
+                      {priority.name}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {priority.target}
+                    </p>
                   </div>
                   <ul className="pl-6 space-y-1 text-sm list-disc text-muted-foreground">
                     {priority.examples.map((example) => (
@@ -117,8 +177,13 @@ export default function ServiceLevelAgreement() {
           </section>
 
           <section className="space-y-4 leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-semibold text-foreground">Service credits</h2>
-            <p>Customers on paid plans may request credits when monthly uptime falls below the contractual target.</p>
+            <h2 className="text-2xl font-semibold text-foreground">
+              Service credits
+            </h2>
+            <p>
+              Customers on paid plans may request credits when monthly uptime
+              falls below the contractual target.
+            </p>
             <div className="overflow-x-auto border rounded-2xl border-white/10">
               <table className="min-w-full text-sm text-left divide-y divide-white/10 text-muted-foreground">
                 <thead className="bg-white/[0.02] text-white/60">
@@ -138,25 +203,47 @@ export default function ServiceLevelAgreement() {
               </table>
             </div>
             <ul className="pl-6 space-y-2 text-sm list-disc">
-              <li>Requests must be submitted to support@vaultscope.dev within 30 days of the incident.</li>
-              <li>Credits apply to future invoices and cannot exceed the monthly fee for the affected service.</li>
-              <li>Credits are unavailable if fees are overdue or if the incident was caused by customer-side configuration.</li>
+              <li>
+                Requests must be submitted to support@vaultscope.dev within 30
+                days of the incident.
+              </li>
+              <li>
+                Credits apply to future invoices and cannot exceed the monthly
+                fee for the affected service.
+              </li>
+              <li>
+                Credits are unavailable if fees are overdue or if the incident
+                was caused by customer-side configuration.
+              </li>
             </ul>
           </section>
 
           <section className="space-y-4 leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-semibold text-foreground">Exclusions</h2>
+            <h2 className="text-2xl font-semibold text-foreground">
+              Exclusions
+            </h2>
             <ul className="pl-6 space-y-2 text-sm list-disc">
-              <li>Force majeure events (natural disasters, large-scale internet outages).</li>
-              <li>Issues caused by customer software, third-party plugins, or denial-of-service attacks beyond Cloudflare coverage.</li>
-              <li>Maintenance requested by the customer or performed to address Acceptable Use violations.</li>
+              <li>
+                Force majeure events (natural disasters, large-scale internet
+                outages).
+              </li>
+              <li>
+                Issues caused by customer software, third-party plugins, or
+                denial-of-service attacks beyond Cloudflare coverage.
+              </li>
+              <li>
+                Maintenance requested by the customer or performed to address
+                Acceptable Use violations.
+              </li>
             </ul>
           </section>
 
           <section className="space-y-4 leading-relaxed text-muted-foreground">
-            <h2 className="text-2xl font-semibold text-foreground">Questions & escalation</h2>
+            <h2 className="text-2xl font-semibold text-foreground">
+              Questions & escalation
+            </h2>
             <p>
-              Open a ticket in the panel, reach out via{" "}
+              Open a ticket in the panel, reach out via{' '}
               <a
                 href="https://discord.gg/wK8UZ7AAmc"
                 className="underline text-foreground underline-offset-4 hover:text-foreground/80"
@@ -165,12 +252,18 @@ export default function ServiceLevelAgreement() {
               >
                 Discord
               </a>
-              , or email{" "}
-              <a className="underline text-foreground underline-offset-4 hover:text-foreground/80" href="mailto:support@vaultscope.dev">
+              , or email{' '}
+              <a
+                className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+                href="mailto:support@vaultscope.dev"
+              >
                 support@vaultscope.dev
-              </a>{" "}
-              for clarification. Formal escalation requests can be sent to{" "}
-              <a className="underline text-foreground underline-offset-4 hover:text-foreground/80" href="mailto:legal@vaultscope.dev">
+              </a>{' '}
+              for clarification. Formal escalation requests can be sent to{' '}
+              <a
+                className="underline text-foreground underline-offset-4 hover:text-foreground/80"
+                href="mailto:legal@vaultscope.dev"
+              >
                 legal@vaultscope.dev
               </a>
               .
@@ -179,5 +272,5 @@ export default function ServiceLevelAgreement() {
         </div>
       </main>
     </div>
-  )
+  );
 }

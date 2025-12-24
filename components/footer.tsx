@@ -8,7 +8,7 @@
 "use client"
 
 import type { SVGProps } from "react"
-import { Github } from "lucide-react"
+import { Github, PersonStandingIcon } from "lucide-react"
 import { useI18n } from "@/components/language-provider"
 
 export function Footer() {
@@ -137,12 +137,27 @@ export function Footer() {
                   <span>{copy.sections.socials.links.github}</span>
                 </a>
               </li>
+              <li>
+                <a href="/team" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <PersonStandingIcon className="w-4 h-4" aria-hidden="true"/>
+                  <span>Team</span>
+                </a>
+              </li>
             </ul>
           </div>
 
           <div>
   <h4 className="mb-4 font-semibold text-foreground">{copy.sections.software.title}</h4>
   <ul className="space-y-3">
+    <li>
+      <a
+        href="/technologies"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+      >
+        <span>View All</span>
+      </a>
+    </li>
     <li>
       <a
         href="/technologies/nodejs-sdk"

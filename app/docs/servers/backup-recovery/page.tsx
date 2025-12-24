@@ -6,24 +6,26 @@
  */
 
 /* eslint-disable react/no-unescaped-entities */
-import { buildMetadata } from "@/lib/seo"
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: "Backup & Recovery — Docs",
-  description: "Backup schedules, retention and disaster recovery guidance for VaultScope servers.",
-  path: "/docs/servers/backup-recovery",
-})
+  title: 'Backup & Recovery — Docs',
+  description:
+    'Backup schedules, retention and disaster recovery guidance for VaultScope servers.',
+  path: '/docs/servers/backup-recovery',
+});
 
 export default function BackupRecoveryPage() {
   return (
     <div className="max-w-3xl">
       <h1 className="mb-6 text-4xl font-bold">Backup and Recovery</h1>
-      
+
       <div className="space-y-8">
         <section>
           <h2 className="mb-4 text-2xl font-semibold">Backup System</h2>
           <p className="mb-4 text-muted-foreground">
-            Our comprehensive backup system ensures your data is safe and recoverable. Here's what you need to know:
+            Our comprehensive backup system ensures your data is safe and
+            recoverable. Here's what you need to know:
           </p>
           <ul className="ml-6 space-y-2 list-disc text-muted-foreground">
             <li>Automatic daily backups of your server</li>
@@ -144,5 +146,5 @@ export default function BackupRecoveryPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }

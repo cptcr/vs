@@ -5,33 +5,82 @@
  * See LICENSE file for details.
  */
 
-import { Mail, ShieldAlert, CreditCard, Server, Users, Megaphone, Eye } from "lucide-react";
-import { buildMetadata } from "@/lib/seo";
+import {
+  Mail,
+  ShieldAlert,
+  CreditCard,
+  Server,
+  Users,
+  Megaphone,
+  Eye,
+} from 'lucide-react';
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-    title: "Legal Emails",
-    description: "These are the only verified email addresses used by VaultScope. Any other email claiming to be from VaultScope is unauthorized.",
-    path: "/legal/mails",
-})
+  title: 'Legal Emails',
+  description:
+    'These are the only verified email addresses used by VaultScope. Any other email claiming to be from VaultScope is unauthorized.',
+  path: '/legal/mails',
+});
 
 type EmailInfo = {
-  email: string
-  description: string
-  icon: typeof Mail
-}
+  email: string;
+  description: string;
+  icon: typeof Mail;
+};
 
 const EMAILS: EmailInfo[] = [
-  { email: "abuse@vaultscope.dev", description: "Report spam, phishing, or abusive content.", icon: ShieldAlert },
-  { email: "billing@vaultscope.dev", description: "Questions about invoices, payments, or refunds.", icon: CreditCard },
-  { email: "legal@vaultscope.dev", description: "Legal inquiries and compliance matters.", icon: Users },
-  { email: "noc@vaultscope.dev", description: "Network operations and technical issues.", icon: Server },
-  { email: "postmaster@vaultscope.dev", description: "Email delivery and server-related concerns.", icon: Mail },
-  { email: "robot@vaultscope.dev (No replies)", description: "Automated notifications (do not reply).", icon: Mail },
-  { email: "press@vaultscope.dev", description: "Media and press inquiries.", icon: Megaphone },
-  { email: "sales@vaultscope.dev", description: "Sales inquiries and product questions.", icon: Users },
-  { email: "security@vaultscope.dev", description: "Security issues or vulnerability reports.", icon: Eye },
-  { email: "support@vaultscope.dev", description: "Technical support and customer assistance.", icon: ShieldAlert },
-]
+  {
+    email: 'abuse@vaultscope.dev',
+    description: 'Report spam, phishing, or abusive content.',
+    icon: ShieldAlert,
+  },
+  {
+    email: 'billing@vaultscope.dev',
+    description: 'Questions about invoices, payments, or refunds.',
+    icon: CreditCard,
+  },
+  {
+    email: 'legal@vaultscope.dev',
+    description: 'Legal inquiries and compliance matters.',
+    icon: Users,
+  },
+  {
+    email: 'noc@vaultscope.dev',
+    description: 'Network operations and technical issues.',
+    icon: Server,
+  },
+  {
+    email: 'postmaster@vaultscope.dev',
+    description: 'Email delivery and server-related concerns.',
+    icon: Mail,
+  },
+  {
+    email: 'robot@vaultscope.dev (No replies)',
+    description: 'Automated notifications (do not reply).',
+    icon: Mail,
+  },
+  {
+    email: 'press@vaultscope.dev',
+    description: 'Media and press inquiries.',
+    icon: Megaphone,
+  },
+  {
+    email: 'sales@vaultscope.dev',
+    description: 'Sales inquiries and product questions.',
+    icon: Users,
+  },
+  {
+    email: 'security@vaultscope.dev',
+    description: 'Security issues or vulnerability reports.',
+    icon: Eye,
+  },
+  {
+    email: 'support@vaultscope.dev',
+    description: 'Technical support and customer assistance.',
+    icon: ShieldAlert,
+  },
+];
 
 export default function OfficialEmailsPage() {
   return (
@@ -44,14 +93,16 @@ export default function OfficialEmailsPage() {
           </span>
         </h1>
         <p className="max-w-3xl mx-auto mt-4 text-lg font-light text-white/80 sm:text-xl">
-          These are the only verified email addresses used by VaultScope. Any other email claiming to be from VaultScope is <span className="font-semibold text-vs-accent1">unauthorized</span>.
+          These are the only verified email addresses used by VaultScope. Any
+          other email claiming to be from VaultScope is{' '}
+          <span className="font-semibold text-vs-accent1">unauthorized</span>.
         </p>
       </div>
 
       {/* Email Cards */}
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {EMAILS.map((info) => {
-          const Icon = info.icon
+          const Icon = info.icon;
           return (
             <div
               key={info.email}
@@ -62,8 +113,12 @@ export default function OfficialEmailsPage() {
                   <Icon className="w-6 h-6 sm:h-7 sm:w-7" strokeWidth={1.5} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-white break-words sm:text-xl">{info.email}</h3>
-                  <p className="mt-2 text-sm text-white/70 sm:text-base">{info.description}</p>
+                  <h3 className="text-lg font-bold text-white break-words sm:text-xl">
+                    {info.email}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/70 sm:text-base">
+                    {info.description}
+                  </p>
                 </div>
               </div>
 
@@ -77,9 +132,9 @@ export default function OfficialEmailsPage() {
                 </a>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </section>
-  )
+  );
 }

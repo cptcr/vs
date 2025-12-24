@@ -6,20 +6,20 @@
  */
 
 // ...existing code...
-import { buildMetadata } from "@/lib/seo"
-import { Hero } from "@/components/hero"
-import { Features } from "@/components/features"
-import { Solutions } from "@/components/solutions"
-import { Testimonials } from "@/components/testimonials"
-import { WaveWrapper } from "@/components/wave-wrapper"
-import { BackToTopLink } from "@/components/back-to-top-link"
+import { buildMetadata } from '@/lib/seo';
+import { Hero } from '@/components/hero';
+import { Features } from '@/components/features';
+import { Solutions } from '@/components/solutions';
+import { Testimonials } from '@/components/testimonials';
+import { WaveWrapper } from '@/components/wave-wrapper';
+import { BackToTopLink } from '@/components/back-to-top-link';
 
 export const metadata = buildMetadata({
-  title: "Main",
+  title: 'Main',
   description:
-    "Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.",
-  path: "/",
-})
+    'Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.',
+  path: '/',
+});
 
 export default function Home() {
   return (
@@ -37,5 +37,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  )
+  );
 }

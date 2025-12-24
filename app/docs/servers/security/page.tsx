@@ -5,19 +5,20 @@
  * See LICENSE file for details.
  */
 
-import { buildMetadata } from "@/lib/seo"
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: "Server Security — Docs",
-  description: "Server hardening, access control and monitoring best practices.",
-  path: "/docs/servers/security",
-})
+  title: 'Server Security — Docs',
+  description:
+    'Server hardening, access control and monitoring best practices.',
+  path: '/docs/servers/security',
+});
 
 export default function SecurityPage() {
   return (
     <div className="max-w-3xl">
       <h1 className="text-4xl font-bold mb-6">Server Security</h1>
-      
+
       <div className="space-y-8">
         <section>
           <h2 className="text-2xl font-semibold mb-4">Security Overview</h2>
@@ -97,7 +98,9 @@ export default function SecurityPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">Security Best Practices</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Security Best Practices
+          </h2>
           <div className="space-y-4">
             <p className="text-muted-foreground">
               Follow these security recommendations:
@@ -153,5 +156,5 @@ export default function SecurityPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }

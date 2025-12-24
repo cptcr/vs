@@ -5,46 +5,50 @@
  * See LICENSE file for details.
  */
 
-import Link from "next/link"
-import { DocsScreenshot } from "@/components/docs-screenshot"
-import backupActions from "@/app/assets/docs/manage-server/backups/backup-actions-window-for-more-actions-if-needed.png"
-import restoreBackup from "@/app/assets/docs/manage-server/backups/restore-backup-window.png"
-import newScheduleButton from "@/app/assets/docs/manage-server/schedules/create-new-schedule-button.png"
-import scheduleWindow from "@/app/assets/docs/manage-server/schedules/create-new-schedule-window.png"
-import addScheduleTask from "@/app/assets/docs/manage-server/schedules/add-new-task-to-existing-schedule-button-and-window.png"
-import subdomainMenu from "@/app/assets/docs/manage-server/subdomain/click-on-more-then-subdomain-on-left-sidebar.png"
-import createSubdomain from "@/app/assets/docs/manage-server/subdomain/create-new-subdomain-window-set-allocation-set-subdomain-name-and-set-the-domain-no-ssl-no-custom-domains.png"
-import addUserButton from "@/app/assets/docs/manage-server/users/create-new-user-to-allow-to-see-server-make-sure-he-already-uses-the-platform-and-has-an-active-server-button.png"
-import userPermissions from "@/app/assets/docs/manage-server/users/add-new-user-window-set-email-and-permissions-permissions-can-be-edited-later.png"
-import newAllocation from "@/app/assets/docs/manage-server/network/add-new-allocation-if-server-allows-button.png"
-import changeStartupCommandButton from "@/app/assets/docs/manage-server/startup/change_startup_command_button.png"
-import editStartupCommandModal from "@/app/assets/docs/manage-server/startup/change_startup_command_marked_text_field.png"
-import saveStartupCommandButton from "@/app/assets/docs/manage-server/startup/change_startup_command_save_button.png"
-import restoreStartupDefaultButton from "@/app/assets/docs/manage-server/startup/restore_to_default_button.png"
-import confirmStartupResetModal from "@/app/assets/docs/manage-server/startup/reset_button.png"
-import openProxyMenu from "@/app/assets/docs/manage-server/reverse-proxy/click_more_then_proxy_button.png"
-import createProxyButton from "@/app/assets/docs/manage-server/reverse-proxy/click_create_proxy_button.png"
-import createProxyModal from "@/app/assets/docs/manage-server/reverse-proxy/create_new_reverse_proxy_window.png"
-import cloudflareProxyExample from "@/app/assets/docs/manage-server/reverse-proxy/example_configuration_in_cloudflare_dont_use_proxy.png"
-import proxyFinalResult from "@/app/assets/docs/manage-server/reverse-proxy/final_result.png"
-import { buildMetadata } from "@/lib/seo"
+import Link from 'next/link';
+import { DocsScreenshot } from '@/components/docs-screenshot';
+import backupActions from '@/app/assets/docs/manage-server/backups/backup-actions-window-for-more-actions-if-needed.png';
+import restoreBackup from '@/app/assets/docs/manage-server/backups/restore-backup-window.png';
+import newScheduleButton from '@/app/assets/docs/manage-server/schedules/create-new-schedule-button.png';
+import scheduleWindow from '@/app/assets/docs/manage-server/schedules/create-new-schedule-window.png';
+import addScheduleTask from '@/app/assets/docs/manage-server/schedules/add-new-task-to-existing-schedule-button-and-window.png';
+import subdomainMenu from '@/app/assets/docs/manage-server/subdomain/click-on-more-then-subdomain-on-left-sidebar.png';
+import createSubdomain from '@/app/assets/docs/manage-server/subdomain/create-new-subdomain-window-set-allocation-set-subdomain-name-and-set-the-domain-no-ssl-no-custom-domains.png';
+import addUserButton from '@/app/assets/docs/manage-server/users/create-new-user-to-allow-to-see-server-make-sure-he-already-uses-the-platform-and-has-an-active-server-button.png';
+import userPermissions from '@/app/assets/docs/manage-server/users/add-new-user-window-set-email-and-permissions-permissions-can-be-edited-later.png';
+import newAllocation from '@/app/assets/docs/manage-server/network/add-new-allocation-if-server-allows-button.png';
+import changeStartupCommandButton from '@/app/assets/docs/manage-server/startup/change_startup_command_button.png';
+import editStartupCommandModal from '@/app/assets/docs/manage-server/startup/change_startup_command_marked_text_field.png';
+import saveStartupCommandButton from '@/app/assets/docs/manage-server/startup/change_startup_command_save_button.png';
+import restoreStartupDefaultButton from '@/app/assets/docs/manage-server/startup/restore_to_default_button.png';
+import confirmStartupResetModal from '@/app/assets/docs/manage-server/startup/reset_button.png';
+import openProxyMenu from '@/app/assets/docs/manage-server/reverse-proxy/click_more_then_proxy_button.png';
+import createProxyButton from '@/app/assets/docs/manage-server/reverse-proxy/click_create_proxy_button.png';
+import createProxyModal from '@/app/assets/docs/manage-server/reverse-proxy/create_new_reverse_proxy_window.png';
+import cloudflareProxyExample from '@/app/assets/docs/manage-server/reverse-proxy/example_configuration_in_cloudflare_dont_use_proxy.png';
+import proxyFinalResult from '@/app/assets/docs/manage-server/reverse-proxy/final_result.png';
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: "Control Panel — Docs",
+  title: 'Control Panel — Docs',
   description:
-    "Operate the VaultScope control panel: schedules, backups, networking, delegated access and subdomain management for your servers.",
-  path: "/docs/control-panel",
-})
+    'Operate the VaultScope control panel: schedules, backups, networking, delegated access and subdomain management for your servers.',
+  path: '/docs/control-panel',
+});
 
 export default function ControlPanelPage() {
   return (
     <div className="max-w-3xl space-y-10">
       <header className="space-y-4">
-        <p className="text-sm uppercase tracking-[0.2em] text-primary">Operations cockpit</p>
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Master the VaultScope control panel</h1>
+        <p className="text-sm uppercase tracking-[0.2em] text-primary">
+          Operations cockpit
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          Master the VaultScope control panel
+        </h1>
         <p className="text-lg text-muted-foreground">
-          Every server shares the same interface. Learn how to navigate the sidebar, automate maintenance and expose your
-          workloads safely.
+          Every server shares the same interface. Learn how to navigate the
+          sidebar, automate maintenance and expose your workloads safely.
         </p>
       </header>
 
@@ -52,25 +56,34 @@ export default function ControlPanelPage() {
         <h2 className="text-2xl font-semibold">1. Orient yourself</h2>
         <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
-            Tabs run down the left rail: <em>Console</em>, <em>Files</em>, <em>Schedules</em>, <em>Users</em>, <em>Backups</em>, <em>Network</em> and <em>Settings</em>.
+            Tabs run down the left rail: <em>Console</em>, <em>Files</em>,{' '}
+            <em>Schedules</em>, <em>Users</em>, <em>Backups</em>,{' '}
+            <em>Network</em> and <em>Settings</em>.
           </li>
-          <li>The top bar holds quick actions for power control and displays live resource usage.</li>
           <li>
-            Use the <em>Activity</em> drawer in the top-right to see recent actions, logins and automated jobs performed
-            by panel users.
+            The top bar holds quick actions for power control and displays live
+            resource usage.
+          </li>
+          <li>
+            Use the <em>Activity</em> drawer in the top-right to see recent
+            actions, logins and automated jobs performed by panel users.
           </li>
         </ul>
         <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
-          The control panel mirrors real-time state. If something looks out of sync, refresh the page first—most drift is
-          transient replication delay.
+          The control panel mirrors real-time state. If something looks out of
+          sync, refresh the page first—most drift is transient replication
+          delay.
         </div>
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">2. Manage backups and restores</h2>
+        <h2 className="text-2xl font-semibold">
+          2. Manage backups and restores
+        </h2>
         <p className="text-muted-foreground">
-          VaultScope stores manual and automatic backups in the cloud region nearest the server. Use the <em>Backups</em>{" "}
-          tab to create, download or restore snapshots.
+          VaultScope stores manual and automatic backups in the cloud region
+          nearest the server. Use the <em>Backups</em> tab to create, download
+          or restore snapshots.
         </p>
         <DocsScreenshot
           image={backupActions}
@@ -79,8 +92,9 @@ export default function ControlPanelPage() {
           priority
         />
         <p className="text-muted-foreground">
-          Restoring does not overwrite the latest files immediately—we create a new archive of current data before rolling
-          back so you can recover if needed.
+          Restoring does not overwrite the latest files immediately—we create a
+          new archive of current data before rolling back so you can recover if
+          needed.
         </p>
         <DocsScreenshot
           image={restoreBackup}
@@ -90,10 +104,12 @@ export default function ControlPanelPage() {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">3. Automate maintenance with schedules</h2>
+        <h2 className="text-2xl font-semibold">
+          3. Automate maintenance with schedules
+        </h2>
         <p className="text-muted-foreground">
-          Schedules run commands, backups or power actions on a timer. Navigate to <em>Schedules</em> and click{" "}
-          <em>Create Schedule</em>.
+          Schedules run commands, backups or power actions on a timer. Navigate
+          to <em>Schedules</em> and click <em>Create Schedule</em>.
         </p>
         <DocsScreenshot
           image={newScheduleButton}
@@ -106,7 +122,8 @@ export default function ControlPanelPage() {
           caption="Schedules run in the server time zone—UTC by default. Adjust the frequency before adding tasks."
         />
         <p className="text-muted-foreground">
-          Add tasks to the schedule to perform specific actions. You can chain multiple tasks in order.
+          Add tasks to the schedule to perform specific actions. You can chain
+          multiple tasks in order.
         </p>
         <DocsScreenshot
           image={addScheduleTask}
@@ -116,10 +133,12 @@ export default function ControlPanelPage() {
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">4. Delegate access with user roles</h2>
+        <h2 className="text-2xl font-semibold">
+          4. Delegate access with user roles
+        </h2>
         <p className="text-muted-foreground">
-          Add teammates under the <em>Users</em> tab. Invites require the collaborator to have an active VaultScope
-          account.
+          Add teammates under the <em>Users</em> tab. Invites require the
+          collaborator to have an active VaultScope account.
         </p>
         <DocsScreenshot
           image={addUserButton}
@@ -132,17 +151,29 @@ export default function ControlPanelPage() {
           caption="Granular permissions let you grant console access without billing or power controls."
         />
         <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
-          <li>Keep console access limited to trusted operators—it includes raw command execution.</li>
-          <li>Use the <em>SFTP</em> toggle to allow external file management via clients like WinSCP.</li>
-          <li>Revoke access instantly by removing the user; changes propagate across nodes immediately.</li>
+          <li>
+            Keep console access limited to trusted operators—it includes raw
+            command execution.
+          </li>
+          <li>
+            Use the <em>SFTP</em> toggle to allow external file management via
+            clients like WinSCP.
+          </li>
+          <li>
+            Revoke access instantly by removing the user; changes propagate
+            across nodes immediately.
+          </li>
         </ul>
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">5. Customize startup commands</h2>
+        <h2 className="text-2xl font-semibold">
+          5. Customize startup commands
+        </h2>
         <p className="text-muted-foreground">
-          The <em>Startup</em> tab lets you adjust launch arguments without redeploying files. This is the quickest way to
-          roll out JVM flags, memory switches or plugin bootstrap parameters.
+          The <em>Startup</em> tab lets you adjust launch arguments without
+          redeploying files. This is the quickest way to roll out JVM flags,
+          memory switches or plugin bootstrap parameters.
         </p>
         <DocsScreenshot
           image={changeStartupCommandButton}
@@ -160,8 +191,9 @@ export default function ControlPanelPage() {
           caption="Click Save to persist the new startup command. Restart the server to apply your changes."
         />
         <p className="text-muted-foreground">
-          Need to revert? Use <em>Restore to Default</em> to bring back the original command that shipped with your plan.
-          We keep the template versioned so you can experiment safely.
+          Need to revert? Use <em>Restore to Default</em> to bring back the
+          original command that shipped with your plan. We keep the template
+          versioned so you can experiment safely.
         </p>
         <DocsScreenshot
           image={restoreStartupDefaultButton}
@@ -174,19 +206,26 @@ export default function ControlPanelPage() {
           caption="Confirm with Reset to finish the rollback. The panel stores the previous command in your activity log."
         />
         <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
-          Want a dedicated walkthrough? Visit the{" "}
-          <Link href="/docs/startup-commands" className="font-medium underline text-primary underline-offset-4">
+          Want a dedicated walkthrough? Visit the{' '}
+          <Link
+            href="/docs/startup-commands"
+            className="font-medium underline text-primary underline-offset-4"
+          >
             startup command guide
-          </Link>{" "}
+          </Link>{' '}
           for step-by-step instructions and rollback tips.
         </div>
       </section>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold">6. Expose services via networking and subdomains</h2>
+        <h2 className="text-2xl font-semibold">
+          6. Expose services via networking and subdomains
+        </h2>
         <p className="text-muted-foreground">
-          The <em>Network</em> tab manages port allocations while <em>Subdomains</em> maps VaultScope-managed DNS records
-          to those ports. Subdomains provide friendly hostnames under <code>vaultscope.dev</code> or <code>cptcr.dev</code>
+          The <em>Network</em> tab manages port allocations while{' '}
+          <em>Subdomains</em> maps VaultScope-managed DNS records to those
+          ports. Subdomains provide friendly hostnames under{' '}
+          <code>vaultscope.dev</code> or <code>cptcr.dev</code>
           but they do not provision SSL or replace a full reverse proxy.
         </p>
         <DocsScreenshot
@@ -205,28 +244,38 @@ export default function ControlPanelPage() {
           caption="Map a subdomain to the allocation serving your workload. For HTTPS, route traffic through a reverse proxy."
         />
         <p className="text-muted-foreground">
-          Need SSL or a custom domain? Reverse proxies handle certificates and edge routing while subdomains remain a
-          lightweight pointer. Follow the{" "}
-          <Link href="#reverse-proxies" className="font-medium underline text-primary underline-offset-4">
+          Need SSL or a custom domain? Reverse proxies handle certificates and
+          edge routing while subdomains remain a lightweight pointer. Follow the{' '}
+          <Link
+            href="#reverse-proxies"
+            className="font-medium underline text-primary underline-offset-4"
+          >
             reverse proxy walkthrough
-          </Link>{" "}
+          </Link>{' '}
           below to secure traffic end-to-end.
         </p>
         <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
-          Looking for more examples? See the{" "}
-          <Link href="/docs/subdomains" className="font-medium underline text-primary underline-offset-4">
+          Looking for more examples? See the{' '}
+          <Link
+            href="/docs/subdomains"
+            className="font-medium underline text-primary underline-offset-4"
+          >
             subdomains guide
-          </Link>{" "}
+          </Link>{' '}
           for naming conventions and common troubleshooting steps.
         </div>
       </section>
 
       <section className="space-y-6">
-        <h2 id="reverse-proxies" className="text-2xl font-semibold">7. Publish reverse proxies for custom domains</h2>
+        <h2 id="reverse-proxies" className="text-2xl font-semibold">
+          7. Publish reverse proxies for custom domains
+        </h2>
         <p className="text-muted-foreground">
-          Reverse proxies sit in front of your allocation, terminate SSL and forward traffic to the internal port. They are
-          separate from subdomains—use subdomains for VaultScope-provided hostnames, and reverse proxies when you need
-          custom domains or edge security controls.
+          Reverse proxies sit in front of your allocation, terminate SSL and
+          forward traffic to the internal port. They are separate from
+          subdomains—use subdomains for VaultScope-provided hostnames, and
+          reverse proxies when you need custom domains or edge security
+          controls.
         </p>
         <DocsScreenshot
           image={openProxyMenu}
@@ -251,37 +300,56 @@ export default function ControlPanelPage() {
         <DocsScreenshot
           image={proxyFinalResult}
           alt="Reverse proxy list showing an active proxy with SSL enabled."
-          caption="Once created, the proxy appears in the list with status indicators for SSL and Let&apos;s Encrypt automation."
+          caption="Once created, the proxy appears in the list with status indicators for SSL and Let's Encrypt automation."
         />
         <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
           <li>
-            Toggle <em>Let&apos;s Encrypt</em> to auto-issue certificates. If disabled, upload your own trusted certificate and
-            private key pair.
+            Toggle <em>Let&apos;s Encrypt</em> to auto-issue certificates. If
+            disabled, upload your own trusted certificate and private key pair.
           </li>
           <li>
-            Keep Cloudflare/DNS proxies off while provisioning SSL; you can re-enable additional protection after validation
-            succeeds.
+            Keep Cloudflare/DNS proxies off while provisioning SSL; you can
+            re-enable additional protection after validation succeeds.
           </li>
-          <li>Restart the workload after creating a proxy if it binds to the new hostname for virtual hosting rules.</li>
+          <li>
+            Restart the workload after creating a proxy if it binds to the new
+            hostname for virtual hosting rules.
+          </li>
         </ul>
         <div className="px-4 py-3 text-sm border rounded-lg border-border/60 bg-muted/10 text-muted-foreground">
-          Need deeper coverage? The{" "}
-          <Link href="/docs/reverse-proxy" className="font-medium underline text-primary underline-offset-4">
+          Need deeper coverage? The{' '}
+          <Link
+            href="/docs/reverse-proxy"
+            className="font-medium underline text-primary underline-offset-4"
+          >
             reverse proxy guide
-          </Link>{" "}
-          covers DNS validation, certificate management and expected status indicators.
+          </Link>{' '}
+          covers DNS validation, certificate management and expected status
+          indicators.
         </div>
       </section>
 
       <section className="pt-8 space-y-6 border-t border-border">
         <h2 className="text-2xl font-semibold">Operational best practices</h2>
         <ul className="pl-6 space-y-2 list-disc text-muted-foreground">
-          <li>Schedule a daily backup even if you use version control—snapshots simplify disaster recovery.</li>
-          <li>Audit user access monthly and remove former collaborators right away.</li>
-          <li>Tag subdomains with the environment name (e.g., <code>prod-lobby</code>) so the team recognizes them instantly.</li>
-          <li>Document every automated schedule in your internal runbook and link back to this guide for screenshots.</li>
+          <li>
+            Schedule a daily backup even if you use version control—snapshots
+            simplify disaster recovery.
+          </li>
+          <li>
+            Audit user access monthly and remove former collaborators right
+            away.
+          </li>
+          <li>
+            Tag subdomains with the environment name (e.g.,{' '}
+            <code>prod-lobby</code>) so the team recognizes them instantly.
+          </li>
+          <li>
+            Document every automated schedule in your internal runbook and link
+            back to this guide for screenshots.
+          </li>
         </ul>
       </section>
     </div>
-  )
+  );
 }

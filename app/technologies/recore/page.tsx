@@ -1,9 +1,9 @@
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  path: "/technologies/recore",
-  title: "Recore",
-  description: "Next generation hosting solution.",
+  path: '/technologies/recore',
+  title: 'Recore',
+  description: 'Next generation hosting solution.',
 });
 
 export default function RecorePage() {
