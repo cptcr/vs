@@ -177,7 +177,7 @@ function GlobeScene() {
             />
         </mesh>
 
-        {LOCATIONS.map((loc, i) => (
+        {LOCATIONS.map((loc) => (
           <LocationMarker key={loc.name} lat={loc.lat} lon={loc.lon} name={loc.name} />
         ))}
 

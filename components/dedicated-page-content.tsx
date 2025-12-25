@@ -43,7 +43,8 @@ export function DedicatedPageContent() {
                 <span className="relative inline-flex w-2 h-2 bg-yellow-500 rounded-full"></span>
               </span>
               <span className="text-xs font-semibold tracking-widest text-yellow-200 uppercase">
-                Project "Titan" • Coming 2026
+                {/* Fixed escaped quotes below */}
+                Project &quot;Titan&quot; • Coming 2026
               </span>
             </div>
 

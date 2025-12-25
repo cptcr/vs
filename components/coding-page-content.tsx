@@ -23,7 +23,7 @@ import {
   Box,
   Layers,
   HelpCircle,
-  FileCode,
+  // FileCode removed (unused)
   AlertTriangle,
 } from "lucide-react"
 
@@ -70,7 +70,8 @@ export function CodingPageContent() {
                 </h1>
                 <p className="max-w-2xl mx-auto text-lg leading-relaxed text-white/75 sm:text-xl">
                   Deploy a high-performance application container instantly. 
-                  Select your specific runtime environment—whether it's a Discord bot, a monitoring tool, or a full browser-based IDE.
+                  {/* Fixed unescaped quote below */}
+                  Select your specific runtime environment—whether it&apos;s a Discord bot, a monitoring tool, or a full browser-based IDE.
                 </p>
               </div>
 

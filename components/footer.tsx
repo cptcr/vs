@@ -10,6 +10,7 @@
 import type { SVGProps } from "react"
 import { Github, PersonStandingIcon } from "lucide-react"
 import { useI18n } from "@/components/language-provider"
+import Link from "next/link"
 
 export function Footer() {
   const { getValue } = useI18n()
@@ -72,9 +73,9 @@ export function Footer() {
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.resources.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/docs" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/docs" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.resources.links.documentation}
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -107,6 +108,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                {/* Internal anchors can stay as <a> or Link, usually Link scroll={false} if on same page, but plain <a> is often safer for #hashes */}
                 <a href="/#features" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.resources.links.features}
                 </a>
@@ -141,10 +143,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/team" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/team" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
                 <PersonStandingIcon className="w-4 h-4" aria-hidden="true"/>
                   <span>Team</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -154,31 +156,28 @@ export function Footer() {
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.software.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a
+                <Link
                   href="/technologies"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   <span>View All</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/technologies/nodejs-sdk"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   <span>Node.js SDK</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/technologies/connect"
-                  rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
                   <span>Connect</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -191,7 +190,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/technologies/recore" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"><span>Recore</span></a>
+                <Link href="/technologies/recore" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"><span>Recore</span></Link>
               </li>
             </ul>
           </div>
@@ -201,34 +200,34 @@ export function Footer() {
             <h4 className="mb-4 font-semibold text-foreground">Services</h4>
             <ul className="space-y-3">
                <li>
-                <a href="/services" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   All Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/vps" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services/vps" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   Cloud VPS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/minecraft" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services/minecraft" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   Minecraft Hosting
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/databases" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services/databases" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   Managed Databases
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/coding" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services/coding" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   Free Coding Server
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/services/dedicated" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/services/dedicated" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   Dedicated Servers
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -238,14 +237,14 @@ export function Footer() {
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.infrastructure.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/pricing" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/pricing" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.pricing}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/security" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/security" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.security}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -255,34 +254,34 @@ export function Footer() {
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.legal.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="/privacy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/privacy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.privacy}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/terms" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/terms" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.terms}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/acceptable-use" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/acceptable-use" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.acceptableUse}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/fair-usage" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/fair-usage" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.fairUsage}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/sla" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/sla" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.sla}
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/cookie-policy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Link href="/cookie-policy" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.legal.links.cookiePolicy}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
