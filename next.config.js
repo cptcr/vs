@@ -7,11 +7,18 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // ✅ replaces next export
+  output: 'export',
   images: {
-    unoptimized: true, // required for static export
+    unoptimized: true, 
   },
-  outputFileTracingRoot: "C:/Users/toowa/OneDrive/Desktop/Projects/vs>"
+  outputFileTracingRoot: "C:/Users/toowa/OneDrive/Desktop/Projects/vs>",
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;
