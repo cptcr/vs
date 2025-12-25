@@ -57,14 +57,18 @@ export default function DocsSearch({ onOpenChange }: DocsSearchProps) {
   useEffect(() => {
     onOpenChange?.(open)
     if (!mounted) return
-    const originalOverflow = document.body.style.overflow
+
+    // Use a CSS class to lock scroll instead of inline style mutation.
     if (open) {
-      document.body.style.overflow = "hidden"
+      document.body.classList.add("vsc-scroll-locked")
+      console.debug("DocsSearch: added vsc-scroll-locked")
     } else {
-      document.body.style.overflow = originalOverflow
+      document.body.classList.remove("vsc-scroll-locked")
+      console.debug("DocsSearch: removed vsc-scroll-locked")
     }
+
     return () => {
-      document.body.style.overflow = originalOverflow
+      document.body.classList.remove("vsc-scroll-locked")
     }
   }, [mounted, onOpenChange, open])
 

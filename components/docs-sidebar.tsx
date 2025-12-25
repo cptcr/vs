@@ -43,14 +43,25 @@ function DocsSidebarContents({
     }
   }, [pathname])
 
-  const isItemActive = (item: DocsNavItem) =>
-    pathname === item.href || (item.href !== "/docs" && pathname.startsWith(`${item.href}/`))
+  const normalize = (h = "") => (h.replace(/\/+$|^$/, "") || "/").replace(/\/+$/, "") || "/";
+  const normalizedPathname = normalize(pathname || "");
+
+  const isItemActive = (item: DocsNavItem) => {
+    const itemHref = item.href || "";
+    const norm = normalize(itemHref);
+    return normalizedPathname === norm || (norm !== "/" && normalizedPathname.startsWith(norm + "/"));
+  }
 
   const isChildActive = (item: DocsNavItem, child: DocsNavChild) => {
     const href = getChildHref(item, child)
-    const hash = href.split("#")[1]
-    if (!hash) return false
-    return activeHash === `#${hash}`
+    if (!href) return false
+    const [path = "", hash] = href.split("#")
+
+    // if href includes a hash, use the hash to determine child activation
+    if (hash) return activeHash === `#${hash}`
+
+    // otherwise match pathname (normalized)
+    return normalize(path) === normalizedPathname
   }
 
   return (
@@ -115,7 +126,7 @@ function DocsSidebarContents({
                           </span>
                         </Link>
 
-                        {item.children && item.children.length > 0 && active ? (
+                        {item.children && item.children.length > 0 && (active || item.children.some(child => isChildActive(item, child))) ? (
                           <div className="ml-6 space-y-1 border-l border-border/60 pl-3 text-sm">
                             {item.children.map(child => {
                               const childHref = getChildHref(item, child)
@@ -179,7 +190,7 @@ export default function DocsSidebar({ onSearchOpenChange }: { onSearchOpenChange
   return (
     <>
       <div className="hidden lg:block lg:w-72 xl:w-80">
-        <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto border-r border-border/60 px-4 py-6">
+        <div className="sticky top-20 z-20 max-h-[calc(100vh-6rem)] overflow-y-auto border-r border-border/60 px-4 py-6">
           <div className="mb-6 space-y-4">
             <div className="space-y-1">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">VaultScope</p>

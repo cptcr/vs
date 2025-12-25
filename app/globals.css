@@ -129,6 +129,11 @@ body {
   color: var(--foreground);
 }
 
+/* Utility to lock scroll without inline style mutations */
+body.vsc-scroll-locked {
+  overflow: hidden !important;
+}
+
 /* Themed scrollbars */
 * {
   scrollbar-width: thin;

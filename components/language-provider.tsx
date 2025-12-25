@@ -65,8 +65,15 @@ export function LanguageProvider({
 
   useEffect(() => {
     if (typeof document !== "undefined") {
-      document.documentElement.setAttribute("lang", language)
-      document.cookie = `${LANGUAGE_COOKIE}=${language}; path=/; max-age=${ONE_YEAR_SECONDS}; SameSite=Lax`
+      // Only write if different to avoid unnecessary DOM mutations during hydration.
+      if (document.documentElement.getAttribute("lang") !== language) {
+        document.documentElement.setAttribute("lang", language)
+        console.debug("LanguageProvider: set document lang to", language)
+      }
+      // Always update cookie (cheap), but don't overwrite if it's already set to same value.
+      if (!document.cookie.includes(`${LANGUAGE_COOKIE}=${language}`)) {
+        document.cookie = `${LANGUAGE_COOKIE}=${language}; path=/; max-age=${ONE_YEAR_SECONDS}; SameSite=Lax`
+      }
     }
     if (typeof window !== "undefined") {
       window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language)

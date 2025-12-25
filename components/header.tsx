@@ -45,14 +45,17 @@ export function Header() {
   }
 
   useEffect(() => {
-    const prev = document.body.style.overflow
+    // Avoid inline style mutations on body to prevent SSR/CSR mismatch warnings.
+    // Toggle a class instead; defined in globals.css as `.vsc-scroll-locked`.
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.classList.add("vsc-scroll-locked")
+      console.debug("Header: added vsc-scroll-locked")
     } else {
-      document.body.style.overflow = prev || ""
+      document.body.classList.remove("vsc-scroll-locked")
+      console.debug("Header: removed vsc-scroll-locked")
     }
     return () => {
-      document.body.style.overflow = prev || ""
+      document.body.classList.remove("vsc-scroll-locked")
     }
   }, [mobileMenuOpen])
 

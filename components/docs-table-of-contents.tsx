@@ -77,7 +77,7 @@ export default function DocsTableOfContents() {
   if (headings.length === 0) {
     return (
       <aside className="hidden xl:block xl:w-64">
-        <div className="sticky top-24 rounded-md border border-border/60 bg-background/80 px-4 py-4 text-sm text-muted-foreground">
+        <div className="sticky top-24 z-20 rounded-md border border-border/60 bg-background/80 px-4 py-4 text-sm text-muted-foreground">
           <p className="font-medium text-foreground">On this page</p>
           <p className="mt-2 text-xs text-muted-foreground/80">Sections will appear here as you scroll.</p>
         </div>
@@ -87,7 +87,7 @@ export default function DocsTableOfContents() {
 
   return (
     <aside className="hidden xl:block xl:w-64">
-      <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-md border border-border/60 bg-background/80 px-4 py-4">
+      <div className="sticky top-24 z-20 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-md border border-border/60 bg-background/80 px-4 py-4">
         <p className="text-sm font-semibold text-foreground">On this page</p>
         <nav className="mt-4 space-y-1 text-sm">
           {headings.map(heading => (
