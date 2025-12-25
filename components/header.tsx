@@ -7,13 +7,14 @@
 
 "use client"
 
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useI18n } from "@/components/language-provider"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 type NavItem = {
   id: "home" | "about" | "services" | "partners" | "docs"
@@ -22,22 +23,32 @@ type NavItem = {
   external?: boolean
 }
 
+// Define the sub-links for the services dropdown
+const SERVICE_LINKS = [
+  { href: "/services/vps", label: "Cloud VPS", description: "High-performance KVM" },
+  { href: "/services/minecraft", label: "Minecraft Hosting", description: "Modpack optimized" },
+  { href: "/services/databases", label: "Managed Databases", description: "Mongo, Postgres, MariaDB" },
+  { href: "/services/coding", label: "Dev Containers", description: "Free coding environments" },
+  { href: "/services/dedicated", label: "Dedicated Servers", description: "Single-tenant hardware" },
+]
+
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true) // Default open on mobile or false, up to preference
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null)
   const { t } = useI18n()
   const [indicatorStyle, setIndicatorStyle] = useState({})
   const navRef = useRef<HTMLElement | null>(null)
 
   const navItems = useMemo<NavItem[]>(
-      () => [
-        { id: "home", href: "/", label: t("header.nav.home", { fallback: "VaultScope" }) },
-        { id: "about", href: "/about", label: t("header.nav.about", { fallback: "About" }) },
-        { id: "services", href: "/services", label: t("header.nav.services", { fallback: "Services" }) },
-        { id: "partners", href: "/partners", label: t("header.nav.partners", { fallback: "Partners" }) },
-        { id: "docs", href: "/docs", label: t("header.nav.documentation", { fallback: "Documentation" }) },
-      ],
-      [t]
+    () => [
+      { id: "home", href: "/", label: t("header.nav.home", { fallback: "VaultScope" }) },
+      { id: "about", href: "/about", label: t("header.nav.about", { fallback: "About" }) },
+      { id: "services", href: "/services", label: t("header.nav.services", { fallback: "Services" }) },
+      { id: "partners", href: "/partners", label: t("header.nav.partners", { fallback: "Partners" }) },
+      { id: "docs", href: "/docs", label: t("header.nav.documentation", { fallback: "Documentation" }) },
+    ],
+    [t]
   )
 
   const toggleMobileMenu = () => {
@@ -45,14 +56,10 @@ export function Header() {
   }
 
   useEffect(() => {
-    // Avoid inline style mutations on body to prevent SSR/CSR mismatch warnings.
-    // Toggle a class instead; defined in globals.css as `.vsc-scroll-locked`.
     if (mobileMenuOpen) {
       document.body.classList.add("vsc-scroll-locked")
-      console.debug("Header: added vsc-scroll-locked")
     } else {
       document.body.classList.remove("vsc-scroll-locked")
-      console.debug("Header: removed vsc-scroll-locked")
     }
     return () => {
       document.body.classList.remove("vsc-scroll-locked")
@@ -97,7 +104,7 @@ export function Header() {
       <header className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/75 backdrop-blur-md supports-[backdrop-filter]:backdrop-blur-xl">
         <div className="container px-4 mx-auto sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-3 md:h-16 md:py-0">
-            <Link href="/" className="flex items-center gap-2 flex-1" aria-label={t("header.brand")}>
+            <Link href="/" className="flex items-center flex-1 gap-2" aria-label={t("header.brand")}>
               <Image
                   src="/favicon.ico"
                   alt=""
@@ -111,27 +118,64 @@ export function Header() {
             </span>
             </Link>
 
+            {/* Desktop Navigation */}
             <nav
                 ref={navRef}
-                className="items-center hidden gap-2 md:flex lg:gap-3 relative justify-center flex-1"
+                className="relative items-center justify-center flex-1 hidden gap-1 md:flex"
                 onMouseLeave={handleNavMouseLeave}
             >
               {/* Hover indicator */}
               <div
-                  className="absolute h-8 bg-white/15 rounded-md pointer-events-none transition-all duration-200 ease-out"
+                  className="absolute h-8 transition-all duration-200 ease-out rounded-md pointer-events-none bg-white/15"
                   style={indicatorStyle}
               />
 
               {navItems.map((item, idx) => {
                 const baseClasses =
-                    "relative inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium text-white/85 transition-colors focus-within:text-white hover:text-white z-10"
+                    "relative inline-flex items-center rounded-md px-3 py-1.5 text-sm font-medium text-white/85 transition-colors focus-within:text-white hover:text-white z-10 outline-none focus-visible:ring-2 focus-visible:ring-white/70"
 
-                const commonLinkProps = {
-                  className: baseClasses + " outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                  onMouseEnter: handleMouseEnter,
-                  ref: idx === 0 ? firstLinkRef : undefined,
-                } as const
+                // Specific rendering for Services Dropdown
+                if (item.id === "services") {
+                  return (
+                    <div key={item.id} className="relative group">
+                      <Link
+                        href={item.href}
+                        className={cn(baseClasses, "gap-1")}
+                        onMouseEnter={handleMouseEnter}
+                      >
+                        {item.label}
+                        <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180 text-white/50" />
+                      </Link>
 
+                      {/* Dropdown Menu */}
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out">
+                         <div className="bg-[#0a0a0a] border border-white/10 rounded-xl p-2 shadow-2xl backdrop-blur-xl overflow-hidden">
+                            <div className="flex flex-col gap-1">
+                              {SERVICE_LINKS.map((subItem) => (
+                                <Link 
+                                  key={subItem.href}
+                                  href={subItem.href}
+                                  className="flex flex-col px-3 py-2 transition-colors rounded-lg group/item hover:bg-white/10"
+                                >
+                                  <span className="text-sm font-medium text-white">{subItem.label}</span>
+                                  <span className="text-xs text-white/50 group-hover/item:text-white/70">{subItem.description}</span>
+                                </Link>
+                              ))}
+                              <div className="h-px my-1 bg-white/10" />
+                              <Link 
+                                href="/services"
+                                className="px-3 py-2 text-xs font-medium text-center transition-colors rounded-lg hover:bg-white/10 text-white/60 hover:text-white"
+                              >
+                                View All Services
+                              </Link>
+                            </div>
+                         </div>
+                      </div>
+                    </div>
+                  )
+                }
+
+                // Standard Links
                 if (item.external) {
                   return (
                       <a
@@ -139,7 +183,9 @@ export function Header() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          {...commonLinkProps}
+                          className={baseClasses}
+                          onMouseEnter={handleMouseEnter}
+                          ref={idx === 0 ? firstLinkRef : undefined}
                       >
                         {item.label}
                       </a>
@@ -150,7 +196,9 @@ export function Header() {
                     <Link
                         key={item.id}
                         href={item.href}
-                        {...commonLinkProps}
+                        className={baseClasses}
+                        onMouseEnter={handleMouseEnter}
+                        ref={idx === 0 ? firstLinkRef : undefined}
                     >
                       {item.label}
                     </Link>
@@ -158,7 +206,8 @@ export function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-2 md:gap-4 flex-1 justify-end">
+            {/* Desktop Actions */}
+            <div className="flex items-center justify-end flex-1 gap-2 md:gap-4">
               <LanguageSwitcher className="hidden md:block" align="right" />
               <Button variant="ghost" className="hidden md:inline-flex text-foreground" asChild>
                 <a href="https://panel.vaultscope.dev" target="_blank" rel="noopener noreferrer">
@@ -173,6 +222,8 @@ export function Header() {
                   {t("header.actions.getStarted")}
                 </a>
               </Button>
+              
+              {/* Mobile Menu Toggle */}
               <Button
                   variant="ghost"
                   size="icon"
@@ -233,6 +284,47 @@ export function Header() {
                   {navItems.map((item, index) => {
                     const commonClass =
                         "block w-full rounded-lg px-4 py-4 text-xl font-semibold text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+
+                    // Mobile Dropdown Logic for Services
+                    if (item.id === "services") {
+                       return (
+                         <li key={item.id} className="flex flex-col">
+                           <button 
+                              className={cn(commonClass, "flex items-center justify-between")}
+                              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                           >
+                              {item.label}
+                              <ChevronDown className={cn("w-5 h-5 transition-transform", mobileServicesOpen && "rotate-180")} />
+                           </button>
+                           
+                           {/* Mobile Submenu */}
+                           {mobileServicesOpen && (
+                             <ul className="flex flex-col gap-2 pl-4 pr-2 mt-2 ml-4 border-l border-white/10">
+                               {SERVICE_LINKS.map(subItem => (
+                                 <li key={subItem.href}>
+                                   <Link
+                                     href={subItem.href}
+                                     className="block w-full px-4 py-3 text-base transition-colors rounded-lg text-white/70 hover:text-white hover:bg-white/5"
+                                     onClick={() => setMobileMenuOpen(false)}
+                                   >
+                                     {subItem.label}
+                                   </Link>
+                                 </li>
+                               ))}
+                               <li>
+                                   <Link
+                                     href="/services"
+                                     className="block w-full px-4 py-3 text-base text-blue-400 transition-colors rounded-lg hover:text-blue-300 hover:bg-white/5"
+                                     onClick={() => setMobileMenuOpen(false)}
+                                   >
+                                     View All Services
+                                   </Link>
+                               </li>
+                             </ul>
+                           )}
+                         </li>
+                       )
+                    }
 
                     if (item.external) {
                       return (

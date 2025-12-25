@@ -5,16 +5,16 @@
  * See LICENSE file for details.
  */
 
-import { ServicesPageContent } from '@/components/services-page-content';
 import { buildMetadata } from '@/lib/seo';
+import { ServicesHubContent } from '@/components/services-hub-content';
 
 export const metadata = buildMetadata({
-  title: 'Services',
+  title: 'Our Services',
   description:
-    'Explore VaultScope’s managed services: supported languages, tooling, infrastructure features, and the free tier that powers every deployment.',
+    'Explore our full suite of cloud infrastructure. From high-performance VPS and dedicated game hosting to managed databases and free development environments.',
   path: '/services',
 });
 
 export default function ServicesPage() {
-  return <ServicesPageContent />;
+  return <ServicesHubContent />;
 }

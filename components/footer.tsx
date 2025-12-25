@@ -13,6 +13,7 @@ import { useI18n } from "@/components/language-provider"
 
 export function Footer() {
   const { getValue } = useI18n()
+  
   const copy = getValue<{
     sections: {
       resources: {
@@ -43,8 +44,6 @@ export function Footer() {
         links: {
           pricing: string
           security: string
-          minecraft: string
-          services: string
         }
       }
       legal: {
@@ -65,7 +64,10 @@ export function Footer() {
   return (
     <footer className="relative bg-black border-t border-border">
       <div className="container px-4 py-12 mx-auto sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-2 lg:grid-cols-5">
+        {/* Updated grid to 6 columns to fit the new tab */}
+        <div className="grid grid-cols-1 gap-8 mb-12 md:grid-cols-3 lg:grid-cols-6">
+          
+          {/* 1. Resources */}
           <div>
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.resources.title}</h4>
             <ul className="space-y-3">
@@ -105,13 +107,14 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#features" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <a href="/#features" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.resources.links.features}
                 </a>
               </li>
             </ul>
           </div>
 
+          {/* 2. Socials */}
           <div>
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.socials.title}</h4>
             <ul className="space-y-3">
@@ -146,58 +149,96 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* 3. Software */}
           <div>
-  <h4 className="mb-4 font-semibold text-foreground">{copy.sections.software.title}</h4>
-  <ul className="space-y-3">
-    <li>
-      <a
-        href="/technologies"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
-      >
-        <span>View All</span>
-      </a>
-    </li>
-    <li>
-      <a
-        href="/technologies/nodejs-sdk"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
-      >
-        <span>Node.js SDK</span>
-      </a>
-    </li>
-    <li>
-      <a
-        href="/technologies/connect"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
-      >
-        <span>Connect</span>
-      </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/VaultScope/syncor"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
-      >
-        <span>{copy.sections.software.links.syncor}</span>
-      </a>
-    </li>
-    <li>
-      <a href="/technologies/recore" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"><span>Recore</span></a>
-    </li>
-  </ul>
-</div>
+            <h4 className="mb-4 font-semibold text-foreground">{copy.sections.software.title}</h4>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="/technologies"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <span>View All</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/technologies/nodejs-sdk"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <span>Node.js SDK</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/technologies/connect"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <span>Connect</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/VaultScope/syncor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"
+                >
+                  <span>{copy.sections.software.links.syncor}</span>
+                </a>
+              </li>
+              <li>
+                <a href="/technologies/recore" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors text-muted-foreground hover:text-foreground"><span>Recore</span></a>
+              </li>
+            </ul>
+          </div>
 
+          {/* 4. Services (NEW TAB) */}
+          <div>
+            <h4 className="mb-4 font-semibold text-foreground">Services</h4>
+            <ul className="space-y-3">
+               <li>
+                <a href="/services" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  All Services
+                </a>
+              </li>
+              <li>
+                <a href="/services/vps" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  Cloud VPS
+                </a>
+              </li>
+              <li>
+                <a href="/services/minecraft" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  Minecraft Hosting
+                </a>
+              </li>
+              <li>
+                <a href="/services/databases" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  Managed Databases
+                </a>
+              </li>
+              <li>
+                <a href="/services/coding" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  Free Coding Server
+                </a>
+              </li>
+              <li>
+                <a href="/services/dedicated" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                  Dedicated Servers
+                </a>
+              </li>
+            </ul>
+          </div>
 
+          {/* 5. Infrastructure */}
           <div>
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.infrastructure.title}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#pricing" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <a href="/pricing" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
                   {copy.sections.infrastructure.links.pricing}
                 </a>
               </li>
@@ -206,19 +247,10 @@ export function Footer() {
                   {copy.sections.infrastructure.links.security}
                 </a>
               </li>
-              <li>
-                <a href="/minecraft" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
-                  {copy.sections.infrastructure.links.minecraft}
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-sm transition-colors text-muted-foreground hover:text-foreground">
-                  {copy.sections.infrastructure.links.services}
-                </a>
-              </li>
             </ul>
           </div>
 
+          {/* 6. Legal */}
           <div>
             <h4 className="mb-4 font-semibold text-foreground">{copy.sections.legal.title}</h4>
             <ul className="space-y-3">
@@ -254,13 +286,12 @@ export function Footer() {
               </li>
             </ul>
           </div>
+
         </div>
 
         <div className="pt-8 border-t border-border">
-          <div className="pt-8 border-t border-border">
-            <div className="flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">{copy.copyright}</p>
-            </div>
+          <div className="flex items-center justify-center">
+            <p className="text-sm text-muted-foreground">{copy.copyright}</p>
           </div>
         </div>
       </div>
