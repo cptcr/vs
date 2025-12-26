@@ -99,12 +99,22 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://vaultscope.instatus.com/"
+                  href="/status"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm transition-colors text-muted-foreground hover:text-foreground"
                 >
-                  {copy.sections.resources.links.status}
+                  {copy.sections.resources.links.status} Page
+                </a>
+              </li>
+              <li>
+                <a
+                target="_blank"
+                href="https://vaultscope.instatus.com/"
+                className="text-sm transition-colors text-muted-foreground hover:text-foreground"
+                rel="noopener noreferrer"
+                >
+                  Instatus Page (external)
                 </a>
               </li>
               <li>
