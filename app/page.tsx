@@ -5,37 +5,16 @@
  * See LICENSE file for details.
  */
 
-// ...existing code...
 import { buildMetadata } from '@/lib/seo';
-import { Hero } from '@/components/hero';
-import { Features } from '@/components/features';
-import { Solutions } from '@/components/solutions';
-import { Testimonials } from '@/components/testimonials';
-import { WaveWrapper } from '@/components/wave-wrapper';
-import { BackToTopLink } from '@/components/back-to-top-link';
+import { HomePageContent } from '@/components/home-page-component';
 
 export const metadata = buildMetadata({
-  title: 'Main',
+  title: 'High Performance Cloud Infrastructure',
   description:
-    'Enterprise-grade VPS and dedicated servers with customizable configurations. High-performance infrastructure tailored to your specific requirements.',
+    'VaultScope provides high-performance VPS, dedicated servers, and managed databases. DDoS protected, NVMe storage, and instant deployment.',
   path: '/',
 });
 
-export default function Home() {
-  return (
-    <main className="relative min-h-screen overflow-hidden bg-black">
-      <WaveWrapper />
-      <div className="relative z-10">
-        <Hero />
-        <Features />
-        <Testimonials />
-        <Solutions />
-        <div className="container px-4 pb-16 mx-auto sm:px-6 lg:px-8">
-          <div className="flex justify-end">
-            <BackToTopLink />
-          </div>
-        </div>
-      </div>
-    </main>
-  );
+export default function HomePage() {
+  return <HomePageContent />;
 }
