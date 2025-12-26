@@ -99,7 +99,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://status.vaultscope.dev"
+                  href="https://vaultscope.instatus.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm transition-colors text-muted-foreground hover:text-foreground"
